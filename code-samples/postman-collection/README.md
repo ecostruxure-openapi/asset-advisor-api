@@ -45,8 +45,44 @@ List all the sites which the user is authorized to enquire
 
 ![List Sites](/media/list-sites.png)
 
+### Site Details
+
+Get the site details based on Site ID
+
+![Site Details](/media/site-details.PNG)
+
+### List Assets
+
+List all assets for the given Site ID
+
+![List Assets](/media/list-assets.PNG)
+
+### Asset Treeview
+
+List the asset heirarchy for the given Site ID
+
+![Asset Tree](/media/asset-tree.PNG)
+
+### Asset Details
+
+Get the asset details based on Site ID
+
+![Asset Details](/media/asset-detail.PNG)
+
+### Asset Tickets
+
+List all tickets for the given Site ID and Asset ID
+
+![Asset Tickets](/media/asset-tickets.PNG)
+
 ### List Tickets
 
 List all tickets related to all the sites
 
 ![List Tickets](/media/list-tickets.png)
+
+### Ticket Details
+
+Get the asset details based on Ticket ID ID
+
+![Ticket Details](/media/ticket-detail.PNG)
