@@ -17,7 +17,7 @@ This collection allows developers to test APIs through [Postman](https://www.pos
 
 ## Import Collection
 
-Import ```Asset-Advisor-API.postman-collection.json``` to postman. Refer to [postman documentation to import a collection](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman).
+Import ```asset-advisor-api.postman-collection.json``` to postman. Refer to [postman documentation to import a collection](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman).
 
 ## Configure Variables
 
