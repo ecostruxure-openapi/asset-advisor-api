@@ -156,7 +156,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
+													"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
 												},
 												{
 													"name": "Forbidden",
@@ -252,7 +252,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/not-found\",\n  \"title\": \"Not Found\",\n  \"status\": 404,\n  \"detail\": \"Resource not found for provided identifier.\"\n}"
+													"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/not-found\",\n  \"title\": \"Not Found\",\n  \"status\": 404,\n  \"detail\": \"Resource not found for provided identifier.\"\n}"
 												},
 												{
 													"name": "Internal Server Error",
@@ -489,7 +489,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/validation-error\",\n  \"title\": \"Invalid Request\",\n  \"status\": 400,\n  \"detail\": \"Provided input request parameter is not valid.\",\n  \"invalid-params\": [\n    {\n      \"in\": \"query\",\n      \"name\": \"param1\",\n      \"reason\": \"param1 does not match the expected pattern.\"\n    }\n  ]\n}"
+													"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/validation-error\",\n  \"title\": \"Invalid Request\",\n  \"status\": 400,\n  \"detail\": \"Provided input request parameter is not valid.\",\n  \"invalid-params\": [\n    {\n      \"in\": \"query\",\n      \"name\": \"param1\",\n      \"reason\": \"param1 does not match the expected pattern.\"\n    }\n  ]\n}"
 												},
 												{
 													"name": "Unauthorized",
@@ -552,7 +552,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
+													"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
 												},
 												{
 													"name": "Forbidden",
@@ -678,7 +678,7 @@
 														}
 													],
 													"cookie": [],
-													"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/not-found\",\n  \"title\": \"Not Found\",\n  \"status\": 404,\n  \"detail\": \"Resource not found for provided identifier.\"\n}"
+													"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/not-found\",\n  \"title\": \"Not Found\",\n  \"status\": 404,\n  \"detail\": \"Resource not found for provided identifier.\"\n}"
 												},
 												{
 													"name": "Internal Server Error",
@@ -866,7 +866,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
+											"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
 										},
 										{
 											"name": "Forbidden",
@@ -950,7 +950,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/not-found\",\n  \"title\": \"Not Found\",\n  \"status\": 404,\n  \"detail\": \"Resource not found for provided identifier.\"\n}"
+											"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/not-found\",\n  \"title\": \"Not Found\",\n  \"status\": 404,\n  \"detail\": \"Resource not found for provided identifier.\"\n}"
 										},
 										{
 											"name": "Internal Server Error",
@@ -1112,7 +1112,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
+											"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
 										},
 										{
 											"name": "Forbidden",
@@ -1198,7 +1198,7 @@
 												}
 											],
 											"cookie": [],
-											"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/not-found\",\n  \"title\": \"Not Found\",\n  \"status\": 404,\n  \"detail\": \"Resource not found for provided identifier.\"\n}"
+											"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/not-found\",\n  \"title\": \"Not Found\",\n  \"status\": 404,\n  \"detail\": \"Resource not found for provided identifier.\"\n}"
 										},
 										{
 											"name": "Internal Server Error",
@@ -1357,7 +1357,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
+									"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
 								},
 								{
 									"name": "Forbidden",
@@ -1439,7 +1439,7 @@
 										}
 									],
 									"cookie": [],
-									"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/not-found\",\n  \"title\": \"Not Found\",\n  \"status\": 404,\n  \"detail\": \"Resource not found for provided identifier.\"\n}"
+									"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/not-found\",\n  \"title\": \"Not Found\",\n  \"status\": 404,\n  \"detail\": \"Resource not found for provided identifier.\"\n}"
 								},
 								{
 									"name": "Internal Server Error",
@@ -1572,7 +1572,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
+							"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
 						},
 						{
 							"name": "Internal Server Error",
@@ -1784,7 +1784,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/validation-error\",\n  \"title\": \"Invalid Request\",\n  \"status\": 400,\n  \"detail\": \"Provided input request parameter is not valid.\",\n  \"invalid-params\": [\n    {\n      \"in\": \"query\",\n      \"name\": \"param1\",\n      \"reason\": \"param1 does not match the expected pattern.\"\n    }\n  ]\n}"
+							"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/validation-error\",\n  \"title\": \"Invalid Request\",\n  \"status\": 400,\n  \"detail\": \"Provided input request parameter is not valid.\",\n  \"invalid-params\": [\n    {\n      \"in\": \"query\",\n      \"name\": \"param1\",\n      \"reason\": \"param1 does not match the expected pattern.\"\n    }\n  ]\n}"
 						},
 						{
 							"name": "Unauthorized",
@@ -1843,7 +1843,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
+							"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
 						},
 						{
 							"name": "Internal Server Error",
@@ -2016,7 +2016,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
+							"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/unauthorized\",\n  \"title\": \"Unauthorized\",\n  \"status\": 401,\n  \"detail\": \"Access Token expired\"\n}"
 						},
 						{
 							"name": "Forbidden",
@@ -2098,7 +2098,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n  \"type\": \"https://ecostructure-openapi.se.com/problem/not-found\",\n  \"title\": \"Not Found\",\n  \"status\": 404,\n  \"detail\": \"Resource not found for provided identifier.\"\n}"
+							"body": "{\n  \"type\": \"https://ecostruxure-openapi.se.com/problem/not-found\",\n  \"title\": \"Not Found\",\n  \"status\": 404,\n  \"detail\": \"Resource not found for provided identifier.\"\n}"
 						},
 						{
 							"name": "Internal Server Error",
