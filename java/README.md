@@ -4,7 +4,7 @@ EcoStruxure™ Asset Advisor API
 
 - API version: 1.2.0
 
-- Build date: 2023-07-31T16:13:28.526077700+05:30[Asia/Calcutta]
+- Build date: 2023-08-02T14:43:51.240218900+05:30[Asia/Calcutta]
 
 # Overview
 Asset Advisor API allows customers to collect and manage status and health of critical assets in electrical distribution networks.
@@ -165,7 +165,7 @@ Add this dependency to your project's POM:
 
 ```xml
 <dependency>
-  <groupId>se.ecostruxure.sdk.example</groupId>
+  <groupId>se.ecostruxure.sdk</groupId>
   <artifactId>assetadvisor-se-api</artifactId>
   <version>0.0.1</version>
   <scope>compile</scope>
@@ -183,7 +183,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "se.ecostruxure.sdk.example:assetadvisor-se-api:0.0.1"
+     implementation "se.ecostruxure.sdk:assetadvisor-se-api:0.0.1"
   }
 ```
 
@@ -215,17 +215,17 @@ public class AssetHealthWebhookSubscriptionApiExample {
 
     public static void main(String[] args) {
         ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://se-exchange-uat-uat.apigee.net/ecostruxure/asset-advisor/v1");
+        defaultClient.setBasePath("http://example.com");
         
         // Configure HTTP bearer authorization: PersonalAccessToken
-        HttpBearerAuth PersonalAccessToken = (HttpBearerAuth) defaultClient.getAuthentication("PersonalAccessToken");
-        PersonalAccessToken.setBearerToken("BEARER TOKEN");
+       
+        defaultClient.setBearerToken("TOKEN");
 
         AssetHealthWebhookSubscriptionApi apiInstance = new AssetHealthWebhookSubscriptionApi(defaultClient);
-        UUID subscriptionId = UUID.randomUUID(); // UUID | Id of the asset health subscription
+        Object subscriptionId = null; // Object | Id of the asset health subscription
         try {
             apiInstance.deleteAssetHealthSubscription(subscriptionId);
-        } catch (ApiException e) {
+        } catch (Exception e) {
             System.err.println("Exception when calling AssetHealthWebhookSubscriptionApi#deleteAssetHealthSubscription");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
@@ -271,34 +271,18 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Asset](docs/Asset.md)
- - [AssetFull](docs/AssetFull.md)
- - [AssetFullAllOf](docs/AssetFullAllOf.md)
  - [AssetHealthSubscriptionConfig](docs/AssetHealthSubscriptionConfig.md)
  - [AssetHealthWebhook](docs/AssetHealthWebhook.md)
  - [AssetTypesEnum](docs/AssetTypesEnum.md)
- - [AssetsTreeElt](docs/AssetsTreeElt.md)
- - [AssetsTreeEltAllOf](docs/AssetsTreeEltAllOf.md)
  - [Error400](docs/Error400.md)
- - [Error400InvalidParamsInner](docs/Error400InvalidParamsInner.md)
  - [Error401](docs/Error401.md)
  - [Error403](docs/Error403.md)
  - [Error404](docs/Error404.md)
  - [Error500](docs/Error500.md)
- - [EventsInner](docs/EventsInner.md)
- - [EventsInner1](docs/EventsInner1.md)
- - [EventsInner2](docs/EventsInner2.md)
- - [EventsInnerOldValue](docs/EventsInnerOldValue.md)
  - [HealthIndexElt](docs/HealthIndexElt.md)
- - [ListOfAssetHealthSupscriptionInner](docs/ListOfAssetHealthSupscriptionInner.md)
- - [ListOfTicketSupscriptionInner](docs/ListOfTicketSupscriptionInner.md)
- - [ListOfTicketSupscriptionInner1](docs/ListOfTicketSupscriptionInner1.md)
  - [PriorityValue](docs/PriorityValue.md)
  - [ServiceLevelsEnum](docs/ServiceLevelsEnum.md)
  - [Site](docs/Site.md)
- - [SiteFull](docs/SiteFull.md)
- - [SiteFullAllOf](docs/SiteFullAllOf.md)
- - [SiteFullAllOfCommunicationStatus](docs/SiteFullAllOfCommunicationStatus.md)
- - [SiteFullAllOfSupportContacts](docs/SiteFullAllOfSupportContacts.md)
  - [SiteRiskLevelSubscriptionConfig](docs/SiteRiskLevelSubscriptionConfig.md)
  - [SiteRiskWebhook](docs/SiteRiskWebhook.md)
  - [StatusValue](docs/StatusValue.md)
@@ -306,8 +290,6 @@ Class | Method | HTTP request | Description
  - [Supscription](docs/Supscription.md)
  - [Ticket](docs/Ticket.md)
  - [TicketActivityEnum](docs/TicketActivityEnum.md)
- - [TicketFull](docs/TicketFull.md)
- - [TicketFullAllOf](docs/TicketFullAllOf.md)
  - [TicketHistory](docs/TicketHistory.md)
  - [TicketPriorityEnum](docs/TicketPriorityEnum.md)
  - [TicketStatusEnum](docs/TicketStatusEnum.md)
