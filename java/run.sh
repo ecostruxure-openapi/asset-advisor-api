@@ -37,7 +37,7 @@ jdk_version() {
 v="$(jdk_version)"
 echo 'java is present'
 
-export CLASSPATH=target/assetadvisor-se-api-0.0.1.jar
+export CLASSPATH=target/assetadvisor-se-api-1.0.0.jar
 while getopts c:t:b:f: flag
 do
   case "${flag}" in
@@ -45,3 +45,4 @@ do
   t) token=${OPTARG};;
   b) baseUrl=${OPTARG};;
   f) filePath=${OPTARG};;
+  esac
