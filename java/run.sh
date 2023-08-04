@@ -37,7 +37,7 @@ jdk_version() {
 v="$(jdk_version)"
 echo 'java is present'
 
-export CLASSPATH=target/asset-advisor-1.0.0.jar
+export CLASSPATH=target/assetadvisor-se-api-0.0.1.jar
 while getopts c:t:b:f: flag
 do
   case "${flag}" in
