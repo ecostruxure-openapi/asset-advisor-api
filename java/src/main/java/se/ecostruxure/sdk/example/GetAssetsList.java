@@ -1,12 +1,15 @@
 package se.ecostruxure.sdk.example;
-import se.ecostruxure.sdk.invoker.*;
-import se.ecostruxure.sdk.client.SitesApi;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
-public class GetSites {
+import se.ecostruxure.sdk.client.AssetsApi;
+import se.ecostruxure.sdk.invoker.ApiClient;
+
+public class GetAssetsList {
     public static void main(String[] args) {
         String token = null;
-        String baseUrl = null;        
+        String baseUrl = null; 
+        String siteId = null;
         for (int i=0;i<args.length;i++) {
             String[] arr = args[i].split("=");            
             switch(arr[0]) {
@@ -15,6 +18,9 @@ public class GetSites {
                 break;
             case BASEURL_NAME:
                 baseUrl = findArgument(arr);
+                break;
+            case SITE_ID:
+                siteId = findArgument(arr);
                 break;
             default: break;
             }
@@ -28,12 +34,16 @@ public class GetSites {
            logger.log(Level.INFO,"Please Pass the baseUrl");
            return;
        }
+       if (Boolean.TRUE.equals(checkNull(siteId))) {
+           logger.log(Level.INFO,"Please Pass the siteId");
+           return;
+       }
         ApiClient defaultClient = new ApiClient();
         defaultClient.setBasePath(baseUrl);
         defaultClient.setBearerToken(token);
-        SitesApi apiInstance = new SitesApi(defaultClient);
-        try {            
-            System.out.println(apiInstance.getSites());
+        AssetsApi assetapiInstance = new AssetsApi(defaultClient);
+        try {
+            System.out.println(assetapiInstance.getAssets(siteId));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -62,7 +72,8 @@ public class GetSites {
         }
         return values;
     }
-	private static final String TOKEN_NAME = "token";
+        private static final String TOKEN_NAME = "token";
     private static final String BASEURL_NAME = "baseUrl";
-    private static final Logger logger = Logger.getLogger("GetSites");
+    private static final String SITE_ID = "siteId";
+    private static final Logger logger = Logger.getLogger("GetAssetsList");
 }
