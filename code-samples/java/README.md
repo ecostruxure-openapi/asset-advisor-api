@@ -59,9 +59,6 @@ Building the API client library requires:
 1. Java 1.8+
 2. Maven(>3.0)/Gradle
 3. Shell support(to execute run.sh)
-## Compile it yourself, here's how:
-build your own .jar, execute the following from within the cloned directory:
-
 ## Installation
 
 To install the API client library to your local Maven repository, simply execute:
@@ -148,8 +145,8 @@ public class GetSiteDetails {
 build your own .jar, execute the following from within the cloned directory:
 ```
 $ git clone https://github.com/ecostruxure-openapi/asset-advisor-api.git
-$ cd asset-advisor-api/code_samples/java
-$ mvn clean install       # Requires maven and run the below command    
+$ cd asset-advisor-api/code-samples/java
+$ mvn clean install   # Requires maven and run the below command    
 ```
 ## Run SDK Examples
 
@@ -198,7 +195,7 @@ List all your Sites registered in Asset Advisor, including basic information suc
  - -s to pass siteId
  > **Syntax**
  ```bash
- ./run.sh -c $className -t $token -b $baseUrl  -s $siteId
+ ./run.sh -c $className -t $token -b $baseUrl -s $siteId
  ```
  > **Example**
  ```bash
@@ -254,7 +251,7 @@ Give the Assets tree view for a particular Site, including the complete relation
  - -s to pass siteId
  > **Syntax**
  ```bash
- ./run.sh -c $className -t $token -b $baseUrl  -s $siteId
+ ./run.sh -c $className -t $token -b $baseUrl -s $siteId
  ```
  > **Example**
  ```bash
@@ -282,7 +279,7 @@ mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.GetAssetsTreeView" -D
  - -a to pass assetId
  > **Syntax**
  ```bash
- ./run.sh -c $className -t $token -b $baseUrl  -s $siteId -a $assetId
+ ./run.sh -c $className -t $token -b $baseUrl -s $siteId -a $assetId
  ```
  > **Example**
  ```bash
