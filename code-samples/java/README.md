@@ -1,6 +1,4 @@
-# assetadvisor-se-api
-
-Asset Advisor API
+# ASSET ADVISOR API
 
 - API version: 1.0.0
 
