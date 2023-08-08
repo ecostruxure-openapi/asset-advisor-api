@@ -72,10 +72,10 @@ fi
 echo "## Running $className..."
 shift
 echo "## arguments passed."
-if [[ $className == "GetSitesList" ] || [ $className == "GetAssetsList" ] || [ $className == "GetAssetsTreeView" ]] ; then
-     mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure  siteId=$siteId" -Dexec.cleanupDaemonThreads=false
+if [[ $className == "GetSiteDetails" ||  $className == "GetAssetsList"  ||  $className == "GetAssetsTreeView" ]] ; then
+     mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl  siteId=$siteId" -Dexec.cleanupDaemonThreads=false
 elif [[ $className == "GetAssetDetails" ]] ; then
     mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl siteId=$siteId assetId=$assetId" -Dexec.cleanupDaemonThreads=false
 else
-    mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure" -Dexec.cleanupDaemonThreads=false
+    mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl" -Dexec.cleanupDaemonThreads=false
 fi

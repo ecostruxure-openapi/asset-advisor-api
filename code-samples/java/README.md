@@ -288,6 +288,7 @@ mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.GetAssetsTreeView" -D
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
  - $siteId to pass siteId
+ - $assetId to pass assetId
  > **Syntax**
  ```
 mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl siteId=$siteId assetId=$assetId" -Dexec.cleanupDaemonThreads=false
