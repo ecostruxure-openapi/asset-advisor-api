@@ -69,7 +69,7 @@ if [[ $className != "GetAssetDetails" && $className != "GetAssetsList" && $class
      echo $className 'Not Found, Please Provide Valid Classname.'
     exit 1
 fi
-echo "## Running $className..."
+echo "## Running $className...."
 shift
 echo "## arguments passed."
 if [[ $className == "GetSiteDetails" ||  $className == "GetAssetsList"  ||  $className == "GetAssetsTreeView" ]] ; then

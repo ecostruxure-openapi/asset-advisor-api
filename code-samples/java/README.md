@@ -86,34 +86,6 @@ Add this dependency to your project's POM:
 </dependency>
 ```
 
-### Gradle users
-
-Add this dependency to your project's build file:
-
-```groovy
-  repositories {
-    mavenCentral()     // Needed if the 'assetadvisor-se-api' jar has been published to maven central.
-    mavenLocal()       // Needed if the 'assetadvisor-se-api' jar has been published to the local maven repo.
-  }
-
-  dependencies {
-     implementation "se.ecostruxure.sdk:assetadvisor-se-api:1.0.0"
-  }
-```
-
-### Others
-
-At first generate the JAR by executing:
-
-```shell
-mvn clean package
-```
-
-Then manually install the following JARs:
-
-- `target/assetadvisor-se-api-1.0.0.jar`
-- `target/lib/*.jar`
-
 ## Getting Started
 
 Please follow the [installation](#installation) instruction and execute the following Java code:
