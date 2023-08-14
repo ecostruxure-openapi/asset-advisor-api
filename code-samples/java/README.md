@@ -95,7 +95,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 import se.ecostruxure.sdk.invoker.*;
 import se.ecostruxure.sdk.invoker.auth.*;
 import se.ecostruxure.sdk.model.*;
-import se.ecostruxure.sdk.client.AssetHealthWebhookSubscriptionApi;
+import se.ecostruxure.sdk.client.SitesApi;
 
 public class GetSiteDetails {
     public static void main(String[] args) {
@@ -106,6 +106,33 @@ public class GetSiteDetails {
         try {            
             System.out.println(apiInstance.getSites());
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+```java
+import se.ecostruxure.sdk.invoker.*;
+import se.ecostruxure.sdk.invoker.auth.*;
+import se.ecostruxure.sdk.model.*;
+import se.ecostruxure.sdk.client.AssetHealthWebhookSubscriptionApi;
+
+public class AssetHealthWebhookSubscriptionApiExample {
+
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://se-exchange-uat-uat.apigee.net/ecostruxure/asset-advisor/v1");
+        
+        // Configure HTTP bearer authorization: PersonalAccessToken
+        HttpBearerAuth PersonalAccessToken = (HttpBearerAuth) defaultClient.getAuthentication("PersonalAccessToken");
+        PersonalAccessToken.setBearerToken("BEARER TOKEN");
+
+        AssetHealthWebhookSubscriptionApi apiInstance = new AssetHealthWebhookSubscriptionApi(defaultClient);
+        Object subscriptionId = null; // Object | Id of the asset health subscription
+        try {
+            apiInstance.deleteAssetHealthSubscription(subscriptionId);
+        } catch (Exception e) {
+            System.err.println("Exception when calling AssetHealthWebhookSubscriptionApi#deleteAssetHealthSubscription");
             e.printStackTrace();
         }
     }
@@ -415,7 +442,7 @@ mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.ar
 ```
 **Example**
 ```
-mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.GetAssetsList" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd filePath=path/file/filename.json" -Dexec.cleanupDaemonThreads=false
+mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.UpdateTicketSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd filePath=path/file/filename.json" -Dexec.cleanupDaemonThreads=false
 ```
 #### Delete Ticket Subscription
 Delete a registered Ticket  in Asset Advisor, including information such as priority, activity, createdAt, and callback.
