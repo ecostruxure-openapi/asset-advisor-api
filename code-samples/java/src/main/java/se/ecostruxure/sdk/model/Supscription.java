@@ -22,10 +22,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -37,17 +33,17 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Supscription.JSON_PROPERTY_ID
 })
 @JsonTypeName("supscription")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-02T14:43:51.240218900+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-14T11:47:02.186506600+05:30[Asia/Calcutta]")
 public class Supscription {
   public static final String JSON_PROPERTY_ID = "id";
-  private JsonNullable<Object> id = JsonNullable.<Object>of(null);
+  private Object id = null;
 
   public Supscription() {
   }
 
   public Supscription id(Object id) {
-    this.id = JsonNullable.<Object>of(id);
     
+    this.id = id;
     return this;
   }
 
@@ -57,26 +53,18 @@ public class Supscription {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "5ba38c20-0b86-495f-a470-efb1bb6f8b1e", value = "")
-  @JsonIgnore
-
-  public Object getId() {
-        return id.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getId_JsonNullable() {
+  public Object getId() {
     return id;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ID)
-  public void setId_JsonNullable(JsonNullable<Object> id) {
-    this.id = id;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(Object id) {
-    this.id = JsonNullable.<Object>of(id);
+    this.id = id;
   }
 
 
@@ -89,23 +77,12 @@ public class Supscription {
       return false;
     }
     Supscription supscription = (Supscription) o;
-    return equalsNullable(this.id, supscription.id);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.id, supscription.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(id);
   }
 
   @Override

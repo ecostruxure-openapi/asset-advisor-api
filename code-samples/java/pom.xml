@@ -6,7 +6,14 @@
     <packaging>jar</packaging>
     <name>assetadvisor-se-api</name>
     <version>1.0.0</version>
-    <description>Asset Advisor SDK code sample</description>
+    <url>https://github.com/openapitools/openapi-generator</url>
+    <description>OpenAPI Java</description>
+    <scm>
+        <connection>scm:git:git@github.com:openapitools/openapi-generator.git</connection>
+        <developerConnection>scm:git:git@github.com:openapitools/openapi-generator.git</developerConnection>
+        <url>https://github.com/openapitools/openapi-generator</url>
+    </scm>
+
     <licenses>
         <license>
             <name>Unlicense</name>
@@ -14,11 +21,13 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+
     <developers>
         <developer>
-            <name>Anusha Paras</name>
-            <email>anusha_paras@thbs.com</email>
-            <organization>Torry Harris Integration Solution</organization>
+            <name>OpenAPI-Generator Contributors</name>
+            <email>team@openapitools.org</email>
+            <organization>OpenAPITools.org</organization>
+            <organizationUrl>http://openapitools.org</organizationUrl>
         </developer>
     </developers>
 
@@ -194,7 +203,6 @@
             <artifactId>swagger-annotations</artifactId>
             <version>${swagger-annotations-version}</version>
         </dependency>
-        
 
         <!-- @Nullable annotation -->
         <dependency>
@@ -247,16 +255,18 @@
             <version>${jackson-version}</version>
         </dependency>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit-version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
             <version>${jakarta-annotation-version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- test dependencies -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit-version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <properties>

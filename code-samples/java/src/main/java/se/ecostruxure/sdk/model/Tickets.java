@@ -22,10 +22,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -36,20 +32,20 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Tickets.JSON_PROPERTY_TICKETS,
   Tickets.JSON_PROPERTY_TOTAL_COUNT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-02T14:43:51.240218900+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-14T11:47:02.186506600+05:30[Asia/Calcutta]")
 public class Tickets {
   public static final String JSON_PROPERTY_TICKETS = "tickets";
-  private JsonNullable<Object> tickets = JsonNullable.<Object>of(null);
+  private Object tickets = null;
 
   public static final String JSON_PROPERTY_TOTAL_COUNT = "totalCount";
-  private JsonNullable<Object> totalCount = JsonNullable.<Object>of(null);
+  private Object totalCount = null;
 
   public Tickets() {
   }
 
   public Tickets tickets(Object tickets) {
-    this.tickets = JsonNullable.<Object>of(tickets);
     
+    this.tickets = tickets;
     return this;
   }
 
@@ -59,32 +55,24 @@ public class Tickets {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "List of Tickets")
-  @JsonIgnore
-
-  public Object getTickets() {
-        return tickets.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TICKETS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getTickets_JsonNullable() {
+  public Object getTickets() {
     return tickets;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TICKETS)
-  public void setTickets_JsonNullable(JsonNullable<Object> tickets) {
-    this.tickets = tickets;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_TICKETS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTickets(Object tickets) {
-    this.tickets = JsonNullable.<Object>of(tickets);
+    this.tickets = tickets;
   }
 
 
   public Tickets totalCount(Object totalCount) {
-    this.totalCount = JsonNullable.<Object>of(totalCount);
     
+    this.totalCount = totalCount;
     return this;
   }
 
@@ -94,26 +82,18 @@ public class Tickets {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2413", value = "Total ticket count")
-  @JsonIgnore
-
-  public Object getTotalCount() {
-        return totalCount.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getTotalCount_JsonNullable() {
+  public Object getTotalCount() {
     return totalCount;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
-  public void setTotalCount_JsonNullable(JsonNullable<Object> totalCount) {
-    this.totalCount = totalCount;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_TOTAL_COUNT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTotalCount(Object totalCount) {
-    this.totalCount = JsonNullable.<Object>of(totalCount);
+    this.totalCount = totalCount;
   }
 
 
@@ -126,24 +106,13 @@ public class Tickets {
       return false;
     }
     Tickets tickets = (Tickets) o;
-    return equalsNullable(this.tickets, tickets.tickets) &&
-        equalsNullable(this.totalCount, tickets.totalCount);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.tickets, tickets.tickets) &&
+        Objects.equals(this.totalCount, tickets.totalCount);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(tickets), hashCodeNullable(totalCount));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(tickets, totalCount);
   }
 
   @Override

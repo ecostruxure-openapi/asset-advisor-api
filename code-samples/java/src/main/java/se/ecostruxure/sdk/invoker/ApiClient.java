@@ -26,7 +26,6 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.web.util.DefaultUriBuilderFactory;
-import org.openapitools.jackson.nullable.JsonNullableModule;
 
 
 import java.io.BufferedReader;
@@ -56,7 +55,7 @@ import java.time.OffsetDateTime;
 import se.ecostruxure.sdk.invoker.auth.Authentication;
 import se.ecostruxure.sdk.invoker.auth.HttpBearerAuth;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-02T14:43:51.240218900+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-14T11:47:02.186506600+05:30[Asia/Calcutta]")
 @Component("se.ecostruxure.sdk.invoker.ApiClient")
 public class ApiClient extends JavaTimeFormatter {
     public enum CollectionFormat {
@@ -78,7 +77,7 @@ public class ApiClient extends JavaTimeFormatter {
     private HttpHeaders defaultHeaders = new HttpHeaders();
     private MultiValueMap<String, String> defaultCookies = new LinkedMultiValueMap<String, String>();
 
-    private String basePath = "";
+    private String basePath = "https://se-exchange-uat-uat.apigee.net/ecostruxure/asset-advisor/v1";
 
     private RestTemplate restTemplate;
 

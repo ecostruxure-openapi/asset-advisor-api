@@ -22,10 +22,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -37,23 +33,23 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   HealthIndexElt.JSON_PROPERTY_HEALTH_INDEX,
   HealthIndexElt.JSON_PROPERTY_NB_ASSET
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-02T14:43:51.240218900+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-14T11:47:02.186506600+05:30[Asia/Calcutta]")
 public class HealthIndexElt {
   public static final String JSON_PROPERTY_CRITICALITY = "criticality";
-  private JsonNullable<Object> criticality = JsonNullable.<Object>of(null);
+  private Object criticality = null;
 
   public static final String JSON_PROPERTY_HEALTH_INDEX = "healthIndex";
-  private JsonNullable<Object> healthIndex = JsonNullable.<Object>of(null);
+  private Object healthIndex = null;
 
   public static final String JSON_PROPERTY_NB_ASSET = "nbAsset";
-  private JsonNullable<Object> nbAsset = JsonNullable.<Object>of(null);
+  private Object nbAsset = null;
 
   public HealthIndexElt() {
   }
 
   public HealthIndexElt criticality(Object criticality) {
-    this.criticality = JsonNullable.<Object>of(criticality);
     
+    this.criticality = criticality;
     return this;
   }
 
@@ -65,32 +61,24 @@ public class HealthIndexElt {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2", value = "Criticality of the Cell")
-  @JsonIgnore
-
-  public Object getCriticality() {
-        return criticality.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CRITICALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getCriticality_JsonNullable() {
+  public Object getCriticality() {
     return criticality;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CRITICALITY)
-  public void setCriticality_JsonNullable(JsonNullable<Object> criticality) {
-    this.criticality = criticality;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CRITICALITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCriticality(Object criticality) {
-    this.criticality = JsonNullable.<Object>of(criticality);
+    this.criticality = criticality;
   }
 
 
   public HealthIndexElt healthIndex(Object healthIndex) {
-    this.healthIndex = JsonNullable.<Object>of(healthIndex);
     
+    this.healthIndex = healthIndex;
     return this;
   }
 
@@ -102,32 +90,24 @@ public class HealthIndexElt {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2", value = "Health Index of the Cell")
-  @JsonIgnore
-
-  public Object getHealthIndex() {
-        return healthIndex.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_HEALTH_INDEX)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getHealthIndex_JsonNullable() {
+  public Object getHealthIndex() {
     return healthIndex;
   }
-  
-  @JsonProperty(JSON_PROPERTY_HEALTH_INDEX)
-  public void setHealthIndex_JsonNullable(JsonNullable<Object> healthIndex) {
-    this.healthIndex = healthIndex;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_HEALTH_INDEX)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setHealthIndex(Object healthIndex) {
-    this.healthIndex = JsonNullable.<Object>of(healthIndex);
+    this.healthIndex = healthIndex;
   }
 
 
   public HealthIndexElt nbAsset(Object nbAsset) {
-    this.nbAsset = JsonNullable.<Object>of(nbAsset);
     
+    this.nbAsset = nbAsset;
     return this;
   }
 
@@ -137,26 +117,18 @@ public class HealthIndexElt {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "8", value = "Number of Assets in current Cell")
-  @JsonIgnore
-
-  public Object getNbAsset() {
-        return nbAsset.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_NB_ASSET)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getNbAsset_JsonNullable() {
+  public Object getNbAsset() {
     return nbAsset;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NB_ASSET)
-  public void setNbAsset_JsonNullable(JsonNullable<Object> nbAsset) {
-    this.nbAsset = nbAsset;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_NB_ASSET)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNbAsset(Object nbAsset) {
-    this.nbAsset = JsonNullable.<Object>of(nbAsset);
+    this.nbAsset = nbAsset;
   }
 
 
@@ -169,25 +141,14 @@ public class HealthIndexElt {
       return false;
     }
     HealthIndexElt healthIndexElt = (HealthIndexElt) o;
-    return equalsNullable(this.criticality, healthIndexElt.criticality) &&
-        equalsNullable(this.healthIndex, healthIndexElt.healthIndex) &&
-        equalsNullable(this.nbAsset, healthIndexElt.nbAsset);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.criticality, healthIndexElt.criticality) &&
+        Objects.equals(this.healthIndex, healthIndexElt.healthIndex) &&
+        Objects.equals(this.nbAsset, healthIndexElt.nbAsset);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(criticality), hashCodeNullable(healthIndex), hashCodeNullable(nbAsset));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(criticality, healthIndex, nbAsset);
   }
 
   @Override

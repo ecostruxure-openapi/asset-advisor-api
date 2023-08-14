@@ -22,10 +22,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -37,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   SiteRiskLevelSubscriptionConfig.JSON_PROPERTY_RISK_LEVEL_THRESHOLD,
   SiteRiskLevelSubscriptionConfig.JSON_PROPERTY_SITES_SCOPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-02T14:43:51.240218900+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-14T11:47:02.186506600+05:30[Asia/Calcutta]")
 public class SiteRiskLevelSubscriptionConfig {
   public static final String JSON_PROPERTY_CALLBACK = "callback";
   private Object callback = null;
@@ -46,7 +42,7 @@ public class SiteRiskLevelSubscriptionConfig {
   private Object riskLevelThreshold = null;
 
   public static final String JSON_PROPERTY_SITES_SCOPE = "sitesScope";
-  private JsonNullable<Object> sitesScope = JsonNullable.<Object>of(null);
+  private Object sitesScope = null;
 
   public SiteRiskLevelSubscriptionConfig() {
   }
@@ -108,8 +104,8 @@ public class SiteRiskLevelSubscriptionConfig {
 
 
   public SiteRiskLevelSubscriptionConfig sitesScope(Object sitesScope) {
-    this.sitesScope = JsonNullable.<Object>of(sitesScope);
     
+    this.sitesScope = sitesScope;
     return this;
   }
 
@@ -119,26 +115,18 @@ public class SiteRiskLevelSubscriptionConfig {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Object getSitesScope() {
-        return sitesScope.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_SITES_SCOPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getSitesScope_JsonNullable() {
+  public Object getSitesScope() {
     return sitesScope;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SITES_SCOPE)
-  public void setSitesScope_JsonNullable(JsonNullable<Object> sitesScope) {
-    this.sitesScope = sitesScope;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_SITES_SCOPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSitesScope(Object sitesScope) {
-    this.sitesScope = JsonNullable.<Object>of(sitesScope);
+    this.sitesScope = sitesScope;
   }
 
 
@@ -153,23 +141,12 @@ public class SiteRiskLevelSubscriptionConfig {
     SiteRiskLevelSubscriptionConfig siteRiskLevelSubscriptionConfig = (SiteRiskLevelSubscriptionConfig) o;
     return Objects.equals(this.callback, siteRiskLevelSubscriptionConfig.callback) &&
         Objects.equals(this.riskLevelThreshold, siteRiskLevelSubscriptionConfig.riskLevelThreshold) &&
-        equalsNullable(this.sitesScope, siteRiskLevelSubscriptionConfig.sitesScope);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+        Objects.equals(this.sitesScope, siteRiskLevelSubscriptionConfig.sitesScope);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(callback, riskLevelThreshold, hashCodeNullable(sitesScope));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(callback, riskLevelThreshold, sitesScope);
   }
 
   @Override

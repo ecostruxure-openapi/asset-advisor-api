@@ -22,10 +22,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -43,41 +39,41 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Ticket.JSON_PROPERTY_STATUS,
   Ticket.JSON_PROPERTY_CREATION_DATE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-02T14:43:51.240218900+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-14T11:47:02.186506600+05:30[Asia/Calcutta]")
 public class Ticket {
   public static final String JSON_PROPERTY_ID = "id";
-  private JsonNullable<Object> id = JsonNullable.<Object>of(null);
+  private Object id = null;
 
   public static final String JSON_PROPERTY_CLIENT_TICKET_ID = "clientTicketId";
-  private JsonNullable<Object> clientTicketId = JsonNullable.<Object>of(null);
+  private Object clientTicketId = null;
 
   public static final String JSON_PROPERTY_TITLE = "title";
-  private JsonNullable<Object> title = JsonNullable.<Object>of(null);
+  private Object title = null;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<Object> description = JsonNullable.<Object>of(null);
+  private Object description = null;
 
   public static final String JSON_PROPERTY_ASSET_ID = "assetId";
-  private JsonNullable<Object> assetId = JsonNullable.<Object>of(null);
+  private Object assetId = null;
 
   public static final String JSON_PROPERTY_SITE_ID = "siteId";
-  private JsonNullable<Object> siteId = JsonNullable.<Object>of(null);
+  private Object siteId = null;
 
   public static final String JSON_PROPERTY_PRIORITY = "priority";
-  private JsonNullable<Object> priority = JsonNullable.<Object>of(null);
+  private Object priority = null;
 
   public static final String JSON_PROPERTY_STATUS = "status";
-  private JsonNullable<Object> status = JsonNullable.<Object>of(null);
+  private Object status = null;
 
   public static final String JSON_PROPERTY_CREATION_DATE = "creationDate";
-  private JsonNullable<Object> creationDate = JsonNullable.<Object>of(null);
+  private Object creationDate = null;
 
   public Ticket() {
   }
 
   public Ticket id(Object id) {
-    this.id = JsonNullable.<Object>of(id);
     
+    this.id = id;
     return this;
   }
 
@@ -87,32 +83,24 @@ public class Ticket {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1fa38c20-0b86-495f-a470-efb1bb6f8b1e", value = "")
-  @JsonIgnore
-
-  public Object getId() {
-        return id.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getId_JsonNullable() {
+  public Object getId() {
     return id;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ID)
-  public void setId_JsonNullable(JsonNullable<Object> id) {
-    this.id = id;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(Object id) {
-    this.id = JsonNullable.<Object>of(id);
+    this.id = id;
   }
 
 
   public Ticket clientTicketId(Object clientTicketId) {
-    this.clientTicketId = JsonNullable.<Object>of(clientTicketId);
     
+    this.clientTicketId = clientTicketId;
     return this;
   }
 
@@ -122,32 +110,24 @@ public class Ticket {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "105394", value = "Ticket ID as seen in Asset Advisor application")
-  @JsonIgnore
-
-  public Object getClientTicketId() {
-        return clientTicketId.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CLIENT_TICKET_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getClientTicketId_JsonNullable() {
+  public Object getClientTicketId() {
     return clientTicketId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CLIENT_TICKET_ID)
-  public void setClientTicketId_JsonNullable(JsonNullable<Object> clientTicketId) {
-    this.clientTicketId = clientTicketId;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CLIENT_TICKET_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setClientTicketId(Object clientTicketId) {
-    this.clientTicketId = JsonNullable.<Object>of(clientTicketId);
+    this.clientTicketId = clientTicketId;
   }
 
 
   public Ticket title(Object title) {
-    this.title = JsonNullable.<Object>of(title);
     
+    this.title = title;
     return this;
   }
 
@@ -157,32 +137,24 @@ public class Ticket {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Over Voltage on Asset 1B1 LV-MCC-001A", value = "")
-  @JsonIgnore
-
-  public Object getTitle() {
-        return title.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getTitle_JsonNullable() {
+  public Object getTitle() {
     return title;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TITLE)
-  public void setTitle_JsonNullable(JsonNullable<Object> title) {
-    this.title = title;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(Object title) {
-    this.title = JsonNullable.<Object>of(title);
+    this.title = title;
   }
 
 
   public Ticket description(Object description) {
-    this.description = JsonNullable.<Object>of(description);
     
+    this.description = description;
     return this;
   }
 
@@ -192,32 +164,24 @@ public class Ticket {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "L3-L1 Over Voltage on Circuit Breaker 1B1 LV-MCC-001A. Threshold: 505 V, Value: 512.2 V", value = "Detailed description of the issue")
-  @JsonIgnore
-
-  public Object getDescription() {
-        return description.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getDescription_JsonNullable() {
+  public Object getDescription() {
     return description;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<Object> description) {
-    this.description = description;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(Object description) {
-    this.description = JsonNullable.<Object>of(description);
+    this.description = description;
   }
 
 
   public Ticket assetId(Object assetId) {
-    this.assetId = JsonNullable.<Object>of(assetId);
     
+    this.assetId = assetId;
     return this;
   }
 
@@ -227,32 +191,24 @@ public class Ticket {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1fa38c20-0b86-495f-a470-efb1bb6f8b1e", value = "The Asset this ticket is linked to")
-  @JsonIgnore
-
-  public Object getAssetId() {
-        return assetId.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ASSET_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getAssetId_JsonNullable() {
+  public Object getAssetId() {
     return assetId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ASSET_ID)
-  public void setAssetId_JsonNullable(JsonNullable<Object> assetId) {
-    this.assetId = assetId;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ASSET_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssetId(Object assetId) {
-    this.assetId = JsonNullable.<Object>of(assetId);
+    this.assetId = assetId;
   }
 
 
   public Ticket siteId(Object siteId) {
-    this.siteId = JsonNullable.<Object>of(siteId);
     
+    this.siteId = siteId;
     return this;
   }
 
@@ -262,32 +218,24 @@ public class Ticket {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1fa38c20-0b86-495f-a470-efb1bb6f8b1e", value = "The Site this ticket is linked to")
-  @JsonIgnore
-
-  public Object getSiteId() {
-        return siteId.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_SITE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getSiteId_JsonNullable() {
+  public Object getSiteId() {
     return siteId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SITE_ID)
-  public void setSiteId_JsonNullable(JsonNullable<Object> siteId) {
-    this.siteId = siteId;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_SITE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSiteId(Object siteId) {
-    this.siteId = JsonNullable.<Object>of(siteId);
+    this.siteId = siteId;
   }
 
 
   public Ticket priority(Object priority) {
-    this.priority = JsonNullable.<Object>of(priority);
     
+    this.priority = priority;
     return this;
   }
 
@@ -297,32 +245,24 @@ public class Ticket {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Object getPriority() {
-        return priority.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_PRIORITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getPriority_JsonNullable() {
+  public Object getPriority() {
     return priority;
   }
-  
-  @JsonProperty(JSON_PROPERTY_PRIORITY)
-  public void setPriority_JsonNullable(JsonNullable<Object> priority) {
-    this.priority = priority;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_PRIORITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setPriority(Object priority) {
-    this.priority = JsonNullable.<Object>of(priority);
+    this.priority = priority;
   }
 
 
   public Ticket status(Object status) {
-    this.status = JsonNullable.<Object>of(status);
     
+    this.status = status;
     return this;
   }
 
@@ -332,32 +272,24 @@ public class Ticket {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Current state of the Ticket in the processing workflow")
-  @JsonIgnore
-
-  public Object getStatus() {
-        return status.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getStatus_JsonNullable() {
+  public Object getStatus() {
     return status;
   }
-  
-  @JsonProperty(JSON_PROPERTY_STATUS)
-  public void setStatus_JsonNullable(JsonNullable<Object> status) {
-    this.status = status;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(Object status) {
-    this.status = JsonNullable.<Object>of(status);
+    this.status = status;
   }
 
 
   public Ticket creationDate(Object creationDate) {
-    this.creationDate = JsonNullable.<Object>of(creationDate);
     
+    this.creationDate = creationDate;
     return this;
   }
 
@@ -367,26 +299,18 @@ public class Ticket {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2022-05-19T10:00:00Z", value = "This is the Creation Date into the system - Not the Issue Date")
-  @JsonIgnore
-
-  public Object getCreationDate() {
-        return creationDate.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CREATION_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getCreationDate_JsonNullable() {
+  public Object getCreationDate() {
     return creationDate;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREATION_DATE)
-  public void setCreationDate_JsonNullable(JsonNullable<Object> creationDate) {
-    this.creationDate = creationDate;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CREATION_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreationDate(Object creationDate) {
-    this.creationDate = JsonNullable.<Object>of(creationDate);
+    this.creationDate = creationDate;
   }
 
 
@@ -399,31 +323,20 @@ public class Ticket {
       return false;
     }
     Ticket ticket = (Ticket) o;
-    return equalsNullable(this.id, ticket.id) &&
-        equalsNullable(this.clientTicketId, ticket.clientTicketId) &&
-        equalsNullable(this.title, ticket.title) &&
-        equalsNullable(this.description, ticket.description) &&
-        equalsNullable(this.assetId, ticket.assetId) &&
-        equalsNullable(this.siteId, ticket.siteId) &&
-        equalsNullable(this.priority, ticket.priority) &&
-        equalsNullable(this.status, ticket.status) &&
-        equalsNullable(this.creationDate, ticket.creationDate);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.id, ticket.id) &&
+        Objects.equals(this.clientTicketId, ticket.clientTicketId) &&
+        Objects.equals(this.title, ticket.title) &&
+        Objects.equals(this.description, ticket.description) &&
+        Objects.equals(this.assetId, ticket.assetId) &&
+        Objects.equals(this.siteId, ticket.siteId) &&
+        Objects.equals(this.priority, ticket.priority) &&
+        Objects.equals(this.status, ticket.status) &&
+        Objects.equals(this.creationDate, ticket.creationDate);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), hashCodeNullable(clientTicketId), hashCodeNullable(title), hashCodeNullable(description), hashCodeNullable(assetId), hashCodeNullable(siteId), hashCodeNullable(priority), hashCodeNullable(status), hashCodeNullable(creationDate));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(id, clientTicketId, title, description, assetId, siteId, priority, status, creationDate);
   }
 
   @Override

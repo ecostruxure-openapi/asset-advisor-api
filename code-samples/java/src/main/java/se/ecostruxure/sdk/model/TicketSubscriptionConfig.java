@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   TicketSubscriptionConfig.JSON_PROPERTY_PRIORITY,
   TicketSubscriptionConfig.JSON_PROPERTY_ACTIVITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-02T14:43:51.240218900+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-14T11:47:02.186506600+05:30[Asia/Calcutta]")
 public class TicketSubscriptionConfig {
   public static final String JSON_PROPERTY_CALLBACK = "callback";
   private Object callback = null;

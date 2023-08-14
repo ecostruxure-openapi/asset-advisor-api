@@ -22,10 +22,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -41,35 +37,35 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Asset.JSON_PROPERTY_TYPE,
   Asset.JSON_PROPERTY_CRITICALITY
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-02T14:43:51.240218900+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-14T11:47:02.186506600+05:30[Asia/Calcutta]")
 public class Asset {
   public static final String JSON_PROPERTY_ID = "id";
-  private JsonNullable<Object> id = JsonNullable.<Object>of(null);
+  private Object id = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<Object> name = JsonNullable.<Object>of(null);
+  private Object name = null;
 
   public static final String JSON_PROPERTY_DESCRIPTION = "description";
-  private JsonNullable<Object> description = JsonNullable.<Object>of(null);
+  private Object description = null;
 
   public static final String JSON_PROPERTY_FUNCTIONAL_NAME = "functionalName";
-  private JsonNullable<Object> functionalName = JsonNullable.<Object>of(null);
+  private Object functionalName = null;
 
   public static final String JSON_PROPERTY_SERIAL_NUMBER = "serialNumber";
-  private JsonNullable<Object> serialNumber = JsonNullable.<Object>of(null);
+  private Object serialNumber = null;
 
   public static final String JSON_PROPERTY_TYPE = "type";
-  private JsonNullable<Object> type = JsonNullable.<Object>of(null);
+  private Object type = null;
 
   public static final String JSON_PROPERTY_CRITICALITY = "criticality";
-  private JsonNullable<Object> criticality = JsonNullable.<Object>of(null);
+  private Object criticality = null;
 
   public Asset() {
   }
 
   public Asset id(Object id) {
-    this.id = JsonNullable.<Object>of(id);
     
+    this.id = id;
     return this;
   }
 
@@ -79,32 +75,24 @@ public class Asset {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1fa38c20-0b86-495f-a470-efb1bb6f8b1e", value = "")
-  @JsonIgnore
-
-  public Object getId() {
-        return id.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getId_JsonNullable() {
+  public Object getId() {
     return id;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ID)
-  public void setId_JsonNullable(JsonNullable<Object> id) {
-    this.id = id;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(Object id) {
-    this.id = JsonNullable.<Object>of(id);
+    this.id = id;
   }
 
 
   public Asset name(Object name) {
-    this.name = JsonNullable.<Object>of(name);
     
+    this.name = name;
     return this;
   }
 
@@ -114,32 +102,24 @@ public class Asset {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Main LV Breaker", value = "Name of the Asset")
-  @JsonIgnore
-
-  public Object getName() {
-        return name.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getName_JsonNullable() {
+  public Object getName() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<Object> name) {
-    this.name = name;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Object name) {
-    this.name = JsonNullable.<Object>of(name);
+    this.name = name;
   }
 
 
   public Asset description(Object description) {
-    this.description = JsonNullable.<Object>of(description);
     
+    this.description = description;
     return this;
   }
 
@@ -149,32 +129,24 @@ public class Asset {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Used to protect main area", value = "")
-  @JsonIgnore
-
-  public Object getDescription() {
-        return description.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_DESCRIPTION)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getDescription_JsonNullable() {
+  public Object getDescription() {
     return description;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
-  public void setDescription_JsonNullable(JsonNullable<Object> description) {
-    this.description = description;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_DESCRIPTION)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDescription(Object description) {
-    this.description = JsonNullable.<Object>of(description);
+    this.description = description;
   }
 
 
   public Asset functionalName(Object functionalName) {
-    this.functionalName = JsonNullable.<Object>of(functionalName);
     
+    this.functionalName = functionalName;
     return this;
   }
 
@@ -184,32 +156,24 @@ public class Asset {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "MVCB-Main - 001", value = "")
-  @JsonIgnore
-
-  public Object getFunctionalName() {
-        return functionalName.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_FUNCTIONAL_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getFunctionalName_JsonNullable() {
+  public Object getFunctionalName() {
     return functionalName;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FUNCTIONAL_NAME)
-  public void setFunctionalName_JsonNullable(JsonNullable<Object> functionalName) {
-    this.functionalName = functionalName;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_FUNCTIONAL_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFunctionalName(Object functionalName) {
-    this.functionalName = JsonNullable.<Object>of(functionalName);
+    this.functionalName = functionalName;
   }
 
 
   public Asset serialNumber(Object serialNumber) {
-    this.serialNumber = JsonNullable.<Object>of(serialNumber);
     
+    this.serialNumber = serialNumber;
     return this;
   }
 
@@ -219,32 +183,24 @@ public class Asset {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "X-123-456-789", value = "")
-  @JsonIgnore
-
-  public Object getSerialNumber() {
-        return serialNumber.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getSerialNumber_JsonNullable() {
+  public Object getSerialNumber() {
     return serialNumber;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
-  public void setSerialNumber_JsonNullable(JsonNullable<Object> serialNumber) {
-    this.serialNumber = serialNumber;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_SERIAL_NUMBER)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSerialNumber(Object serialNumber) {
-    this.serialNumber = JsonNullable.<Object>of(serialNumber);
+    this.serialNumber = serialNumber;
   }
 
 
   public Asset type(Object type) {
-    this.type = JsonNullable.<Object>of(type);
     
+    this.type = type;
     return this;
   }
 
@@ -254,32 +210,24 @@ public class Asset {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "MVCircuitBreaker", value = "")
-  @JsonIgnore
-
-  public Object getType() {
-        return type.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getType_JsonNullable() {
+  public Object getType() {
     return type;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TYPE)
-  public void setType_JsonNullable(JsonNullable<Object> type) {
-    this.type = type;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(Object type) {
-    this.type = JsonNullable.<Object>of(type);
+    this.type = type;
   }
 
 
   public Asset criticality(Object criticality) {
-    this.criticality = JsonNullable.<Object>of(criticality);
     
+    this.criticality = criticality;
     return this;
   }
 
@@ -291,26 +239,18 @@ public class Asset {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1", value = "")
-  @JsonIgnore
-
-  public Object getCriticality() {
-        return criticality.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CRITICALITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getCriticality_JsonNullable() {
+  public Object getCriticality() {
     return criticality;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CRITICALITY)
-  public void setCriticality_JsonNullable(JsonNullable<Object> criticality) {
-    this.criticality = criticality;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CRITICALITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCriticality(Object criticality) {
-    this.criticality = JsonNullable.<Object>of(criticality);
+    this.criticality = criticality;
   }
 
 
@@ -323,29 +263,18 @@ public class Asset {
       return false;
     }
     Asset asset = (Asset) o;
-    return equalsNullable(this.id, asset.id) &&
-        equalsNullable(this.name, asset.name) &&
-        equalsNullable(this.description, asset.description) &&
-        equalsNullable(this.functionalName, asset.functionalName) &&
-        equalsNullable(this.serialNumber, asset.serialNumber) &&
-        equalsNullable(this.type, asset.type) &&
-        equalsNullable(this.criticality, asset.criticality);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.id, asset.id) &&
+        Objects.equals(this.name, asset.name) &&
+        Objects.equals(this.description, asset.description) &&
+        Objects.equals(this.functionalName, asset.functionalName) &&
+        Objects.equals(this.serialNumber, asset.serialNumber) &&
+        Objects.equals(this.type, asset.type) &&
+        Objects.equals(this.criticality, asset.criticality);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), hashCodeNullable(name), hashCodeNullable(description), hashCodeNullable(functionalName), hashCodeNullable(serialNumber), hashCodeNullable(type), hashCodeNullable(criticality));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(id, name, description, functionalName, serialNumber, type, criticality);
   }
 
   @Override

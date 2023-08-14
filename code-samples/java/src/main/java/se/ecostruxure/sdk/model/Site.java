@@ -22,10 +22,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -43,41 +39,41 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Site.JSON_PROPERTY_LATITUDE,
   Site.JSON_PROPERTY_LONGITUDE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-02T14:43:51.240218900+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-14T11:47:02.186506600+05:30[Asia/Calcutta]")
 public class Site {
   public static final String JSON_PROPERTY_ID = "id";
-  private JsonNullable<Object> id = JsonNullable.<Object>of(null);
+  private Object id = null;
 
   public static final String JSON_PROPERTY_NAME = "name";
-  private JsonNullable<Object> name = JsonNullable.<Object>of(null);
+  private Object name = null;
 
   public static final String JSON_PROPERTY_COUNTRY = "country";
-  private JsonNullable<Object> country = JsonNullable.<Object>of(null);
+  private Object country = null;
 
   public static final String JSON_PROPERTY_CITY = "city";
-  private JsonNullable<Object> city = JsonNullable.<Object>of(null);
+  private Object city = null;
 
   public static final String JSON_PROPERTY_ADDRESS = "address";
-  private JsonNullable<Object> address = JsonNullable.<Object>of(null);
+  private Object address = null;
 
   public static final String JSON_PROPERTY_ZIP_CODE = "zipCode";
-  private JsonNullable<Object> zipCode = JsonNullable.<Object>of(null);
+  private Object zipCode = null;
 
   public static final String JSON_PROPERTY_TIME_ZONE = "timeZone";
-  private JsonNullable<Object> timeZone = JsonNullable.<Object>of(null);
+  private Object timeZone = null;
 
   public static final String JSON_PROPERTY_LATITUDE = "latitude";
-  private JsonNullable<Object> latitude = JsonNullable.<Object>of(null);
+  private Object latitude = null;
 
   public static final String JSON_PROPERTY_LONGITUDE = "longitude";
-  private JsonNullable<Object> longitude = JsonNullable.<Object>of(null);
+  private Object longitude = null;
 
   public Site() {
   }
 
   public Site id(Object id) {
-    this.id = JsonNullable.<Object>of(id);
     
+    this.id = id;
     return this;
   }
 
@@ -87,32 +83,24 @@ public class Site {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1fa38c20-0b86-495f-a470-efb1bb6f8b1e", value = "")
-  @JsonIgnore
-
-  public Object getId() {
-        return id.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getId_JsonNullable() {
+  public Object getId() {
     return id;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ID)
-  public void setId_JsonNullable(JsonNullable<Object> id) {
-    this.id = id;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(Object id) {
-    this.id = JsonNullable.<Object>of(id);
+    this.id = id;
   }
 
 
   public Site name(Object name) {
-    this.name = JsonNullable.<Object>of(name);
     
+    this.name = name;
     return this;
   }
 
@@ -122,32 +110,24 @@ public class Site {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Headquarters", value = "")
-  @JsonIgnore
-
-  public Object getName() {
-        return name.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_NAME)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getName_JsonNullable() {
+  public Object getName() {
     return name;
   }
-  
-  @JsonProperty(JSON_PROPERTY_NAME)
-  public void setName_JsonNullable(JsonNullable<Object> name) {
-    this.name = name;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_NAME)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setName(Object name) {
-    this.name = JsonNullable.<Object>of(name);
+    this.name = name;
   }
 
 
   public Site country(Object country) {
-    this.country = JsonNullable.<Object>of(country);
     
+    this.country = country;
     return this;
   }
 
@@ -157,32 +137,24 @@ public class Site {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Some Country", value = "")
-  @JsonIgnore
-
-  public Object getCountry() {
-        return country.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_COUNTRY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getCountry_JsonNullable() {
+  public Object getCountry() {
     return country;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COUNTRY)
-  public void setCountry_JsonNullable(JsonNullable<Object> country) {
-    this.country = country;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_COUNTRY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCountry(Object country) {
-    this.country = JsonNullable.<Object>of(country);
+    this.country = country;
   }
 
 
   public Site city(Object city) {
-    this.city = JsonNullable.<Object>of(city);
     
+    this.city = city;
     return this;
   }
 
@@ -192,32 +164,24 @@ public class Site {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Some city", value = "")
-  @JsonIgnore
-
-  public Object getCity() {
-        return city.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CITY)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getCity_JsonNullable() {
+  public Object getCity() {
     return city;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CITY)
-  public void setCity_JsonNullable(JsonNullable<Object> city) {
-    this.city = city;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CITY)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCity(Object city) {
-    this.city = JsonNullable.<Object>of(city);
+    this.city = city;
   }
 
 
   public Site address(Object address) {
-    this.address = JsonNullable.<Object>of(address);
     
+    this.address = address;
     return this;
   }
 
@@ -227,32 +191,24 @@ public class Site {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Full Address of site", value = "")
-  @JsonIgnore
-
-  public Object getAddress() {
-        return address.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ADDRESS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getAddress_JsonNullable() {
+  public Object getAddress() {
     return address;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ADDRESS)
-  public void setAddress_JsonNullable(JsonNullable<Object> address) {
-    this.address = address;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ADDRESS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAddress(Object address) {
-    this.address = JsonNullable.<Object>of(address);
+    this.address = address;
   }
 
 
   public Site zipCode(Object zipCode) {
-    this.zipCode = JsonNullable.<Object>of(zipCode);
     
+    this.zipCode = zipCode;
     return this;
   }
 
@@ -262,32 +218,24 @@ public class Site {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "90210", value = "")
-  @JsonIgnore
-
-  public Object getZipCode() {
-        return zipCode.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ZIP_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getZipCode_JsonNullable() {
+  public Object getZipCode() {
     return zipCode;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ZIP_CODE)
-  public void setZipCode_JsonNullable(JsonNullable<Object> zipCode) {
-    this.zipCode = zipCode;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ZIP_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setZipCode(Object zipCode) {
-    this.zipCode = JsonNullable.<Object>of(zipCode);
+    this.zipCode = zipCode;
   }
 
 
   public Site timeZone(Object timeZone) {
-    this.timeZone = JsonNullable.<Object>of(timeZone);
     
+    this.timeZone = timeZone;
     return this;
   }
 
@@ -297,32 +245,24 @@ public class Site {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "CST", value = "")
-  @JsonIgnore
-
-  public Object getTimeZone() {
-        return timeZone.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TIME_ZONE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getTimeZone_JsonNullable() {
+  public Object getTimeZone() {
     return timeZone;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TIME_ZONE)
-  public void setTimeZone_JsonNullable(JsonNullable<Object> timeZone) {
-    this.timeZone = timeZone;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_TIME_ZONE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimeZone(Object timeZone) {
-    this.timeZone = JsonNullable.<Object>of(timeZone);
+    this.timeZone = timeZone;
   }
 
 
   public Site latitude(Object latitude) {
-    this.latitude = JsonNullable.<Object>of(latitude);
     
+    this.latitude = latitude;
     return this;
   }
 
@@ -332,32 +272,24 @@ public class Site {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "45.1234", value = "")
-  @JsonIgnore
-
-  public Object getLatitude() {
-        return latitude.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_LATITUDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getLatitude_JsonNullable() {
+  public Object getLatitude() {
     return latitude;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LATITUDE)
-  public void setLatitude_JsonNullable(JsonNullable<Object> latitude) {
-    this.latitude = latitude;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_LATITUDE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLatitude(Object latitude) {
-    this.latitude = JsonNullable.<Object>of(latitude);
+    this.latitude = latitude;
   }
 
 
   public Site longitude(Object longitude) {
-    this.longitude = JsonNullable.<Object>of(longitude);
     
+    this.longitude = longitude;
     return this;
   }
 
@@ -367,26 +299,18 @@ public class Site {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "-3.1234", value = "")
-  @JsonIgnore
-
-  public Object getLongitude() {
-        return longitude.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_LONGITUDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getLongitude_JsonNullable() {
+  public Object getLongitude() {
     return longitude;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LONGITUDE)
-  public void setLongitude_JsonNullable(JsonNullable<Object> longitude) {
-    this.longitude = longitude;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_LONGITUDE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLongitude(Object longitude) {
-    this.longitude = JsonNullable.<Object>of(longitude);
+    this.longitude = longitude;
   }
 
 
@@ -399,31 +323,20 @@ public class Site {
       return false;
     }
     Site site = (Site) o;
-    return equalsNullable(this.id, site.id) &&
-        equalsNullable(this.name, site.name) &&
-        equalsNullable(this.country, site.country) &&
-        equalsNullable(this.city, site.city) &&
-        equalsNullable(this.address, site.address) &&
-        equalsNullable(this.zipCode, site.zipCode) &&
-        equalsNullable(this.timeZone, site.timeZone) &&
-        equalsNullable(this.latitude, site.latitude) &&
-        equalsNullable(this.longitude, site.longitude);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.id, site.id) &&
+        Objects.equals(this.name, site.name) &&
+        Objects.equals(this.country, site.country) &&
+        Objects.equals(this.city, site.city) &&
+        Objects.equals(this.address, site.address) &&
+        Objects.equals(this.zipCode, site.zipCode) &&
+        Objects.equals(this.timeZone, site.timeZone) &&
+        Objects.equals(this.latitude, site.latitude) &&
+        Objects.equals(this.longitude, site.longitude);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), hashCodeNullable(name), hashCodeNullable(country), hashCodeNullable(city), hashCodeNullable(address), hashCodeNullable(zipCode), hashCodeNullable(timeZone), hashCodeNullable(latitude), hashCodeNullable(longitude));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(id, name, country, city, address, zipCode, timeZone, latitude, longitude);
   }
 
   @Override

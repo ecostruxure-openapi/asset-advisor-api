@@ -22,10 +22,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -40,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   SiteRiskWebhook.JSON_PROPERTY_TIMESTAMP,
   SiteRiskWebhook.JSON_PROPERTY_EVENTS
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-02T14:43:51.240218900+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-14T11:47:02.186506600+05:30[Asia/Calcutta]")
 public class SiteRiskWebhook {
   /**
    * Gets or Sets topic
@@ -76,29 +72,29 @@ public class SiteRiskWebhook {
   }
 
   public static final String JSON_PROPERTY_TOPIC = "topic";
-  private JsonNullable<TopicEnum> topic = JsonNullable.<TopicEnum>of(null);
+  private TopicEnum topic = null;
 
   public static final String JSON_PROPERTY_ID = "id";
-  private JsonNullable<Object> id = JsonNullable.<Object>of(null);
+  private Object id = null;
 
   public static final String JSON_PROPERTY_SITE_ID = "siteId";
-  private JsonNullable<Object> siteId = JsonNullable.<Object>of(null);
+  private Object siteId = null;
 
   public static final String JSON_PROPERTY_ASSET_ID = "assetId";
-  private JsonNullable<Object> assetId = JsonNullable.<Object>of(null);
+  private Object assetId = null;
 
   public static final String JSON_PROPERTY_TIMESTAMP = "timestamp";
-  private JsonNullable<Object> timestamp = JsonNullable.<Object>of(null);
+  private Object timestamp = null;
 
   public static final String JSON_PROPERTY_EVENTS = "events";
-  private JsonNullable<Object> events = JsonNullable.<Object>of(null);
+  private Object events = null;
 
   public SiteRiskWebhook() {
   }
 
   public SiteRiskWebhook topic(TopicEnum topic) {
-    this.topic = JsonNullable.<TopicEnum>of(topic);
     
+    this.topic = topic;
     return this;
   }
 
@@ -108,32 +104,24 @@ public class SiteRiskWebhook {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "SiteRiskLevel", value = "")
-  @JsonIgnore
-
-  public TopicEnum getTopic() {
-        return topic.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TOPIC)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<TopicEnum> getTopic_JsonNullable() {
+  public TopicEnum getTopic() {
     return topic;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TOPIC)
-  public void setTopic_JsonNullable(JsonNullable<TopicEnum> topic) {
-    this.topic = topic;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_TOPIC)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTopic(TopicEnum topic) {
-    this.topic = JsonNullable.<TopicEnum>of(topic);
+    this.topic = topic;
   }
 
 
   public SiteRiskWebhook id(Object id) {
-    this.id = JsonNullable.<Object>of(id);
     
+    this.id = id;
     return this;
   }
 
@@ -143,32 +131,24 @@ public class SiteRiskWebhook {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2fa38c20-0b86-495f-a470-efb1bb6f8b1b", value = "")
-  @JsonIgnore
-
-  public Object getId() {
-        return id.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getId_JsonNullable() {
+  public Object getId() {
     return id;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ID)
-  public void setId_JsonNullable(JsonNullable<Object> id) {
-    this.id = id;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(Object id) {
-    this.id = JsonNullable.<Object>of(id);
+    this.id = id;
   }
 
 
   public SiteRiskWebhook siteId(Object siteId) {
-    this.siteId = JsonNullable.<Object>of(siteId);
     
+    this.siteId = siteId;
     return this;
   }
 
@@ -178,32 +158,24 @@ public class SiteRiskWebhook {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2fa38c20-0b86-495f-a470-efb1bb6f8b1b", value = "")
-  @JsonIgnore
-
-  public Object getSiteId() {
-        return siteId.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_SITE_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getSiteId_JsonNullable() {
+  public Object getSiteId() {
     return siteId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SITE_ID)
-  public void setSiteId_JsonNullable(JsonNullable<Object> siteId) {
-    this.siteId = siteId;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_SITE_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSiteId(Object siteId) {
-    this.siteId = JsonNullable.<Object>of(siteId);
+    this.siteId = siteId;
   }
 
 
   public SiteRiskWebhook assetId(Object assetId) {
-    this.assetId = JsonNullable.<Object>of(assetId);
     
+    this.assetId = assetId;
     return this;
   }
 
@@ -213,32 +185,24 @@ public class SiteRiskWebhook {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "3fa38c20-0b86-495f-a470-efb1bb6f8b1c", value = "")
-  @JsonIgnore
-
-  public Object getAssetId() {
-        return assetId.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ASSET_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getAssetId_JsonNullable() {
+  public Object getAssetId() {
     return assetId;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ASSET_ID)
-  public void setAssetId_JsonNullable(JsonNullable<Object> assetId) {
-    this.assetId = assetId;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ASSET_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAssetId(Object assetId) {
-    this.assetId = JsonNullable.<Object>of(assetId);
+    this.assetId = assetId;
   }
 
 
   public SiteRiskWebhook timestamp(Object timestamp) {
-    this.timestamp = JsonNullable.<Object>of(timestamp);
     
+    this.timestamp = timestamp;
     return this;
   }
 
@@ -248,32 +212,24 @@ public class SiteRiskWebhook {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2023-02-08T17:09:44+00:00", value = "")
-  @JsonIgnore
-
-  public Object getTimestamp() {
-        return timestamp.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_TIMESTAMP)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getTimestamp_JsonNullable() {
+  public Object getTimestamp() {
     return timestamp;
   }
-  
-  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
-  public void setTimestamp_JsonNullable(JsonNullable<Object> timestamp) {
-    this.timestamp = timestamp;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_TIMESTAMP)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTimestamp(Object timestamp) {
-    this.timestamp = JsonNullable.<Object>of(timestamp);
+    this.timestamp = timestamp;
   }
 
 
   public SiteRiskWebhook events(Object events) {
-    this.events = JsonNullable.<Object>of(events);
     
+    this.events = events;
     return this;
   }
 
@@ -283,26 +239,18 @@ public class SiteRiskWebhook {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  @JsonIgnore
-
-  public Object getEvents() {
-        return events.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_EVENTS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getEvents_JsonNullable() {
+  public Object getEvents() {
     return events;
   }
-  
-  @JsonProperty(JSON_PROPERTY_EVENTS)
-  public void setEvents_JsonNullable(JsonNullable<Object> events) {
-    this.events = events;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_EVENTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEvents(Object events) {
-    this.events = JsonNullable.<Object>of(events);
+    this.events = events;
   }
 
 
@@ -315,28 +263,17 @@ public class SiteRiskWebhook {
       return false;
     }
     SiteRiskWebhook siteRiskWebhook = (SiteRiskWebhook) o;
-    return equalsNullable(this.topic, siteRiskWebhook.topic) &&
-        equalsNullable(this.id, siteRiskWebhook.id) &&
-        equalsNullable(this.siteId, siteRiskWebhook.siteId) &&
-        equalsNullable(this.assetId, siteRiskWebhook.assetId) &&
-        equalsNullable(this.timestamp, siteRiskWebhook.timestamp) &&
-        equalsNullable(this.events, siteRiskWebhook.events);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.topic, siteRiskWebhook.topic) &&
+        Objects.equals(this.id, siteRiskWebhook.id) &&
+        Objects.equals(this.siteId, siteRiskWebhook.siteId) &&
+        Objects.equals(this.assetId, siteRiskWebhook.assetId) &&
+        Objects.equals(this.timestamp, siteRiskWebhook.timestamp) &&
+        Objects.equals(this.events, siteRiskWebhook.events);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(topic), hashCodeNullable(id), hashCodeNullable(siteId), hashCodeNullable(assetId), hashCodeNullable(timestamp), hashCodeNullable(events));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(topic, id, siteId, assetId, timestamp, events);
   }
 
   @Override

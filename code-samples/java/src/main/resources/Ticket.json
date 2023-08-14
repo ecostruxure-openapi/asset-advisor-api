@@ -1,0 +1,11 @@
+{
+    "priority": [
+        "Low",
+        "Low"
+    ],
+    "activity": [
+        "ValidateTicket",
+        "OpenTicket"
+    ],
+    "callback": "https://example.com/samplewebhook/apiKey"
+}

@@ -22,10 +22,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -37,23 +33,23 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   SubscriptionConfig.JSON_PROPERTY_CREAED_AT,
   SubscriptionConfig.JSON_PROPERTY_LAST_MODIFIED_AT
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-02T14:43:51.240218900+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-14T11:47:02.186506600+05:30[Asia/Calcutta]")
 public class SubscriptionConfig {
   public static final String JSON_PROPERTY_ID = "id";
-  private JsonNullable<Object> id = JsonNullable.<Object>of(null);
+  private Object id = null;
 
   public static final String JSON_PROPERTY_CREAED_AT = "creaedAt";
-  private JsonNullable<Object> creaedAt = JsonNullable.<Object>of(null);
+  private Object creaedAt = null;
 
   public static final String JSON_PROPERTY_LAST_MODIFIED_AT = "lastModifiedAt";
-  private JsonNullable<Object> lastModifiedAt = JsonNullable.<Object>of(null);
+  private Object lastModifiedAt = null;
 
   public SubscriptionConfig() {
   }
 
   public SubscriptionConfig id(Object id) {
-    this.id = JsonNullable.<Object>of(id);
     
+    this.id = id;
     return this;
   }
 
@@ -63,32 +59,24 @@ public class SubscriptionConfig {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "1fa38c20-0b86-495f-a470-efb1bb6f8b1e", value = "")
-  @JsonIgnore
-
-  public Object getId() {
-        return id.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getId_JsonNullable() {
+  public Object getId() {
     return id;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ID)
-  public void setId_JsonNullable(JsonNullable<Object> id) {
-    this.id = id;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setId(Object id) {
-    this.id = JsonNullable.<Object>of(id);
+    this.id = id;
   }
 
 
   public SubscriptionConfig creaedAt(Object creaedAt) {
-    this.creaedAt = JsonNullable.<Object>of(creaedAt);
     
+    this.creaedAt = creaedAt;
     return this;
   }
 
@@ -98,32 +86,24 @@ public class SubscriptionConfig {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2022-01-22T10:00:00Z", value = "")
-  @JsonIgnore
-
-  public Object getCreaedAt() {
-        return creaedAt.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_CREAED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getCreaedAt_JsonNullable() {
+  public Object getCreaedAt() {
     return creaedAt;
   }
-  
-  @JsonProperty(JSON_PROPERTY_CREAED_AT)
-  public void setCreaedAt_JsonNullable(JsonNullable<Object> creaedAt) {
-    this.creaedAt = creaedAt;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_CREAED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setCreaedAt(Object creaedAt) {
-    this.creaedAt = JsonNullable.<Object>of(creaedAt);
+    this.creaedAt = creaedAt;
   }
 
 
   public SubscriptionConfig lastModifiedAt(Object lastModifiedAt) {
-    this.lastModifiedAt = JsonNullable.<Object>of(lastModifiedAt);
     
+    this.lastModifiedAt = lastModifiedAt;
     return this;
   }
 
@@ -133,26 +113,18 @@ public class SubscriptionConfig {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2023-02-18T11:00:00Z", value = "")
-  @JsonIgnore
-
-  public Object getLastModifiedAt() {
-        return lastModifiedAt.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_AT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getLastModifiedAt_JsonNullable() {
+  public Object getLastModifiedAt() {
     return lastModifiedAt;
   }
-  
-  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_AT)
-  public void setLastModifiedAt_JsonNullable(JsonNullable<Object> lastModifiedAt) {
-    this.lastModifiedAt = lastModifiedAt;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_LAST_MODIFIED_AT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLastModifiedAt(Object lastModifiedAt) {
-    this.lastModifiedAt = JsonNullable.<Object>of(lastModifiedAt);
+    this.lastModifiedAt = lastModifiedAt;
   }
 
 
@@ -165,25 +137,14 @@ public class SubscriptionConfig {
       return false;
     }
     SubscriptionConfig subscriptionConfig = (SubscriptionConfig) o;
-    return equalsNullable(this.id, subscriptionConfig.id) &&
-        equalsNullable(this.creaedAt, subscriptionConfig.creaedAt) &&
-        equalsNullable(this.lastModifiedAt, subscriptionConfig.lastModifiedAt);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.id, subscriptionConfig.id) &&
+        Objects.equals(this.creaedAt, subscriptionConfig.creaedAt) &&
+        Objects.equals(this.lastModifiedAt, subscriptionConfig.lastModifiedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(id), hashCodeNullable(creaedAt), hashCodeNullable(lastModifiedAt));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(id, creaedAt, lastModifiedAt);
   }
 
   @Override

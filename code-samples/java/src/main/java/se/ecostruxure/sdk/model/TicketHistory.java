@@ -22,10 +22,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -38,26 +34,26 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   TicketHistory.JSON_PROPERTY_COMMENT,
   TicketHistory.JSON_PROPERTY_FILE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-02T14:43:51.240218900+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-08-14T11:47:02.186506600+05:30[Asia/Calcutta]")
 public class TicketHistory {
   public static final String JSON_PROPERTY_ACTIVITY_TYPE = "activityType";
-  private JsonNullable<Object> activityType = JsonNullable.<Object>of(null);
+  private Object activityType = null;
 
   public static final String JSON_PROPERTY_DATE = "date";
-  private JsonNullable<Object> date = JsonNullable.<Object>of(null);
+  private Object date = null;
 
   public static final String JSON_PROPERTY_COMMENT = "comment";
-  private JsonNullable<Object> comment = JsonNullable.<Object>of(null);
+  private Object comment = null;
 
   public static final String JSON_PROPERTY_FILE = "file";
-  private JsonNullable<Object> _file = JsonNullable.<Object>of(null);
+  private Object _file = null;
 
   public TicketHistory() {
   }
 
   public TicketHistory activityType(Object activityType) {
-    this.activityType = JsonNullable.<Object>of(activityType);
     
+    this.activityType = activityType;
     return this;
   }
 
@@ -67,32 +63,24 @@ public class TicketHistory {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "CloseTicket", value = "")
-  @JsonIgnore
-
-  public Object getActivityType() {
-        return activityType.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_ACTIVITY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getActivityType_JsonNullable() {
+  public Object getActivityType() {
     return activityType;
   }
-  
-  @JsonProperty(JSON_PROPERTY_ACTIVITY_TYPE)
-  public void setActivityType_JsonNullable(JsonNullable<Object> activityType) {
-    this.activityType = activityType;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_ACTIVITY_TYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setActivityType(Object activityType) {
-    this.activityType = JsonNullable.<Object>of(activityType);
+    this.activityType = activityType;
   }
 
 
   public TicketHistory date(Object date) {
-    this.date = JsonNullable.<Object>of(date);
     
+    this.date = date;
     return this;
   }
 
@@ -102,32 +90,24 @@ public class TicketHistory {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "2022-01-22T10:00:00Z", value = "")
-  @JsonIgnore
-
-  public Object getDate() {
-        return date.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_DATE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getDate_JsonNullable() {
+  public Object getDate() {
     return date;
   }
-  
-  @JsonProperty(JSON_PROPERTY_DATE)
-  public void setDate_JsonNullable(JsonNullable<Object> date) {
-    this.date = date;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_DATE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDate(Object date) {
-    this.date = JsonNullable.<Object>of(date);
+    this.date = date;
   }
 
 
   public TicketHistory comment(Object comment) {
-    this.comment = JsonNullable.<Object>of(comment);
     
+    this.comment = comment;
     return this;
   }
 
@@ -137,32 +117,24 @@ public class TicketHistory {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "Issue has been found", value = "On some action, users can enter a free text comment")
-  @JsonIgnore
-
-  public Object getComment() {
-        return comment.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_COMMENT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getComment_JsonNullable() {
+  public Object getComment() {
     return comment;
   }
-  
-  @JsonProperty(JSON_PROPERTY_COMMENT)
-  public void setComment_JsonNullable(JsonNullable<Object> comment) {
-    this.comment = comment;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_COMMENT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setComment(Object comment) {
-    this.comment = JsonNullable.<Object>of(comment);
+    this.comment = comment;
   }
 
 
   public TicketHistory _file(Object _file) {
-    this._file = JsonNullable.<Object>of(_file);
     
+    this._file = _file;
     return this;
   }
 
@@ -172,26 +144,18 @@ public class TicketHistory {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "FirePicture-05-21-2022.jpeg", value = "Attachment, if available. Only the file name is provided at this release")
-  @JsonIgnore
-
-  public Object getFile() {
-        return _file.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_FILE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getFile_JsonNullable() {
+  public Object getFile() {
     return _file;
   }
-  
-  @JsonProperty(JSON_PROPERTY_FILE)
-  public void setFile_JsonNullable(JsonNullable<Object> _file) {
-    this._file = _file;
-  }
 
+
+  @JsonProperty(JSON_PROPERTY_FILE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFile(Object _file) {
-    this._file = JsonNullable.<Object>of(_file);
+    this._file = _file;
   }
 
 
@@ -204,26 +168,15 @@ public class TicketHistory {
       return false;
     }
     TicketHistory ticketHistory = (TicketHistory) o;
-    return equalsNullable(this.activityType, ticketHistory.activityType) &&
-        equalsNullable(this.date, ticketHistory.date) &&
-        equalsNullable(this.comment, ticketHistory.comment) &&
-        equalsNullable(this._file, ticketHistory._file);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.activityType, ticketHistory.activityType) &&
+        Objects.equals(this.date, ticketHistory.date) &&
+        Objects.equals(this.comment, ticketHistory.comment) &&
+        Objects.equals(this._file, ticketHistory._file);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hashCodeNullable(activityType), hashCodeNullable(date), hashCodeNullable(comment), hashCodeNullable(_file));
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(activityType, date, comment, _file);
   }
 
   @Override
