@@ -120,12 +120,12 @@ import se.ecostruxure.sdk.client.AssetHealthWebhookSubscriptionApi;
 public class AssetHealthWebhookSubscriptionApiExample {
 
     public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath("https://se-exchange-uat-uat.apigee.net/ecostruxure/asset-advisor/v1");
+        ApiClient defaultClient = new ApiClient();
+        defaultClient.setBasePath(baseUrl);
         
         // Configure HTTP bearer authorization: PersonalAccessToken
         HttpBearerAuth PersonalAccessToken = (HttpBearerAuth) defaultClient.getAuthentication("PersonalAccessToken");
-        PersonalAccessToken.setBearerToken("BEARER TOKEN");
+        PersonalAccessToken.setBearerToken("TOKEN");
 
         AssetHealthWebhookSubscriptionApi apiInstance = new AssetHealthWebhookSubscriptionApi(defaultClient);
         Object subscriptionId = null; // Object | Id of the asset health subscription
