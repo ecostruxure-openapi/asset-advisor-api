@@ -79,11 +79,26 @@ public class CreateTicketSubscription {
             System.out.println(apiInstance
                     .postTicketSubscription(ticketSubscriptionConfig));
         } catch (Exception e) {
-           // e.printStackTrace();
-            System.out.println(e.getLocalizedMessage());
+            if(e.getLocalizedMessage().contains("401")) {
+                System.out.println(getDetailsError401Message());
+            }
+            else {
+                System.out.println(e.getLocalizedMessage());
+            }
         }
     }
-    
+    /**
+     * @return Map<String,Object>
+     */
+    private static Map<String,Object> getDetailsError401Message() {
+        Map<String,Object> details = new HashMap<>();
+        details.put("type","/webhooks/subscriptions/ticket");
+        details.put("title","Unauthorized");
+        details.put("status",401);
+        details.put("detail","Access Token Expired");
+        return details;
+    }
+
     /**
      * statusMessage.
      * @param argument
@@ -101,6 +116,7 @@ public class CreateTicketSubscription {
      */
     public static Map<String, Object> getDetailsErrorMessage(String errorMessage) {
         Map<String, Object> details = new HashMap<>();
+        details.put("type", "/webhooks/subscriptions/ticket");
         details.put("title", BAD_REQUEST);
         details.put("status", STATUS);
         details.put("detail", errorMessage);
