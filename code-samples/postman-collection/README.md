@@ -86,3 +86,93 @@ List all tickets related to all the sites
 Get the asset details based on Ticket ID
 
 ![Ticket Details](../media/ticket-detail.PNG)
+
+### Create Ticket Subscription
+
+Register a new ticket subscription
+
+![Ticket Subscription](../media/create-ticket-subscription.PNG)
+
+### Get Ticket Subscription
+
+Retrieve all ticket subscriptions currently set
+
+![List Ticket Subscription](../media/list-ticket-subscription.PNG)
+
+### Get Ticket Subscription Details
+
+Retrieve a ticket subscription
+
+![Ticket Subscription Details](../media/ticket-subscription-details.PNG)
+
+### Update Ticket Subscription details
+
+Update a ticket subscription
+
+![Update Ticket Subscription Details](../media/update-ticket-subscription-details.PNG)
+
+### Delete Ticket Subscription details
+
+Delete a ticket subscription
+
+![Delete Ticket Subscription Details](../media/delete-ticket-subscription-details.PNG)
+
+### Create AssetHealth Subscription
+
+Register a new asset health subscription
+
+![Create Asset Health](../media/create-asset-health-subscription.PNG)
+
+### Get AssetHealth Subscription
+
+Retrieve all asset health subscriptions currently set
+
+![List Asset Health](../media/list-asset-health-subscription.PNG)
+
+### Get AssetHealth Subscription Details
+
+Retrieve an asset health subscription
+
+![Get Asset Health Details](../media/asset-health-subscription-detail.PNG)
+
+### Update AssetHealth Subscription Details
+
+Update an asset health subscription
+
+![Update Asset Health Details](../media/update-asset-health-subscription-detail.PNG)
+
+### Delete AssetHealth Subscription Details
+
+Delete an asset health subscription
+
+![Delete Asset Health Details](../media/delete-asset-health-subscription-detail.PNG)
+
+### Create Site Risk Level Subscription
+
+Register a new site risk level subscription
+
+![Create Site Risk Level ](../media/create-site-risk-level-subscription.PNG)
+
+### Get Site Risk Level Subscription
+
+Retrieve all site risk level subscriptions currently set
+
+![List Site Risk Level ](../media/list-site-risk-level-subscription.PNG)
+
+### Get Site Risk Level Subscription Details
+
+Retrieve a site risk level subscription
+
+![Site Risk Level Details ](../media/site-risk-level-subscription-details.PNG)
+
+### Update Site Risk Level Subscription Details
+
+Update a site risk level subscription
+
+![Update Site Risk Level Details ](../media/update-site-risk-level-subscription.PNG)
+
+### Delete Site Risk Level Subscription Details
+
+Delete a site risk level subscription
+
+![Delete Site Risk Level Details ](../media/delete-site-risk-level-subscription.PNG)
