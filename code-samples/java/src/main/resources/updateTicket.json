@@ -1,0 +1,9 @@
+{
+  "callback": "https://example.com/samplewebhook/apiKey",
+  "priority": [
+    "All"
+  ],
+  "activity": [
+    "All"
+  ]
+}
