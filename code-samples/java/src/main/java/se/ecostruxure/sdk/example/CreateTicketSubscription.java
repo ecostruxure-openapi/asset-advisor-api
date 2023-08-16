@@ -6,10 +6,8 @@ package se.ecostruxure.sdk.example;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import org.springframework.web.client.ResourceAccessException;
+import java.util.HashMap;
+import java.util.Map;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -19,12 +17,11 @@ import se.ecostruxure.sdk.client.TicketWebhookSubscriptionApi;
 import se.ecostruxure.sdk.invoker.ApiClient;
 import se.ecostruxure.sdk.model.TicketSubscriptionConfig;
 
+/**
+ * @author anusha_paras
+ */
 public class CreateTicketSubscription {
-    private static final String TOKEN_NAME = "token";
-    private static final String BASEURL_NAME = "baseUrl";
-    private static final String FILEPATH_NAME = "filePath";
-    private static final Logger logger = Logger
-            .getLogger("CreateTicketSubscription");
+    
     /**
      * @param args
      * @throws JsonMappingException
@@ -57,15 +54,15 @@ public class CreateTicketSubscription {
         }
 
         if (Boolean.TRUE.equals(checkNull(token))) {
-            logger.log(Level.INFO, "Please Pass the token");
+            statusMessage(TOKEN_NAME);
             return;
         }
         if (Boolean.TRUE.equals(checkNull(baseUrl))) {
-            logger.log(Level.INFO, "Please Pass the baseUrl");
+            statusMessage(BASEURL_NAME);
             return;
         }
         if (Boolean.TRUE.equals(checkNull(filePath))) {
-            logger.log(Level.INFO, " file path cannot be empty");
+            statusMessage(FILEPATH_NAME);
             return;
         }
         ApiClient defaultClient = new ApiClient();
@@ -81,10 +78,35 @@ public class CreateTicketSubscription {
         try {
             System.out.println(apiInstance
                     .postTicketSubscription(ticketSubscriptionConfig));
-        } catch (ResourceAccessException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+           // e.printStackTrace();
+            System.out.println(e.getLocalizedMessage());
         }
     }
+    
+    /**
+     * statusMessage.
+     * @param argument
+     */
+    private static void statusMessage(String argument) {
+        String errorMessage = null;
+        System.out.println("Status = " + STATUS);
+        errorMessage = argument.concat(" cannot be empty");
+        System.out.println(getDetailsErrorMessage(errorMessage));
+    }
+
+    /**
+     * @param errorMessage
+     * @return Map
+     */
+    public static Map<String, Object> getDetailsErrorMessage(String errorMessage) {
+        Map<String, Object> details = new HashMap<>();
+        details.put("title", BAD_REQUEST);
+        details.put("status", STATUS);
+        details.put("detail", errorMessage);
+        return details;
+    }
+
 
     /**
      * @param arguments
@@ -108,4 +130,9 @@ public class CreateTicketSubscription {
         }
         return values;
     }
+    private static final String TOKEN_NAME = "token";
+    private static final String BASEURL_NAME = "baseUrl";
+    private static final String FILEPATH_NAME = "filePath";
+    private static final String BAD_REQUEST = "Bad Request";
+    private static final Integer STATUS = 400;
 }

@@ -5,13 +5,8 @@ package se.ecostruxure.sdk.example;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -70,7 +65,7 @@ public class UpdateTicketSubscription {
          }
         File fileUrl = new File(filePath);
         if (!fileUrl.exists()) {
-            logger.log(Level.INFO,"The given file path does not Exists");
+            System.out.println("The given file path does not Exists");
             return;
         }
         ObjectMapper objectMapper = new ObjectMapper();
@@ -150,7 +145,6 @@ public class UpdateTicketSubscription {
     private static final String BASEURL_NAME = "baseUrl";
     private static final String SUBSCRIPTION_ID = "subscriptionId";
     private static final String FILEPATH_NAME = "filePath";
-    private static final Logger logger = Logger.getLogger("UpdateTicketSubscription");
     private static final String BAD_REQUEST = "Bad Request";
     private static final Integer STATUS = 400;
 

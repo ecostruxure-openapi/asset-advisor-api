@@ -51,7 +51,7 @@ do
   esac
 done
 
-if [[ $className != "GetAssetDetails" && $className != "GetAssetsList" && $className != "GetAssetsTreeView" && $className != "GetSiteDetails" && $className != "GetSitesList" && $className != "GetTicketSubscriptionList" &&  $className != "UpdateTicketSubscription"  &&  $className != "DeleteTicketSubscription" && $className != "CreateTicketSubscription" ]] ; then
+if [[ $className != "GetAssetDetails" && $className != "GetAssetsList" && $className != "GetAssetsTreeView" && $className != "GetSiteDetails" && $className != "GetSitesList" && $className != "GetTicketSubscriptionList" &&  $className != "UpdateTicketSubscription"  &&  $className != "DeleteTicketSubscription" && $className != "CreateTicketSubscription" && $className != "GetTicketSubscription" ]] ; then
      echo $className 'Not Found, Please Provide Valid Classname.'
     exit 1
 fi
@@ -62,10 +62,12 @@ if [[ $className == "GetSiteDetails" ||  $className == "GetAssetsList"  ||  $cla
      mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl  siteId=$siteId" -Dexec.cleanupDaemonThreads=false
 elif [[ $className == "GetAssetDetails" ]] ; then
     mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl siteId=$siteId assetId=$assetId" -Dexec.cleanupDaemonThreads=false
-elif [[ $className == "GetTicketSubscriptionList" ||  $className == "UpdateTicketSubscription"  ||  $className == "DeleteTicketSubscription" ]] ; then
+elif [[ $className == "GetTicketSubscriptionList" || $className == "DeleteTicketSubscription" ]] ; then
      mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl subscriptionId=$subscriptionId" -Dexec.cleanupDaemonThreads=false
+elif [[ $className == "UpdateTicketSubscription" ]] ; then 
+     mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl subscriptionId=$subscriptionId filePath=$filePath" -Dexec.cleanupDaemonThreads=false
 elif [[ $className == "CreateTicketSubscription" ]] ; then
-    mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl siteId=$siteId filePath=$filePath" -Dexec.cleanupDaemonThreads=false
+    mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl filePath=$filePath" -Dexec.cleanupDaemonThreads=false
 else
     mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl" -Dexec.cleanupDaemonThreads=false
 fi
