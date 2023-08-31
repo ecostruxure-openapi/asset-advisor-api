@@ -38,13 +38,17 @@ public class GetSitesList {
         ApiClient defaultClient = new ApiClient();
         defaultClient.setBasePath(baseUrl);
         // Configure HTTP bearer authorization: PersonalAccessToken
-        HttpBearerAuth PersonalAccessToken = (HttpBearerAuth) defaultClient.getAuthentication("PersonalAccessToken");
-        PersonalAccessToken.setBearerToken(token);
+        defaultClient.setBearerToken(token);
         SitesApi apiInstance = new SitesApi(defaultClient);
         try {            
             System.out.println(apiInstance.getSites());
         } catch (Exception e) {
-            e.printStackTrace();
+            if(e.getLocalizedMessage().contains("401")) {
+                System.out.println(getDetailsError401Message());
+            }
+            else {
+                System.out.println(e.getLocalizedMessage());
+            }
         }
     }
      /**
@@ -68,6 +72,17 @@ public class GetSitesList {
         details.put("title",BAD_REQUEST);
         details.put("status",STATUS);
         details.put("detail",errorMessage);
+        return details;
+    }
+    /**
+     * @return Map<String,Object>
+     */
+    private static Map<String,Object> getDetailsError401Message() {
+        Map<String,Object> details = new HashMap<>();
+        details.put("type","/sites");
+        details.put("title","Unauthorized");
+        details.put("status",401);
+        details.put("detail","Access Token Expired");
         return details;
     }
     /**

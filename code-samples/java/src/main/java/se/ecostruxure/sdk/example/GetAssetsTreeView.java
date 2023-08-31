@@ -47,13 +47,17 @@ public class GetAssetsTreeView {
         ApiClient defaultClient = new ApiClient();
         defaultClient.setBasePath(baseUrl);
         // Configure HTTP bearer authorization: PersonalAccessToken
-        HttpBearerAuth PersonalAccessToken = (HttpBearerAuth) defaultClient.getAuthentication("PersonalAccessToken");
-        PersonalAccessToken.setBearerToken(token);
+        defaultClient.setBearerToken(token);
         AssetsApi assetapiInstance = new AssetsApi(defaultClient);
         try {
             System.out.println(assetapiInstance.getAssetsTree(siteId));
         } catch (Exception e) {
-            e.printStackTrace();
+            if(e.getLocalizedMessage().contains("401")) {
+                System.out.println(getDetailsError401Message());
+            }
+            else {
+                System.out.println(e.getLocalizedMessage());
+            }
         }
     }
 
@@ -91,7 +95,17 @@ public class GetAssetsTreeView {
         details.put("detail",errorMessage);
         return details;
     }
-
+    /**
+     * @return Map<String,Object>
+     */
+    private static Map<String,Object> getDetailsError401Message() {
+        Map<String,Object> details = new HashMap<>();
+        details.put("type","/sites/{siteId}/assets/treeview");
+        details.put("title","Unauthorized");
+        details.put("status",401);
+        details.put("detail","Access Token Expired");
+        return details;
+    }
     /**
      * findArgument.
      * @param arr String Array

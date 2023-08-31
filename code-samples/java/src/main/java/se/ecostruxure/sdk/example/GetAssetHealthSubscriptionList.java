@@ -37,6 +37,7 @@ public class GetAssetHealthSubscriptionList {
            return;
        }
        ApiClient defaultClient = new ApiClient();
+       defaultClient.setBasePath(baseUrl);
        defaultClient.setBearerToken(token);
        AssetHealthWebhookSubscriptionApi assetHealthApiInstance = new AssetHealthWebhookSubscriptionApi(defaultClient);
        try {
