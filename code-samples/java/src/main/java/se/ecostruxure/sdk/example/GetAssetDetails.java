@@ -58,7 +58,7 @@ public class GetAssetDetails {
         PersonalAccessToken.setBearerToken(token);
         AssetsApi assetapiInstance = new AssetsApi(defaultClient);
         try {
-            System.out.println(assetapiInstance.getAssetsTree(siteId));
+            System.out.println(assetapiInstance.getAssetDetails(siteId, assetId));
         } catch (Exception e) {
             if(e.getLocalizedMessage().contains("401")) {
                 System.out.println(getDetailsError401Message());
