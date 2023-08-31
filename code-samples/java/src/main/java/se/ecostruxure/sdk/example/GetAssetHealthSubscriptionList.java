@@ -42,8 +42,24 @@ public class GetAssetHealthSubscriptionList {
        try {
            System.out.println(assetHealthApiInstance.getAssetHealthSubscriptionList());
        } catch (Exception e) {
-           e.printStackTrace();
+           if(e.getLocalizedMessage().contains("401")) {
+               System.out.println(getDetailsError401Message());
+           }
+           else {
+               System.out.println(e.getLocalizedMessage());
+           }
        }
+    }
+    /**
+     * @return Map<String,Object>
+     */
+    private static Map<String,Object> getDetailsError401Message() {
+        Map<String,Object> details = new HashMap<>();
+        details.put("type","/webhooks/subscriptions/assethealth");
+        details.put("title","Unauthorized");
+        details.put("status",401);
+        details.put("detail","Access Token Expired");
+        return details;
     }
     /**
      * findArgument.

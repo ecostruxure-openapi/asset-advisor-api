@@ -479,7 +479,7 @@ List all your Tickets registered in Asset Advisor, including information such as
 ```
 ## Run as maven command with arguments that has to be passed
 - $baseUrl to pass baseUrl value
--$className to pass className
+- $className to pass className
 - $token to pass token value(Note: without Bearer)
 
 **Syntax**
@@ -582,9 +582,39 @@ mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.ar
 mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.DeleteTicketSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
 ```
 **Asset Health**
+Asset Health Webhook Subscription used to be notified on callback URL about an asset health value above or equal to a threshold
 - Notified when the asset health changed.
 - *\"healthIndexThreshold\"* is a mandatory filter to create a subscription and get notified only when the asset health value changed with a value equals or above this threshold.
 - *\"sitesScope\"* is an optional filter to restrict the notification to a site id list.
+
+#### List asset health subscriptions
+Retrieve all asset health subscriptions currently set
+## Run using bash terminal with arguments that has to be passed
+ - -b to pass baseUrl
+ - -c to pass className 
+ - -t to pass token (Note: without Bearer)
+ 
+ **Syntax**
+ ```bash
+ ./run.sh -c $className -t $token -b $baseUrl
+ ```
+ **Example**
+ ```bash
+ ./run.sh -c GetAssetHealthSubscriptionList -t gfghfxgh -b https://api.exchange.se.com/ecostruxure
+ ```
+ ## Run as maven command with arguments that has to be passed
+ - $baseUrl to pass baseUrl value
+ - $className to pass className
+ - $token to pass token value(Note: without Bearer)
+
+ **Syntax**
+ ```
+ mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl" -Dexec.cleanupDaemonThreads=false
+ ```
+ **Example**
+ ```
+ mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.GetAssetHealthSubscriptionList" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure" -Dexec.cleanupDaemonThreads=false
+ ```
 
 **Site Risk Level**
 - Notified when the site global risk level changed.
