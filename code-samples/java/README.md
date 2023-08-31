@@ -582,6 +582,7 @@ mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.ar
 mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.DeleteTicketSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
 ```
 **Asset Health**
+
 Asset Health Webhook Subscription used to be notified on callback URL about an asset health value above or equal to a threshold
 - Notified when the asset health changed.
 - *\"healthIndexThreshold\"* is a mandatory filter to create a subscription and get notified only when the asset health value changed with a value equals or above this threshold.
