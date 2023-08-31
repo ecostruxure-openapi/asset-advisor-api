@@ -315,7 +315,114 @@ mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.GetAssetDetails" -Dex
 - Access all tickets generated on all assets from all sites.
 - Access all tickets for a given asset of a site.
 - Provide tickets specific details.
+#### Tickets list
+List all Tickets for all Assets and Sites, with different query criteria (date, status, priority) and pagination capability. The current sort criteria used for the tickets is the creation date in descending order.
+## Run using bash terminal with arguments that has to be passed
+- -b to pass baseUrl
+- -c to pass className
+- -t to pass token (Note: without Bearer)
+- -o to pass offset (optional)
+- -p to pass priority (optional)
+- -l to pass limit (optional)
+- -w to pass status(optional)
+- -u to pass createdFrom (optional)
+- -v to pass createdTo (optional)
 
+**Syntax**
+```
+./run.sh -c $className -t $token -b $baseUrl -o $offset -p $priority -l $limit -w $status -u $createdFrom -v $createdTo
+```		
+**Example**
+```bash
+./run.sh -c GetTicketsList -t cvhdgfgdhf -b https://api.exchange.se.com/ecostruxure  -o 2 -p "Medium" -p "Low" -l 2 -w "InProgress" -u "2023-07-10T16:10:04Z" -v "2023-07-30T16:10:04Z"
+```
+## Run as maven command with arguments that has to be passed
+- $baseUrl to pass baseUrl value
+- $className to pass className
+- $token to pass token value(Note: without Bearer)
+- $offset to pass offset (optional)
+- $priority to pass priority (optional)
+- $limit to pass limit (optional)
+- $status to pass status(optional)
+- $createdFrom to pass createdFrom (optional)
+- $createdTo to pass createdTo (optional)
+
+**Syntax**
+```
+mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl  offset=$offset priority=$priority limit=$limit status=$status createdFrom=$createdFrom createdTo=$createdTo" -Dexec.cleanupDaemonThreads=false
+```
+**Example**
+```
+mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.GetTicketsList" -Dexec.args="token=cvhdgfgdhf baseUrl=https://api.exchange.se.com/ecostruxure offset=2 priority=Medium priority=Low limit=3 status=InProgress createdFrom=2023-07-10T16:10:04Z createdTo=2023-07-30T16:10:04Z" -Dexec.cleanupDaemonThreads=false
+```
+#### Assets Tickets
+List all Tickets of a particular Asset within a Site, with the abilitiy to filter by status and pagination capability. The current sort criteria used for the tickets is the creation date in descending order.
+## Run using bash terminal with arguments that has to be passed
+- -b to pass baseUrl
+- -c to pass className
+- -t to pass token (Note: without Bearer)
+- -s to pass siteId
+- -a to pass assetId
+- -o to pass offset (optional)
+- -l to pass limit (optional)
+- -w to pass status (optional)
+
+**Syntax**
+```
+./run.sh -c $className -t $token -b $baseUrl -a $assetId -s $siteId -o $offset -l $limit -w $status
+```		
+**Example**
+```bash
+./run.sh -c GetAssetsTickets -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -a jhxcghxgc-hgfg -s nvbv-564v-hgf5 -o 3 -l 5 -w InProgress
+```
+## Run as maven command with arguments that has to be passed
+- $baseUrl to pass baseUrl value
+- $className to pass className
+- $token to pass token value(Note: without Bearer)
+- $siteId to pass siteId
+- $assetId to pass assetId
+- $offset to pass offset (optional)
+- $limit to pass limit (optional)
+- $status to pass status (optional)
+
+**Syntax**
+```
+mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl assetId=$assetId siteId=$siteId offset=$offset limit=$limit status=$status" -Dexec.cleanupDaemonThreads=false
+```
+**Example**
+```
+mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.GetAssetsTickets" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure assetId=jhxcghxgc-hgfg siteId=nvbv-564v-hgf5 offset=3 limit=5 status=InProgress" -Dexec.cleanupDaemonThreads=false
+```
+#### Ticket details
+Get details of a particular Ticket, including the history of what happened on the ticket.
+## Run using bash terminal with arguments that has to be passed
+- -b to pass baseUrl
+- -c to pass className
+- -t to pass token (Note: without Bearer)
+- -d to pass ticketId
+
+**Syntax**
+```
+./run.sh -c $className -t $token -b $baseUrl -d $ticketId
+```		
+**Example**
+```bash
+./run.sh -c GetTicketDetails -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -d sfghsfg
+```
+## Run as maven command with arguments that has to be passed
+- $baseUrl to pass baseUrl value
+- $className to pass className
+- $token to pass token value(Note: without Bearer)
+- $ticketId to pass ticketId
+
+**Syntax**
+```
+mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl ticketId=$ticketId" -Dexec.cleanupDaemonThreads=false
+```
+**Example**
+```
+mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.GetTicketDetails" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure ticketId=$ticketId" -Dexec.cleanupDaemonThreads=false
+```
 ### Webhook Subscription
 This set of APIs allows the customer to register, update, remove and get webhook subscription to be notified on update on some topics.
 Currently the topics concerning are:
@@ -478,35 +585,6 @@ mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.DeleteTicketSubscript
 - Notified when the asset health changed.
 - *\"healthIndexThreshold\"* is a mandatory filter to create a subscription and get notified only when the asset health value changed with a value equals or above this threshold.
 - *\"sitesScope\"* is an optional filter to restrict the notification to a site id list.
-#### List asset health subscriptions
-Retrieve all asset health subscriptions currently set
-## Run using bash terminal with arguments that has to be passed
-- -b to pass baseUrl
-- -c to pass className
-- -t to pass token (Note: without Bearer)
-## Run using bash terminal with arguments that has to be passed
-
-**Syntax**
-```
-./run.sh -c $className -t $token -b $baseUrl
-```
-**Example**
-```
-./run.sh -c GetAssetHealthSubscriptionList -t gfghfxgh -b https://api.exchange.se.com/ecostruxure
-```
-## Run as maven command with arguments that has to be passed
-- $baseUrl to pass baseUrl value
--$className to pass className
-- $token to pass token value(Note: without Bearer)
-
-**Syntax**
-```
-mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl -Dexec.cleanupDaemonThreads=false
-```
-**Example**
-```
-mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.GetAssetHealthSubscriptionList" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure -Dexec.cleanupDaemonThreads=false
-```
 
 **Site Risk Level**
 - Notified when the site global risk level changed.
