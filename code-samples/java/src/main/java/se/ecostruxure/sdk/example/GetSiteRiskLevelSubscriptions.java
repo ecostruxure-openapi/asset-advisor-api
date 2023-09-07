@@ -1,19 +1,17 @@
-/**
- * 
- */
 package se.ecostruxure.sdk.example;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import se.ecostruxure.sdk.client.TicketWebhookSubscriptionApi;
+import se.ecostruxure.sdk.client.SiteRiskLevelWebhookSubscriptionApi;
 import se.ecostruxure.sdk.invoker.ApiClient;
 
 /**
+ * 
  * @author sannidhi_hegde
  *
  */
-public class GetTicketSubscriptionList {
+public class GetSiteRiskLevelSubscriptions {
 
     private static final String TOKEN_NAME = "token";
     private static final String BASEURL_NAME = "baseUrl";
@@ -49,14 +47,13 @@ public class GetTicketSubscriptionList {
         ApiClient defaultClient = new ApiClient();
         defaultClient.setBasePath(baseUrl);
         defaultClient.setBearerToken(token);
-        TicketWebhookSubscriptionApi apiInsatance = new TicketWebhookSubscriptionApi(defaultClient);
+        SiteRiskLevelWebhookSubscriptionApi apiInstance = new SiteRiskLevelWebhookSubscriptionApi(defaultClient);
         try {
-            System.out.println(apiInsatance.getTicketSubscriptionList());
+            System.out.println(apiInstance.getSiteRiskLevelSubscriptionList());
         } catch (Exception e) {
-            if(e.getLocalizedMessage().contains("401")) {
+            if (e.getLocalizedMessage().contains("401")) {
                 System.out.println(getDetailsError401Message());
-            }
-            else {
+            } else {
                 System.out.println(e.getLocalizedMessage());
             }
         }
@@ -64,26 +61,13 @@ public class GetTicketSubscriptionList {
     /**
      * @return Map<String,Object>
      */
-    private static Map<String,Object> getDetailsError401Message() {
-        Map<String,Object> details = new HashMap<>();
-        details.put("type","/webhooks/subscriptions/ticket");
-        details.put("title","Unauthorized");
-        details.put("status",401);
-        details.put("detail","Access Token Expired");
+    private static Map<String, Object> getDetailsError401Message() {
+        Map<String, Object> details = new HashMap<>();
+        details.put("type", "/webhooks/subscriptions/siterisklevel");
+        details.put("title", "Unauthorized");
+        details.put("status", 401);
+        details.put("detail", "Access Token Expired");
         return details;
-    }
-
-    /**
-     * check the value null.
-     * 
-     * @param arguments
-     * @return
-     */
-    public static Boolean checkNull(String arguments) {
-        if (arguments == null) {
-            return true;
-        }
-        return false;
     }
 
     /**
@@ -104,7 +88,7 @@ public class GetTicketSubscriptionList {
      */
     public static Map<String, Object> getDetailsErrorMessage(String errorMessage) {
         Map<String, Object> details = new HashMap<>();
-        details.put("type", "/webhooks/subscriptions/ticket");
+        details.put("type", "/webhooks/subscriptions/siterisklevel");
         details.put("title", BAD_REQUEST);
         details.put("status", STATUS);
         details.put("detail", errorMessage);
@@ -112,7 +96,21 @@ public class GetTicketSubscriptionList {
     }
 
     /**
+     * check the value null.
+     * 
+     * @param arguments
+     * @return
+     */
+    public static Boolean checkNull(String arguments) {
+        if (arguments == null) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * findArgument.
+     * 
      * @param arr String Array
      * @return
      */

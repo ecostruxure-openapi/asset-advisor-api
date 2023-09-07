@@ -38,7 +38,7 @@ v="$(jdk_version)"
 echo 'java is present'
 
 export CLASSPATH=target/assetadvisor-se-api-1.0.0.jar
-while getopts c:t:b:f:s:a:q:d:o:l:w:p:u:v: flag
+while getopts c:t:b:f:s:a:q: flag
 do
   case "${flag}" in
   c) className=${OPTARG};;
@@ -48,16 +48,10 @@ do
   s) siteId=${OPTARG};;
   a) assetId=${OPTARG};;
   q) subscriptionId=${OPTARG};;
-  d) ticketId=${OPTARG};;
-  o) offset=(${OPTARG});;
-  l) limit=(${OPTARG});;
-  w) status+=(${OPTARG});;
-  p) priority+=(${OPTARG});;
-  u) createdFrom=(${OPTARG});;
-  v) createdTo=(${OPTARG});;
   esac
 done
-if [[ $className != "GetAssetDetails" && $className != "GetAssetsList" && $className != "GetAssetsTreeView" && $className != "GetSiteDetails" && $className != "GetSitesList" && $className != "GetTicketSubscriptionList" &&  $className != "UpdateTicketSubscription"  &&  $className != "DeleteTicketSubscription" && $className != "CreateTicketSubscription" && $className != "GetTicketSubscription" && $className != "GetAssetHealthSubscriptionList" &&  $className != "GetTicketDetails" &&  $className != "GetTicketsList" &&  $className != "GetAssetsTickets"  ]] ; then
+
+if [[ $className != "GetAssetDetails" && $className != "GetAssetsList" && $className != "GetAssetsTreeView" && $className != "GetSiteDetails" && $className != "GetSitesList" && $className != "GetTicketSubscriptionList" &&  $className != "UpdateTicketSubscription"  &&  $className != "DeleteTicketSubscription" && $className != "CreateTicketSubscription" && $className != "GetTicketSubscription" && $className != "DeleteAssetHealthSubscription" && $className != "GetAssetHealthSubscription" && $className != "CreateAssetHealthSubscription" && $className != "GetSiteRiskLevelSubscriptions" && $className != "CreateSiteRiskLevelSubscription" && $className != "UpdateAssetHealthSubscription" ]] ; then
      echo $className 'Not Found, Please Provide Valid Classname.'
     exit 1
 fi
@@ -68,34 +62,12 @@ if [[ $className == "GetSiteDetails" ||  $className == "GetAssetsList"  ||  $cla
      mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl  siteId=$siteId" -Dexec.cleanupDaemonThreads=false
 elif [[ $className == "GetAssetDetails" ]] ; then
     mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl siteId=$siteId assetId=$assetId" -Dexec.cleanupDaemonThreads=false
-elif [[ $className == "GetTicketSubscriptionList" || $className == "DeleteTicketSubscription" ]] ; then
+elif [[ $className == "GetTicketSubscription" || $className == "DeleteTicketSubscription" || $className == "DeleteAssetHealthSubscription" || $className == "GetAssetHealthSubscription" ]] ; then
      mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl subscriptionId=$subscriptionId" -Dexec.cleanupDaemonThreads=false
-elif [[ $className == "UpdateTicketSubscription" ]] ; then 
+elif [[ $className == "UpdateTicketSubscription" || $className == "UpdateAssetHealthSubscription" ]] ; then 
      mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl subscriptionId=$subscriptionId filePath=$filePath" -Dexec.cleanupDaemonThreads=false
-elif [[ $className == "CreateTicketSubscription" ]] ; then
+elif [[ $className == "CreateTicketSubscription" || $className == "CreateAssetHealthSubscription" || $className == "CreateSiteRiskLevelSubscription" ]] ; then
     mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl filePath=$filePath" -Dexec.cleanupDaemonThreads=false
-elif [[ $className == "GetTicketDetails" ]] ; then
-    mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl ticketId=$ticketId" -Dexec.cleanupDaemonThreads=false    
-elif [[ $className == "GetAssetsTickets" ]] ; then
-    # to map status list
-    for status in "${status[@]}"
-    do
-        statusList+=' status='$status
-    done
-    mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl siteId=$siteId assetId=$assetId offset=$offset limit=$limit $statusList" -Dexec.cleanupDaemonThreads=false
-elif [[ $className == "GetTicketsList" ]] ; then
-    # to map status list
-    for status in "${status[@]}"
-    do
-        statusList+=' status='$status
-    done
-    
-    # to map priority list
-    for priority in "${priority[@]}"
-    do
-        priorityList+=' priority='$priority
-    done
-    mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl  offset=$offset limit=$limit $statusList $priorityList createdFrom=$createdFrom createdTo=$createdTo" -Dexec.cleanupDaemonThreads=false
 else
     mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl" -Dexec.cleanupDaemonThreads=false
 fi
