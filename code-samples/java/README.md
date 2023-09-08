@@ -156,7 +156,6 @@ These API enables the following operations:
 - Browse and discover sites and assets information.
 - Provide sites and assets specific details (e.g. risk level, health indexes).
 
-## Run using bash terminal with arguments that has to be passed
 ### Sites
 Browse and discover sites information.
 #### Get Site List
