@@ -1,0 +1,7 @@
+{
+  "callback": "https://example.com/samplewebhook/apiKey",
+  "riskLevelThreshold": 80,
+  "sitesScope": [
+    "0aa61277-9c07-44e5-9317-251417db4a5d"
+  ]
+}

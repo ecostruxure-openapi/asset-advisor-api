@@ -1,0 +1,7 @@
+{
+  "callback": "https://example.com/samplewebhook/apiKey",
+  "healthIndexThreshold": 3,
+  "sitesScope": [
+    "7da3159c-ed7a-41c2-b02f-b97c8be85947"
+  ]
+}
