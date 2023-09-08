@@ -68,7 +68,7 @@ if [[ $className == "GetSiteDetails" ||  $className == "GetAssetsList"  ||  $cla
      mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl  siteId=$siteId" -Dexec.cleanupDaemonThreads=false
 elif [[ $className == "GetAssetDetails" ]] ; then
     mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl siteId=$siteId assetId=$assetId" -Dexec.cleanupDaemonThreads=false
-elif [[ $className == "GetTicketSubscription" || $className == "DeleteTicketSubscription" || $className == "GetAssetHealthSubscription" || $className == "DeleteAssetHealthSubscription" || $className == "GetDetailsSiteRiskLevelSubscription" ]] ; then
+elif [[ $className == "GetTicketSubscription" || $className == "DeleteTicketSubscription" || $className == "GetAssetHealthSubscription" || $className == "DeleteAssetHealthSubscription" || $className == "GetDetailsSiteRiskLevelSubscription" || $className == "DeleteSiteRiskLevelSubscription" ]] ; then
      mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl subscriptionId=$subscriptionId" -Dexec.cleanupDaemonThreads=false
 elif [[ $className == "UpdateTicketSubscription" || $className == "UpdateAssetHealthSubscription" || $className == "UpdateSiteRiskLevelSubscription" ]] ; then 
      mvn exec:java -Dexec.mainClass="se.ecostruxure.sdk.example.$className" -Dexec.args="token=$token baseUrl=$baseUrl subscriptionId=$subscriptionId filePath=$filePath" -Dexec.cleanupDaemonThreads=false
