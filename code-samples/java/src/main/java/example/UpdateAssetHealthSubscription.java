@@ -1,32 +1,26 @@
-package se.ecostruxure.sdk.example;
+package example;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
-import se.ecostruxure.sdk.client.TicketsApi;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import se.ecostruxure.sdk.client.AssetHealthWebhookSubscriptionApi;
 import se.ecostruxure.sdk.invoker.ApiClient;
+import se.ecostruxure.sdk.model.AssetHealthSubscriptionConfig;
 
-/**
- * @author anusha_paras
- */
-public class GetTicketsList {
-    /**
-     * @param args
-     */
+public class UpdateAssetHealthSubscription {
+
     public static void main(String[] args) {
         String token = null;
         String baseUrl = null;
-        Object offset = 0;
-        Object limit = 50;
-        LocalDate now = LocalDate.now();
-        List<String> statusVal = new ArrayList<>();
-        List<String> priority = new ArrayList<>();
-        String createdFrom = now.minusDays(30).toString();
-        String createdTo = now.minusDays(30).toString();
+        String subscriptionId = null;
+        String filePath = null;
+        
         for (int i = 0; i < args.length; i++) {
             String[] arr = args[i].split("=");
             switch (arr[0]) {
@@ -36,35 +30,11 @@ public class GetTicketsList {
             case BASEURL_NAME:
                 baseUrl = findArgument(arr);
                 break;
-            case STATUS_VAL:
-                    statusVal.add(findArgument(arr));
+            case SUBSCRIPTION_ID:
+                subscriptionId = findArgument(arr);
                 break;
-            case PRIORITY:
-                    priority.add(findArgument(arr));
-                break;
-            case OFFSET:
-                Boolean offsetBool = Objects.nonNull(findArgument(arr));
-                if (Boolean.TRUE.equals(offsetBool)) {
-                    offset = findArgument(arr);
-                }
-                break;
-            case LIMIT:
-                Boolean limitBool = Objects.nonNull(findArgument(arr));                
-                if (Boolean.TRUE.equals(limitBool)) {
-                    limit = findArgument(arr);
-                }
-                break;
-            case CREATED_FROM:
-                Boolean createdFromBool = Objects.nonNull(findArgument(arr));
-                if (Boolean.TRUE.equals(createdFromBool)) {
-                    createdFrom = findArgument(arr);
-                }
-                break;
-            case CREATED_TO:
-                Boolean createdToBool = Objects.nonNull(findArgument(arr));
-                if (Boolean.TRUE.equals(createdToBool)) {
-                    createdTo = findArgument(arr);
-                }
+            case FILEPATH_NAME:
+                filePath = findArgument(arr);
                 break;
             default:
                 break;
@@ -79,13 +49,37 @@ public class GetTicketsList {
             statusMessage(BASEURL_NAME);
             return;
         }
+        if (Boolean.TRUE.equals(checkNull(subscriptionId))) {
+            statusMessage(SUBSCRIPTION_ID);
+            return;
+        }
+        if (Boolean.TRUE.equals(checkNull(filePath))) {
+            statusMessage(FILEPATH_NAME);
+            return;
+        }
+        File fileUrl = new File(filePath);
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode rootNode = null;
+        try {
+            rootNode = objectMapper.readTree(fileUrl);         
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
         ApiClient defaultClient = new ApiClient();
         defaultClient.setBasePath(baseUrl);
         defaultClient.setBearerToken(token);
-        TicketsApi apiInstances = new TicketsApi(defaultClient);
+        
+        AssetHealthSubscriptionConfig assetHealthSubscriptionConfig = new AssetHealthSubscriptionConfig();
+        assetHealthSubscriptionConfig.setCallback(rootNode.get("callback"));
+        assetHealthSubscriptionConfig.setHealthIndexThreshold(rootNode.get("healthIndexThreshold"));
+        assetHealthSubscriptionConfig.setSitesScope(rootNode.get("sitesScope"));
+        
+        AssetHealthWebhookSubscriptionApi assetHealthWebhookSubscriptionApi = new AssetHealthWebhookSubscriptionApi(defaultClient);
         try {
-            System.out.println(apiInstances.getTickets(createdFrom, createdTo,
-                    statusVal, priority, offset, limit));
+            System.out.println(assetHealthWebhookSubscriptionApi.putAssetHealthSubscription(subscriptionId, assetHealthSubscriptionConfig));
         } catch (Exception e) {
             if(e.getLocalizedMessage().contains("401")) {
                 System.out.println(getDetailsError401Message());
@@ -95,17 +89,19 @@ public class GetTicketsList {
             }
         }
     }
+    
     /**
      * @return Map<String,Object>
      */
     private static Map<String,Object> getDetailsError401Message() {
         Map<String,Object> details = new HashMap<>();
-        details.put("type","/tickets");
+        details.put("type","/webhooks/subscriptions/assethealth/{subscriptionId}");
         details.put("title","Unauthorized");
-        details.put(STATUS_VAL,401);
+        details.put("status",401);
         details.put("detail","Access Token Expired");
         return details;
     }
+
     /**
      * statusMessage.
      * @param argument
@@ -120,16 +116,15 @@ public class GetTicketsList {
      * @param errorMessage
      * @return Map
      */
-    public static Map<String, Object> getDetailsErrorMessage(
-            String errorMessage) {
-        Map<String, Object> details = new HashMap<>();
-        details.put("type", "/tickets");
-        details.put("title", BAD_REQUEST);
-        details.put(STATUS_VAL, STATUS);
-        details.put("detail", errorMessage);
+    public static Map<String,Object> getDetailsErrorMessage(String errorMessage) {
+        Map<String,Object> details = new HashMap<>();
+        details.put("type","/webhooks/subscriptions/assethealth/{subscriptionId}");
+        details.put("title",BAD_REQUEST);
+        details.put("status",STATUS);
+        details.put("detail",errorMessage);
         return details;
     }
-
+    
     /**
      * check the value null.
      * @param arguments
@@ -154,14 +149,12 @@ public class GetTicketsList {
         }
         return values;
     }
+    
     private static final String TOKEN_NAME = "token";
     private static final String BASEURL_NAME = "baseUrl";
+    private static final String SUBSCRIPTION_ID = "subscriptionId";
+    private static final String FILEPATH_NAME = "filePath";
     private static final String BAD_REQUEST = "Bad Request";
-    private static final String STATUS_VAL = "status";
-    private static final String OFFSET = "offset";
-    private static final String LIMIT = "limit";
-    private static final String PRIORITY = "priority";
-    private static final String CREATED_FROM = "createdFrom";
-    private static final String CREATED_TO = "createdTo";
     private static final Integer STATUS = 400;
+
 }

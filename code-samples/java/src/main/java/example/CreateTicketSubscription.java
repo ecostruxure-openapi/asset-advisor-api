@@ -1,29 +1,41 @@
-package se.ecostruxure.sdk.example;
+/**
+ * 
+ */
+package example;
 
-import java.util.ArrayList;
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
-import se.ecostruxure.sdk.client.TicketsApi;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import se.ecostruxure.sdk.client.TicketWebhookSubscriptionApi;
 import se.ecostruxure.sdk.invoker.ApiClient;
+import se.ecostruxure.sdk.model.TicketSubscriptionConfig;
 
 /**
  * @author anusha_paras
  */
-public class GetAssetsTickets {
+public class CreateTicketSubscription {
+    
     /**
      * @param args
+     * @throws JsonMappingException
+     * @throws JsonParseException
+     * @throws IOException
+     * @throws URISyntaxException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)
+            throws IOException {
         String token = null;
         String baseUrl = null;
-        String siteId = null;
-        String assetId = null;
-        Object offset = 0;
-        Object limit = 50;
-        List<String> statusVal = new ArrayList<>();
+        String filePath = null;
+        ObjectMapper mapperFileReader = new ObjectMapper();
+        TicketSubscriptionConfig ticketSubscriptionConfig = new TicketSubscriptionConfig();
         for (int i = 0; i < args.length; i++) {
             String[] arr = args[i].split("=");
             switch (arr[0]) {
@@ -33,32 +45,14 @@ public class GetAssetsTickets {
             case BASEURL_NAME:
                 baseUrl = findArgument(arr);
                 break;
-            case ASSET_ID:
-                assetId = findArgument(arr);
-                break;
-            case SITE_ID:
-                siteId = findArgument(arr);
-                break;
-            case STATUS_VAL:
-                statusVal.add(findArgument(arr));
-                break;
-            case OFFSET:
-                Boolean offsetBool = Objects.nonNull(findArgument(arr));
-                if (Boolean.TRUE.equals(offsetBool)) {
-                    offset = findArgument(arr);
-                }
-                break;
-            case LIMIT:
-                Boolean limitBool = Objects.nonNull(findArgument(arr));
-                if (Boolean.TRUE.equals(limitBool)) {
-                    limit = findArgument(arr);
-                }
+            case FILEPATH_NAME:
+                filePath = findArgument(arr);
                 break;
             default:
                 break;
             }
         }
-        // To check the null conditions
+
         if (Boolean.TRUE.equals(checkNull(token))) {
             statusMessage(TOKEN_NAME);
             return;
@@ -67,23 +61,23 @@ public class GetAssetsTickets {
             statusMessage(BASEURL_NAME);
             return;
         }
-        if (Boolean.TRUE.equals(checkNull(siteId))) {
-            statusMessage(SITE_ID);
+        if (Boolean.TRUE.equals(checkNull(filePath))) {
+            statusMessage(FILEPATH_NAME);
             return;
         }
-        if (Boolean.TRUE.equals(checkNull(assetId))) {
-            statusMessage(ASSET_ID);
-            return;
-        }
-
         ApiClient defaultClient = new ApiClient();
         defaultClient.setBasePath(baseUrl);
         defaultClient.setBearerToken(token);
-
-        TicketsApi apiInstances = new TicketsApi(defaultClient);
+        TicketSubscriptionConfig readObject = mapperFileReader
+                .readValue(new File(filePath), TicketSubscriptionConfig.class);
+        ticketSubscriptionConfig.setCallback(readObject.getCallback());
+        ticketSubscriptionConfig.setPriority(readObject.getPriority());
+        ticketSubscriptionConfig.setActivity(readObject.getActivity());
+        TicketWebhookSubscriptionApi apiInstance = new TicketWebhookSubscriptionApi(
+                defaultClient);
         try {
-            System.out.println(apiInstances.getAssetsTickets(siteId, assetId,
-                    statusVal, offset, limit));
+            System.out.println(apiInstance
+                    .postTicketSubscription(ticketSubscriptionConfig));
         } catch (Exception e) {
             if(e.getLocalizedMessage().contains("401")) {
                 System.out.println(getDetailsError401Message());
@@ -98,9 +92,9 @@ public class GetAssetsTickets {
      */
     private static Map<String,Object> getDetailsError401Message() {
         Map<String,Object> details = new HashMap<>();
-        details.put("type","/sites/{siteId}/assets/{assetId}/tickets");
+        details.put("type","/webhooks/subscriptions/ticket");
         details.put("title","Unauthorized");
-        details.put(STATUS_VAL,401);
+        details.put("status",401);
         details.put("detail","Access Token Expired");
         return details;
     }
@@ -111,6 +105,7 @@ public class GetAssetsTickets {
      */
     private static void statusMessage(String argument) {
         String errorMessage = null;
+        System.out.println("Status = " + STATUS);
         errorMessage = argument.concat(" cannot be empty");
         System.out.println(getDetailsErrorMessage(errorMessage));
     }
@@ -119,18 +114,17 @@ public class GetAssetsTickets {
      * @param errorMessage
      * @return Map
      */
-    public static Map<String, Object> getDetailsErrorMessage(
-            String errorMessage) {
+    public static Map<String, Object> getDetailsErrorMessage(String errorMessage) {
         Map<String, Object> details = new HashMap<>();
-        details.put("type", "/sites/{siteId}/assets/{assetId}/tickets");
+        details.put("type", "/webhooks/subscriptions/ticket");
         details.put("title", BAD_REQUEST);
-        details.put(STATUS_VAL, STATUS);
+        details.put("status", STATUS);
         details.put("detail", errorMessage);
         return details;
     }
 
+
     /**
-     * check the value null.
      * @param arguments
      * @return
      */
@@ -142,8 +136,7 @@ public class GetAssetsTickets {
     }
 
     /**
-     * findArgument.
-     * @param arr String Array
+     * @param arr
      * @return
      */
     private static String findArgument(String[] arr) {
@@ -153,14 +146,9 @@ public class GetAssetsTickets {
         }
         return values;
     }
-
     private static final String TOKEN_NAME = "token";
     private static final String BASEURL_NAME = "baseUrl";
+    private static final String FILEPATH_NAME = "filePath";
     private static final String BAD_REQUEST = "Bad Request";
-    private static final String SITE_ID = "siteId";
-    private static final String ASSET_ID = "assetId";
-    private static final String STATUS_VAL = "status";
-    private static final String OFFSET = "offset";
-    private static final String LIMIT = "limit";
     private static final Integer STATUS = 400;
 }

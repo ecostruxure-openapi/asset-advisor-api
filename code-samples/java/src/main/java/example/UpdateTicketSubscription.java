@@ -1,21 +1,32 @@
-package se.ecostruxure.sdk.example;
+/**
+ * 
+ */
+package example;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import se.ecostruxure.sdk.client.TicketsApi;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import se.ecostruxure.sdk.client.TicketWebhookSubscriptionApi;
 import se.ecostruxure.sdk.invoker.ApiClient;
+import se.ecostruxure.sdk.model.TicketSubscriptionConfig;
+
 /**
- * @author anusha_paras
+ * @author koustub_mangasuli
+ *
  */
-public class GetTicketDetails {
-    /**
-     * @param args
-     */
+public class UpdateTicketSubscription {
+    
     public static void main(String[] args) {
         String token = null;
         String baseUrl = null;
-        String ticketId = null;
+        String subscriptionId = null;
+        String filePath = null;
         for (int i = 0; i < args.length; i++) {
             String[] arr = args[i].split("=");
             switch (arr[0]) {
@@ -25,9 +36,12 @@ public class GetTicketDetails {
             case BASEURL_NAME:
                 baseUrl = findArgument(arr);
                 break;
-            case TICKET_ID:
-                ticketId = findArgument(arr);
-                break;    
+            case SUBSCRIPTION_ID:
+                subscriptionId = findArgument(arr);
+                break;
+            case FILEPATH_NAME:
+                filePath = findArgument(arr);
+                break;
             default:
                 break;
             }
@@ -41,18 +55,39 @@ public class GetTicketDetails {
             statusMessage(BASEURL_NAME);
             return;
         }
-        if (Boolean.TRUE.equals(checkNull(ticketId))) {
-            statusMessage(TICKET_ID);
+        if (Boolean.TRUE.equals(checkNull(subscriptionId))) {
+            statusMessage(SUBSCRIPTION_ID);
             return;
         }
-        
+        if (Boolean.TRUE.equals(checkNull(filePath))) {
+            statusMessage(FILEPATH_NAME);
+             return;
+         }
+        File fileUrl = new File(filePath);
+        if (!fileUrl.exists()) {
+            System.out.println("The given file path does not Exists");
+            return;
+        }
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode rootNode = null;
+        try {
+            rootNode = objectMapper.readTree(fileUrl);         
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         ApiClient defaultClient = new ApiClient();
         defaultClient.setBasePath(baseUrl);
         defaultClient.setBearerToken(token);
 
-        TicketsApi apiInstances = new TicketsApi(defaultClient);
+        TicketWebhookSubscriptionApi apiInstances = new TicketWebhookSubscriptionApi(defaultClient);
+        TicketSubscriptionConfig ticketSubscriptionConfig = new TicketSubscriptionConfig();
+        ticketSubscriptionConfig.setCallback(rootNode.get("callback"));
+        ticketSubscriptionConfig.setPriority(rootNode.get("priority"));
+        ticketSubscriptionConfig.setActivity(rootNode.get("activity"));
         try {
-            System.out.println(apiInstances.getTicketDetailsWithHttpInfo(ticketId));
+            System.out.println(apiInstances.putTicketSubscription(subscriptionId, ticketSubscriptionConfig));
         } catch (Exception e) {
             if(e.getLocalizedMessage().contains("401")) {
                 System.out.println(getDetailsError401Message());
@@ -67,12 +102,13 @@ public class GetTicketDetails {
      */
     private static Map<String,Object> getDetailsError401Message() {
         Map<String,Object> details = new HashMap<>();
-        details.put("type","/tickets/{ticketId}");
+        details.put("type","/webhooks/subscriptions/ticket");
         details.put("title","Unauthorized");
         details.put("status",401);
         details.put("detail","Access Token Expired");
         return details;
     }
+
     /**
      * statusMessage.
      * @param argument
@@ -89,7 +125,7 @@ public class GetTicketDetails {
      */
     public static Map<String,Object> getDetailsErrorMessage(String errorMessage) {
         Map<String,Object> details = new HashMap<>();
-        details.put("type","/tickets/{ticketId}");
+        details.put("type","/webhooks/subscriptions/ticket");
         details.put("title",BAD_REQUEST);
         details.put("status",STATUS);
         details.put("detail",errorMessage);
@@ -123,7 +159,9 @@ public class GetTicketDetails {
     
     private static final String TOKEN_NAME = "token";
     private static final String BASEURL_NAME = "baseUrl";
+    private static final String SUBSCRIPTION_ID = "subscriptionId";
+    private static final String FILEPATH_NAME = "filePath";
     private static final String BAD_REQUEST = "Bad Request";
-    private static final String TICKET_ID = "ticketId";
     private static final Integer STATUS = 400;
+
 }

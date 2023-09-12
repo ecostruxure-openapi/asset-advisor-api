@@ -1,41 +1,32 @@
-/**
- * 
- */
-package se.ecostruxure.sdk.example;
+package example;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import se.ecostruxure.sdk.client.TicketWebhookSubscriptionApi;
+import se.ecostruxure.sdk.client.TicketsApi;
 import se.ecostruxure.sdk.invoker.ApiClient;
-import se.ecostruxure.sdk.model.TicketSubscriptionConfig;
 
 /**
  * @author anusha_paras
  */
-public class CreateTicketSubscription {
-    
+public class GetTicketsList {
     /**
      * @param args
-     * @throws JsonMappingException
-     * @throws JsonParseException
-     * @throws IOException
-     * @throws URISyntaxException
      */
-    public static void main(String[] args)
-            throws IOException {
+    public static void main(String[] args) {
         String token = null;
         String baseUrl = null;
-        String filePath = null;
-        ObjectMapper mapperFileReader = new ObjectMapper();
-        TicketSubscriptionConfig ticketSubscriptionConfig = new TicketSubscriptionConfig();
+        Object offset = 0;
+        Object limit = 50;
+        LocalDate now = LocalDate.now();
+        List<String> statusVal = new ArrayList<>();
+        List<String> priority = new ArrayList<>();
+        String createdFrom = now.minusDays(30).toString();
+        String createdTo = now.minusDays(30).toString();
         for (int i = 0; i < args.length; i++) {
             String[] arr = args[i].split("=");
             switch (arr[0]) {
@@ -45,14 +36,41 @@ public class CreateTicketSubscription {
             case BASEURL_NAME:
                 baseUrl = findArgument(arr);
                 break;
-            case FILEPATH_NAME:
-                filePath = findArgument(arr);
+            case STATUS_VAL:
+                    statusVal.add(findArgument(arr));
+                break;
+            case PRIORITY:
+                    priority.add(findArgument(arr));
+                break;
+            case OFFSET:
+                Boolean offsetBool = Objects.nonNull(findArgument(arr));
+                if (Boolean.TRUE.equals(offsetBool)) {
+                    offset = findArgument(arr);
+                }
+                break;
+            case LIMIT:
+                Boolean limitBool = Objects.nonNull(findArgument(arr));                
+                if (Boolean.TRUE.equals(limitBool)) {
+                    limit = findArgument(arr);
+                }
+                break;
+            case CREATED_FROM:
+                Boolean createdFromBool = Objects.nonNull(findArgument(arr));
+                if (Boolean.TRUE.equals(createdFromBool)) {
+                    createdFrom = findArgument(arr);
+                }
+                break;
+            case CREATED_TO:
+                Boolean createdToBool = Objects.nonNull(findArgument(arr));
+                if (Boolean.TRUE.equals(createdToBool)) {
+                    createdTo = findArgument(arr);
+                }
                 break;
             default:
                 break;
             }
         }
-
+        // To check the null conditions
         if (Boolean.TRUE.equals(checkNull(token))) {
             statusMessage(TOKEN_NAME);
             return;
@@ -61,23 +79,13 @@ public class CreateTicketSubscription {
             statusMessage(BASEURL_NAME);
             return;
         }
-        if (Boolean.TRUE.equals(checkNull(filePath))) {
-            statusMessage(FILEPATH_NAME);
-            return;
-        }
         ApiClient defaultClient = new ApiClient();
         defaultClient.setBasePath(baseUrl);
         defaultClient.setBearerToken(token);
-        TicketSubscriptionConfig readObject = mapperFileReader
-                .readValue(new File(filePath), TicketSubscriptionConfig.class);
-        ticketSubscriptionConfig.setCallback(readObject.getCallback());
-        ticketSubscriptionConfig.setPriority(readObject.getPriority());
-        ticketSubscriptionConfig.setActivity(readObject.getActivity());
-        TicketWebhookSubscriptionApi apiInstance = new TicketWebhookSubscriptionApi(
-                defaultClient);
+        TicketsApi apiInstances = new TicketsApi(defaultClient);
         try {
-            System.out.println(apiInstance
-                    .postTicketSubscription(ticketSubscriptionConfig));
+            System.out.println(apiInstances.getTickets(createdFrom, createdTo,
+                    statusVal, priority, offset, limit));
         } catch (Exception e) {
             if(e.getLocalizedMessage().contains("401")) {
                 System.out.println(getDetailsError401Message());
@@ -92,20 +100,18 @@ public class CreateTicketSubscription {
      */
     private static Map<String,Object> getDetailsError401Message() {
         Map<String,Object> details = new HashMap<>();
-        details.put("type","/webhooks/subscriptions/ticket");
+        details.put("type","/tickets");
         details.put("title","Unauthorized");
-        details.put("status",401);
+        details.put(STATUS_VAL,401);
         details.put("detail","Access Token Expired");
         return details;
     }
-
     /**
      * statusMessage.
      * @param argument
      */
     private static void statusMessage(String argument) {
         String errorMessage = null;
-        System.out.println("Status = " + STATUS);
         errorMessage = argument.concat(" cannot be empty");
         System.out.println(getDetailsErrorMessage(errorMessage));
     }
@@ -114,17 +120,18 @@ public class CreateTicketSubscription {
      * @param errorMessage
      * @return Map
      */
-    public static Map<String, Object> getDetailsErrorMessage(String errorMessage) {
+    public static Map<String, Object> getDetailsErrorMessage(
+            String errorMessage) {
         Map<String, Object> details = new HashMap<>();
-        details.put("type", "/webhooks/subscriptions/ticket");
+        details.put("type", "/tickets");
         details.put("title", BAD_REQUEST);
-        details.put("status", STATUS);
+        details.put(STATUS_VAL, STATUS);
         details.put("detail", errorMessage);
         return details;
     }
 
-
     /**
+     * check the value null.
      * @param arguments
      * @return
      */
@@ -136,7 +143,8 @@ public class CreateTicketSubscription {
     }
 
     /**
-     * @param arr
+     * findArgument.
+     * @param arr String Array
      * @return
      */
     private static String findArgument(String[] arr) {
@@ -148,7 +156,12 @@ public class CreateTicketSubscription {
     }
     private static final String TOKEN_NAME = "token";
     private static final String BASEURL_NAME = "baseUrl";
-    private static final String FILEPATH_NAME = "filePath";
     private static final String BAD_REQUEST = "Bad Request";
+    private static final String STATUS_VAL = "status";
+    private static final String OFFSET = "offset";
+    private static final String LIMIT = "limit";
+    private static final String PRIORITY = "priority";
+    private static final String CREATED_FROM = "createdFrom";
+    private static final String CREATED_TO = "createdTo";
     private static final Integer STATUS = 400;
 }

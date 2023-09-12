@@ -1,7 +1,7 @@
 /**
  * 
  */
-package se.ecostruxure.sdk.example;
+package example;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -15,11 +15,6 @@ import se.ecostruxure.sdk.invoker.ApiClient;
  */
 public class DeleteSiteRiskLevelSubscription {
 
-    private static final String TOKEN_NAME = "token";
-    private static final String BASEURL_NAME = "baseUrl";
-    private static final String SUBSCRIPTION_ID = "subscriptionId";
-    private static final String BAD_REQUEST = "Bad Request";
-    private static final Integer STATUS = 400;
     /**
      * @param args
      */
@@ -127,7 +122,11 @@ public class DeleteSiteRiskLevelSubscription {
                 values = arr[1];
             }
             return values;
-
         }
 
+        private static final String TOKEN_NAME = "token";
+        private static final String BASEURL_NAME = "baseUrl";
+        private static final String SUBSCRIPTION_ID = "subscriptionId";
+        private static final String BAD_REQUEST = "Bad Request";
+        private static final Integer STATUS = 400;
 }

@@ -1,25 +1,38 @@
-package se.ecostruxure.sdk.example;
+package example;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import se.ecostruxure.sdk.client.AssetHealthWebhookSubscriptionApi;
-import se.ecostruxure.sdk.client.TicketWebhookSubscriptionApi;
-import se.ecostruxure.sdk.invoker.ApiClient;
-import se.ecostruxure.sdk.invoker.auth.HttpBearerAuth;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class DeleteAssetHealthSubscription {
-    private static final String TOKEN_NAME = "token";
-    private static final String BASEURL_NAME = "baseUrl";
-    private static final String SUBSCRIPTION_ID = "subscriptionId";
-    private static final String BAD_REQUEST = "Bad Request";
-    private static final Integer STATUS = 400;
-    
-    public static void main(String[] args) {
+import se.ecostruxure.sdk.client.AssetHealthWebhookSubscriptionApi;
+import se.ecostruxure.sdk.invoker.ApiClient;
+import se.ecostruxure.sdk.model.AssetHealthSubscriptionConfig;
+
+/**
+ * 
+ * @author anusha_paras
+ *
+ */
+public class CreateAssetHealthSubscription {
+
+    /**
+     * @param args
+     * @throws JsonMappingException
+     * @throws JsonParseException
+     * @throws IOException
+     * @throws URISyntaxException
+     */
+    public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
         String token = null;
         String baseUrl = null;
-        String subscriptionId = null;
-        
+        String filePath = null;
+        ObjectMapper mapperReader = new ObjectMapper();
+        AssetHealthSubscriptionConfig assetHealthSubscriptionConfig = new AssetHealthSubscriptionConfig();
         for (int i = 0; i < args.length; i++) {
             String[] arr = args[i].split("=");
             switch (arr[0]) {
@@ -29,8 +42,8 @@ public class DeleteAssetHealthSubscription {
             case BASEURL_NAME:
                 baseUrl = findArgument(arr);
                 break;
-            case SUBSCRIPTION_ID:
-                subscriptionId = findArgument(arr);
+            case FILEPATH_NAME:
+                filePath = findArgument(arr);
                 break;
             default:
                 break;
@@ -44,18 +57,22 @@ public class DeleteAssetHealthSubscription {
             statusMessage(BASEURL_NAME);
             return;
         }
-        if (Boolean.TRUE.equals(checkNull(subscriptionId))) {
-            statusMessage(SUBSCRIPTION_ID);
+        if (Boolean.TRUE.equals(checkNull(filePath))) {
+            statusMessage(FILEPATH_NAME);
             return;
         }
-        
         ApiClient defaultClient = new ApiClient();
         defaultClient.setBasePath(baseUrl);
         defaultClient.setBearerToken(token);
-         
-        AssetHealthWebhookSubscriptionApi assetHealthWebhookSubscriptionApi = new AssetHealthWebhookSubscriptionApi(defaultClient);
+        AssetHealthSubscriptionConfig readFile = mapperReader.readValue(new File(filePath),
+                AssetHealthSubscriptionConfig.class);
+        assetHealthSubscriptionConfig.setCallback(readFile.getCallback());
+        assetHealthSubscriptionConfig.setHealthIndexThreshold(readFile.getHealthIndexThreshold());
+        assetHealthSubscriptionConfig.setSitesScope(readFile.getSitesScope());
+        AssetHealthWebhookSubscriptionApi apiInstance = new AssetHealthWebhookSubscriptionApi(defaultClient);
         try {
-            System.out.println(assetHealthWebhookSubscriptionApi.deleteAssetHealthSubscriptionWithHttpInfo(subscriptionId).getStatusCodeValue());
+
+            System.out.println(apiInstance.postAssetHealthSubscription(assetHealthSubscriptionConfig));
         } catch (Exception e) {
             if (e.getLocalizedMessage().contains("401")) {
                 System.out.println(getDetailsError401Message());
@@ -65,6 +82,7 @@ public class DeleteAssetHealthSubscription {
         }
 
     }
+
     /**
      * @return Map<String,Object>
      */
@@ -76,9 +94,8 @@ public class DeleteAssetHealthSubscription {
         details.put("detail", "Access Token Expired");
         return details;
     }
-    
+
     /**
-     * statusMessage.
      * 
      * @param argument
      */
@@ -90,12 +107,13 @@ public class DeleteAssetHealthSubscription {
     }
 
     /**
+     * 
      * @param errorMessage
-     * @return Map
+     * @return
      */
     public static Map<String, Object> getDetailsErrorMessage(String errorMessage) {
         Map<String, Object> details = new HashMap<>();
-        details.put("type", "/webhooks/subscriptions/assethealth/{subscriptionId}");
+        details.put("type", "/webhooks/subscriptions/assethealth");
         details.put("title", BAD_REQUEST);
         details.put("status", STATUS);
         details.put("detail", errorMessage);
@@ -103,7 +121,6 @@ public class DeleteAssetHealthSubscription {
     }
 
     /**
-     * check the value null.
      * 
      * @param arguments
      * @return
@@ -115,13 +132,22 @@ public class DeleteAssetHealthSubscription {
         return false;
     }
 
+    /**
+     * 
+     * @param arr
+     * @return
+     */
     private static String findArgument(String[] arr) {
         String values = null;
         if (arr.length == 2) {
             values = arr[1];
         }
         return values;
-
     }
+    private static final String TOKEN_NAME = "token";
+    private static final String BASEURL_NAME = "baseUrl";
+    private static final String FILEPATH_NAME = "filePath";
+    private static final String BAD_REQUEST = "Bad Request";
+    private static final Integer STATUS = 400;
 
 }

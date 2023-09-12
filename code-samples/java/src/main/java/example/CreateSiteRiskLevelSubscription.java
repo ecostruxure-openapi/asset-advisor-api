@@ -1,27 +1,36 @@
-package se.ecostruxure.sdk.example;
+package example;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 import se.ecostruxure.sdk.client.SiteRiskLevelWebhookSubscriptionApi;
 import se.ecostruxure.sdk.invoker.ApiClient;
+import se.ecostruxure.sdk.model.SiteRiskLevelSubscriptionConfig;
 
 /**
  * 
  * @author sannidhi_hegde
  *
  */
-public class GetSiteRiskLevelSubscriptions {
 
-    private static final String TOKEN_NAME = "token";
-    private static final String BASEURL_NAME = "baseUrl";
-    private static final String BAD_REQUEST = "Bad Request";
-    private static final Integer STATUS = 400;
+public class CreateSiteRiskLevelSubscription {
 
-    public static void main(String[] args) {
-
+    /**
+     * @param args
+     * @throws JsonMappingException
+     * @throws JsonParseException
+     * @throws IOException
+     * @throws URISyntaxException
+     */
+    public static void main(String[] args) throws IOException {
+        
         String token = null;
         String baseUrl = null;
+        String filePath = null;
+        ObjectMapper mapperFileReader = new ObjectMapper();
+        SiteRiskLevelSubscriptionConfig siteRiskLevelSubscriptionConfig = new SiteRiskLevelSubscriptionConfig();
         for (int i = 0; i < args.length; i++) {
             String[] arr = args[i].split("=");
             switch (arr[0]) {
@@ -30,6 +39,9 @@ public class GetSiteRiskLevelSubscriptions {
                 break;
             case BASEURL_NAME:
                 baseUrl = findArgument(arr);
+                break;
+            case FILEPATH_NAME:
+                filePath = findArgument(arr);
                 break;
             default:
                 break;
@@ -44,35 +56,48 @@ public class GetSiteRiskLevelSubscriptions {
             statusMessage(BASEURL_NAME);
             return;
         }
+        if (Boolean.TRUE.equals(checkNull(filePath))) {
+            statusMessage(FILEPATH_NAME);
+            return;
+        }
         ApiClient defaultClient = new ApiClient();
         defaultClient.setBasePath(baseUrl);
         defaultClient.setBearerToken(token);
+        
+        SiteRiskLevelSubscriptionConfig readObject = mapperFileReader
+                .readValue(new File(filePath), SiteRiskLevelSubscriptionConfig.class);
+        siteRiskLevelSubscriptionConfig.setCallback(readObject.getCallback());
+        siteRiskLevelSubscriptionConfig.setRiskLevelThreshold(readObject.getRiskLevelThreshold());
+        siteRiskLevelSubscriptionConfig.setSitesScope(readObject.getSitesScope());
+        
         SiteRiskLevelWebhookSubscriptionApi apiInstance = new SiteRiskLevelWebhookSubscriptionApi(defaultClient);
+        
         try {
-            System.out.println(apiInstance.getSiteRiskLevelSubscriptionList());
+            System.out.println(apiInstance.postSiteRiskLevelSubscription(siteRiskLevelSubscriptionConfig));
         } catch (Exception e) {
-            if (e.getLocalizedMessage().contains("401")) {
+            if(e.getLocalizedMessage().contains("401")) {
                 System.out.println(getDetailsError401Message());
-            } else {
+            }
+            else {
                 System.out.println(e.getLocalizedMessage());
             }
         }
     }
+    
     /**
      * @return Map<String,Object>
      */
-    private static Map<String, Object> getDetailsError401Message() {
-        Map<String, Object> details = new HashMap<>();
-        details.put("type", "/webhooks/subscriptions/siterisklevel");
-        details.put("title", "Unauthorized");
-        details.put("status", 401);
-        details.put("detail", "Access Token Expired");
+    private static Map<String,Object> getDetailsError401Message() {
+        Map<String,Object> details = new HashMap<>();
+        details.put("type","/webhooks/subscriptions/siterisklevel");
+        details.put("title","Unauthorized");
+        details.put("status",401);
+        details.put("detail","Access Token Expired");
         return details;
     }
 
     /**
      * statusMessage.
-     * 
      * @param argument
      */
     private static void statusMessage(String argument) {
@@ -95,9 +120,8 @@ public class GetSiteRiskLevelSubscriptions {
         return details;
     }
 
+
     /**
-     * check the value null.
-     * 
      * @param arguments
      * @return
      */
@@ -109,9 +133,7 @@ public class GetSiteRiskLevelSubscriptions {
     }
 
     /**
-     * findArgument.
-     * 
-     * @param arr String Array
+     * @param arr
      * @return
      */
     private static String findArgument(String[] arr) {
@@ -121,4 +143,10 @@ public class GetSiteRiskLevelSubscriptions {
         }
         return values;
     }
+    private static final String TOKEN_NAME = "token";
+    private static final String BASEURL_NAME = "baseUrl";
+    private static final String FILEPATH_NAME = "filePath";
+    private static final String BAD_REQUEST = "Bad Request";
+    private static final Integer STATUS = 400;
+
 }

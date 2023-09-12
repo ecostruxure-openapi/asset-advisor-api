@@ -1,4 +1,4 @@
-package se.ecostruxure.sdk.example;
+package example;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,12 +8,6 @@ import se.ecostruxure.sdk.invoker.ApiClient;
 import se.ecostruxure.sdk.invoker.auth.HttpBearerAuth;
 
 public class DeleteTicketSubscription {
-
-    private static final String TOKEN_NAME = "token";
-    private static final String BASEURL_NAME = "baseUrl";
-    private static final String SUBSCRIPTION_ID = "subscriptionId";
-    private static final String BAD_REQUEST = "Bad Request";
-    private static final Integer STATUS = 400;
 
     public static void main(String[] args) {
 
@@ -124,6 +118,11 @@ public class DeleteTicketSubscription {
             values = arr[1];
         }
         return values;
-
     }
+
+    private static final String TOKEN_NAME = "token";
+    private static final String BASEURL_NAME = "baseUrl";
+    private static final String SUBSCRIPTION_ID = "subscriptionId";
+    private static final String BAD_REQUEST = "Bad Request";
+    private static final Integer STATUS = 400;
 }

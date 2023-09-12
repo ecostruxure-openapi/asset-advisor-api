@@ -1,7 +1,4 @@
-/**
- * 
- */
-package se.ecostruxure.sdk.example;
+package example;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,21 +9,18 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import se.ecostruxure.sdk.client.TicketWebhookSubscriptionApi;
+import se.ecostruxure.sdk.client.SiteRiskLevelWebhookSubscriptionApi;
 import se.ecostruxure.sdk.invoker.ApiClient;
-import se.ecostruxure.sdk.model.TicketSubscriptionConfig;
+import se.ecostruxure.sdk.model.SiteRiskLevelSubscriptionConfig;
 
-/**
- * @author koustub_mangasuli
- *
- */
-public class UpdateTicketSubscription {
-    
+public class UpdateSiteRiskLevelSubscription {
+
     public static void main(String[] args) {
         String token = null;
         String baseUrl = null;
         String subscriptionId = null;
         String filePath = null;
+        
         for (int i = 0; i < args.length; i++) {
             String[] arr = args[i].split("=");
             switch (arr[0]) {
@@ -61,13 +55,9 @@ public class UpdateTicketSubscription {
         }
         if (Boolean.TRUE.equals(checkNull(filePath))) {
             statusMessage(FILEPATH_NAME);
-             return;
-         }
-        File fileUrl = new File(filePath);
-        if (!fileUrl.exists()) {
-            System.out.println("The given file path does not Exists");
             return;
         }
+        File fileUrl = new File(filePath);
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode rootNode = null;
         try {
@@ -77,17 +67,19 @@ public class UpdateTicketSubscription {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
         ApiClient defaultClient = new ApiClient();
         defaultClient.setBasePath(baseUrl);
         defaultClient.setBearerToken(token);
-
-        TicketWebhookSubscriptionApi apiInstances = new TicketWebhookSubscriptionApi(defaultClient);
-        TicketSubscriptionConfig ticketSubscriptionConfig = new TicketSubscriptionConfig();
-        ticketSubscriptionConfig.setCallback(rootNode.get("callback"));
-        ticketSubscriptionConfig.setPriority(rootNode.get("priority"));
-        ticketSubscriptionConfig.setActivity(rootNode.get("activity"));
+        
+        SiteRiskLevelSubscriptionConfig siteRiskLevelSubscriptionConfig = new SiteRiskLevelSubscriptionConfig();
+        siteRiskLevelSubscriptionConfig.setCallback(rootNode.get("callback"));
+        siteRiskLevelSubscriptionConfig.setRiskLevelThreshold(rootNode.get("riskLevelThreshold"));
+        siteRiskLevelSubscriptionConfig.setSitesScope(rootNode.get("sitesScope"));
+        
+        SiteRiskLevelWebhookSubscriptionApi apiInstance = new SiteRiskLevelWebhookSubscriptionApi(defaultClient);
         try {
-            System.out.println(apiInstances.putTicketSubscription(subscriptionId, ticketSubscriptionConfig));
+            System.out.println(apiInstance.putSiteRiskLevelSubscription(subscriptionId, siteRiskLevelSubscriptionConfig));
         } catch (Exception e) {
             if(e.getLocalizedMessage().contains("401")) {
                 System.out.println(getDetailsError401Message());
@@ -96,13 +88,15 @@ public class UpdateTicketSubscription {
                 System.out.println(e.getLocalizedMessage());
             }
         }
+
     }
+    
     /**
      * @return Map<String,Object>
      */
     private static Map<String,Object> getDetailsError401Message() {
         Map<String,Object> details = new HashMap<>();
-        details.put("type","/webhooks/subscriptions/ticket");
+        details.put("type","/webhooks/subscriptions/siterisklevel/"+SUBSCRIPTION_ID);
         details.put("title","Unauthorized");
         details.put("status",401);
         details.put("detail","Access Token Expired");
@@ -125,7 +119,7 @@ public class UpdateTicketSubscription {
      */
     public static Map<String,Object> getDetailsErrorMessage(String errorMessage) {
         Map<String,Object> details = new HashMap<>();
-        details.put("type","/webhooks/subscriptions/ticket");
+        details.put("type","/webhooks/subscriptions/siterisklevel/"+SUBSCRIPTION_ID);
         details.put("title",BAD_REQUEST);
         details.put("status",STATUS);
         details.put("detail",errorMessage);

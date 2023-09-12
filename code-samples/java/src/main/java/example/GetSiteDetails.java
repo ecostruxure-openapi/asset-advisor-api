@@ -1,20 +1,19 @@
-package se.ecostruxure.sdk.example;
-
+package example;
+import se.ecostruxure.sdk.invoker.*;
+import se.ecostruxure.sdk.invoker.auth.HttpBearerAuth;
+import se.ecostruxure.sdk.client.SitesApi;
 import java.util.HashMap;
 import java.util.Map;
-
-import se.ecostruxure.sdk.client.AssetHealthWebhookSubscriptionApi;
-import se.ecostruxure.sdk.invoker.ApiClient;
-
 /**
  * 
  * @author anusha_paras
  *
  */
-public class GetAssetHealthSubscriptionList {
+public class GetSiteDetails {
     public static void main(String[] args) {
         String token = null;
-        String baseUrl = null;
+        String baseUrl = null; 
+        String siteId = null;
         for (int i=0;i<args.length;i++) {
             String[] arr = args[i].split("=");            
             switch(arr[0]) {
@@ -24,10 +23,13 @@ public class GetAssetHealthSubscriptionList {
             case BASEURL_NAME:
                 baseUrl = findArgument(arr);
                 break;
+            case SITE_ID:
+                siteId = findArgument(arr);
+                break;
             default: break;
             }
-        }
-        //To check the null conditions
+         }
+        //To check the null conditions.
         if (Boolean.TRUE.equals(checkNull(token))) {
             statusMessage(TOKEN_NAME);
             return;
@@ -36,43 +38,25 @@ public class GetAssetHealthSubscriptionList {
            statusMessage(BASEURL_NAME);
            return;
        }
-       ApiClient defaultClient = new ApiClient();
-       defaultClient.setBasePath(baseUrl);
-       defaultClient.setBearerToken(token);
-       AssetHealthWebhookSubscriptionApi assetHealthApiInstance = new AssetHealthWebhookSubscriptionApi(defaultClient);
-       try {
-           System.out.println(assetHealthApiInstance.getAssetHealthSubscriptionList());
-       } catch (Exception e) {
-           if(e.getLocalizedMessage().contains("401")) {
-               System.out.println(getDetailsError401Message());
-           }
-           else {
-               System.out.println(e.getLocalizedMessage());
-           }
+       if (Boolean.TRUE.equals(checkNull(siteId))) {
+           statusMessage(SITE_ID);
+           return;
        }
-    }
-    /**
-     * @return Map<String,Object>
-     */
-    private static Map<String,Object> getDetailsError401Message() {
-        Map<String,Object> details = new HashMap<>();
-        details.put("type","/webhooks/subscriptions/assethealth");
-        details.put("title","Unauthorized");
-        details.put("status",401);
-        details.put("detail","Access Token Expired");
-        return details;
-    }
-    /**
-     * findArgument.
-     * @param arr String Array
-     * @return
-     */
-    private static String findArgument(String[] arr) {
-        String values = null;
-        if (arr.length == 2) {
-            values = arr[1];
+        ApiClient defaultClient = new ApiClient();
+        defaultClient.setBasePath(baseUrl);
+        // Configure HTTP bearer authorization: PersonalAccessToken
+        defaultClient.setBearerToken(token);
+        SitesApi apiInstance = new SitesApi(defaultClient);
+        try {
+            System.out.println(apiInstance.getSiteDetails(siteId));
+        } catch (Exception e) {
+            if(e.getLocalizedMessage().contains("401")) {
+                System.out.println(getDetailsError401Message());
+            }
+            else {
+                System.out.println(e.getLocalizedMessage());
+            }
         }
-        return values;
     }
     /**
      * check the value null.
@@ -84,6 +68,19 @@ public class GetAssetHealthSubscriptionList {
             return true;
         }
        return false;
+    }
+    
+    /**
+     * findArgument.
+     * @param arr String Array
+     * @return
+     */
+    private static String findArgument(String[] arr) {
+        String values = null;
+        if (arr.length == 2) {
+            values = arr[1];
+        }
+        return values;
     }
     /**
      * statusMessage.
@@ -102,14 +99,26 @@ public class GetAssetHealthSubscriptionList {
      */
     public static Map<String,Object> getDetailsErrorMessage(String errorMessage) {
         Map<String,Object> details = new HashMap<>();
-        details.put("type","/webhooks/subscriptions/assethealth");
+        details.put("type","/sites/{siteId}");
         details.put("title",BAD_REQUEST);
         details.put("status",STATUS);
         details.put("detail",errorMessage);
         return details;
     }
+    /**
+     * @return Map<String,Object>
+     */
+    private static Map<String,Object> getDetailsError401Message() {
+        Map<String,Object> details = new HashMap<>();
+        details.put("type","/sites/{siteId}");
+        details.put("title","Unauthorized");
+        details.put("status",401);
+        details.put("detail","Access Token Expired");
+        return details;
+    }
     private static final String TOKEN_NAME = "token";
     private static final String BASEURL_NAME = "baseUrl";
+    private static final String SITE_ID = "siteId";
     private static final String BAD_REQUEST = "Bad Request";
     private static final Integer STATUS = 400;
 }

@@ -1,27 +1,29 @@
-/**
- * 
- */
-package se.ecostruxure.sdk.example;
+package example;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
-import se.ecostruxure.sdk.client.AssetHealthWebhookSubscriptionApi;
+import se.ecostruxure.sdk.client.TicketsApi;
 import se.ecostruxure.sdk.invoker.ApiClient;
 
 /**
- * @author sannidhi_hegde
- *
+ * @author anusha_paras
  */
-public class GetAssetHealthSubscription {
-
+public class GetAssetsTickets {
     /**
      * @param args
      */
     public static void main(String[] args) {
         String token = null;
         String baseUrl = null;
-        String subscriptionId = null;
+        String siteId = null;
+        String assetId = null;
+        Object offset = 0;
+        Object limit = 50;
+        List<String> statusVal = new ArrayList<>();
         for (int i = 0; i < args.length; i++) {
             String[] arr = args[i].split("=");
             switch (arr[0]) {
@@ -31,8 +33,26 @@ public class GetAssetHealthSubscription {
             case BASEURL_NAME:
                 baseUrl = findArgument(arr);
                 break;
-            case SUBSCRIPTION_ID:
-                subscriptionId = findArgument(arr);
+            case ASSET_ID:
+                assetId = findArgument(arr);
+                break;
+            case SITE_ID:
+                siteId = findArgument(arr);
+                break;
+            case STATUS_VAL:
+                statusVal.add(findArgument(arr));
+                break;
+            case OFFSET:
+                Boolean offsetBool = Objects.nonNull(findArgument(arr));
+                if (Boolean.TRUE.equals(offsetBool)) {
+                    offset = findArgument(arr);
+                }
+                break;
+            case LIMIT:
+                Boolean limitBool = Objects.nonNull(findArgument(arr));
+                if (Boolean.TRUE.equals(limitBool)) {
+                    limit = findArgument(arr);
+                }
                 break;
             default:
                 break;
@@ -47,41 +67,46 @@ public class GetAssetHealthSubscription {
             statusMessage(BASEURL_NAME);
             return;
         }
-        if (Boolean.TRUE.equals(checkNull(subscriptionId))) {
-            statusMessage(SUBSCRIPTION_ID);
+        if (Boolean.TRUE.equals(checkNull(siteId))) {
+            statusMessage(SITE_ID);
             return;
         }
+        if (Boolean.TRUE.equals(checkNull(assetId))) {
+            statusMessage(ASSET_ID);
+            return;
+        }
+
         ApiClient defaultClient = new ApiClient();
         defaultClient.setBasePath(baseUrl);
         defaultClient.setBearerToken(token);
 
-        AssetHealthWebhookSubscriptionApi apiInstance = new AssetHealthWebhookSubscriptionApi(defaultClient);
+        TicketsApi apiInstances = new TicketsApi(defaultClient);
         try {
-            System.out.println(apiInstance.getAssetHealthSubscription(subscriptionId));
+            System.out.println(apiInstances.getAssetsTickets(siteId, assetId,
+                    statusVal, offset, limit));
         } catch (Exception e) {
-            if (e.getLocalizedMessage().contains("401")) {
+            if(e.getLocalizedMessage().contains("401")) {
                 System.out.println(getDetailsError401Message());
-            } else {
+            }
+            else {
                 System.out.println(e.getLocalizedMessage());
             }
         }
-
     }
     /**
      * @return Map<String,Object>
      */
-    private static Map<String, Object> getDetailsError401Message() {
-        Map<String, Object> details = new HashMap<>();
-        details.put("type", "/webhooks/subscriptions/assethealth/{subscriptionId}");
-        details.put("title", "Unauthorized");
-        details.put("status", 401);
-        details.put("detail", "Access Token Expired");
+    private static Map<String,Object> getDetailsError401Message() {
+        Map<String,Object> details = new HashMap<>();
+        details.put("type","/sites/{siteId}/assets/{assetId}/tickets");
+        details.put("title","Unauthorized");
+        details.put(STATUS_VAL,401);
+        details.put("detail","Access Token Expired");
         return details;
     }
 
     /**
      * statusMessage.
-     * 
      * @param argument
      */
     private static void statusMessage(String argument) {
@@ -94,18 +119,18 @@ public class GetAssetHealthSubscription {
      * @param errorMessage
      * @return Map
      */
-    public static Map<String, Object> getDetailsErrorMessage(String errorMessage) {
+    public static Map<String, Object> getDetailsErrorMessage(
+            String errorMessage) {
         Map<String, Object> details = new HashMap<>();
-        details.put("type", "/webhooks/subscriptions/ticket/{subscriptionId}");
+        details.put("type", "/sites/{siteId}/assets/{assetId}/tickets");
         details.put("title", BAD_REQUEST);
-        details.put("status", STATUS);
+        details.put(STATUS_VAL, STATUS);
         details.put("detail", errorMessage);
         return details;
     }
 
     /**
      * check the value null.
-     * 
      * @param arguments
      * @return
      */
@@ -118,7 +143,6 @@ public class GetAssetHealthSubscription {
 
     /**
      * findArgument.
-     * 
      * @param arr String Array
      * @return
      */
@@ -132,8 +156,11 @@ public class GetAssetHealthSubscription {
 
     private static final String TOKEN_NAME = "token";
     private static final String BASEURL_NAME = "baseUrl";
-    private static final String SUBSCRIPTION_ID = "subscriptionId";
     private static final String BAD_REQUEST = "Bad Request";
+    private static final String SITE_ID = "siteId";
+    private static final String ASSET_ID = "assetId";
+    private static final String STATUS_VAL = "status";
+    private static final String OFFSET = "offset";
+    private static final String LIMIT = "limit";
     private static final Integer STATUS = 400;
-
 }
