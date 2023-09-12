@@ -314,7 +314,7 @@ List all Tickets for all Assets and Sites, with different query criteria (date, 
  ```		
  **Example**
  ```bash
- ./run.sh -c GetTicketsList -t cvhdgfgdhf -b https://api.exchange.se.com/ecostruxure  -o 2 -p "Low" -l 2 -w "InProgress" -u "2023-07-10T16:10:04Z" -v "2023-07-30T16:10:04Z"
+ ./run.sh -c GetTicketsList -t cvhdgfgdhf -b https://api.exchange.se.com/ecostruxure  -o 2 -p "Medium" -p "Low" -l 2 -w "InProgress" -u "2023-07-10T16:10:04Z" -v "2023-07-30T16:10:04Z"
  ```
  ## Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
@@ -794,7 +794,7 @@ Retrieve details of a site risk level subscription in Asset Advisor, including i
  ```
  **Example**
  ```bash
- ./run.sh -c GetSiteRiskLevelSubscriptions -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -q "30err"
+ ./run.sh -c GetSiteRiskLevelSubscriptionDetails -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -q "30err"
  ```
  ## Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
@@ -808,7 +808,7 @@ Retrieve details of a site risk level subscription in Asset Advisor, including i
  ```
  **Example**
  ```
- mvn exec:java -Dexec.mainClass="example.GetDetailsSiteRiskLevelSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
+ mvn exec:java -Dexec.mainClass="example.GetSiteRiskLevelSubscriptionDetails" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
  ```
 #### Update site risk level subscription
 Update a site risk level subscription in Asset Advisor, including information such as callback, sitesScope and riskLevelThreshold.
@@ -866,13 +866,11 @@ Delete a site risk level subscription in Asset Advisor.
 
  **Syntax**
  ```
- mvn exec:java -Dexec.mainClass="example.$className" -Dexec.args="token=$token baseUrl=$baseUrl filePath=$filePath subscriptionId=$subscriptionId" -Dexec.cleanupDaemonThreads=false
+ mvn exec:java -Dexec.mainClass="example.$className" -Dexec.args="token=$token baseUrl=$baseUrl subscriptionId=$subscriptionId" -Dexec.cleanupDaemonThreads=false
  ```
  **Example**
  ```
- mvn exec:java -Dexec.mainClass="example.DeleteSiteRiskLevelSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure filePath=path/file/filename.json subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
+ mvn exec:java -Dexec.mainClass="example.DeleteSiteRiskLevelSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
  ```
- 
 
-  
  

@@ -6,7 +6,7 @@ import java.util.Map;
 import se.ecostruxure.sdk.client.SiteRiskLevelWebhookSubscriptionApi;
 import se.ecostruxure.sdk.invoker.ApiClient;
 
-public class GetDetailsSiteRiskLevelSubscription {
+public class GetSiteRiskLevelSubscriptionDetails {
 
     public static void main(String[] args) {
         String token = null;
