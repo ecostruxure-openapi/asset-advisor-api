@@ -60,13 +60,8 @@ public class GetAssetDetails {
         AssetsApi assetapiInstance = new AssetsApi(defaultClient);
         try {
             System.out.println(assetapiInstance.getAssetDetails(siteId, assetId));
-        } catch (Exception e) {
-            if(e.getLocalizedMessage().contains("401")) {
-                System.out.println(getDetailsError401Message());
-            }
-            else {
-                System.out.println(e.getLocalizedMessage());
-            }
+        }catch (Exception e) {
+            System.out.println(e.getLocalizedMessage());
         }
     }
     /**
@@ -92,17 +87,7 @@ public class GetAssetDetails {
         details.put("detail",errorMessage);
         return details;
     }
-    /**
-     * @return Map<String,Object>
-     */
-    private static Map<String,Object> getDetailsError401Message() {
-        Map<String,Object> details = new HashMap<>();
-        details.put("type","/sites/{siteId}/assets/{assetId}");
-        details.put("title","Unauthorized");
-        details.put("status",401);
-        details.put("detail","Access Token Expired");
-        return details;
-    }
+   
     /**
      * check the value null.
      * @param arguments

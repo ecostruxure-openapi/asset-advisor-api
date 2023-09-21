@@ -4,17 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 import se.ecostruxure.sdk.client.AssetHealthWebhookSubscriptionApi;
-import se.ecostruxure.sdk.client.TicketWebhookSubscriptionApi;
 import se.ecostruxure.sdk.invoker.ApiClient;
-import se.ecostruxure.sdk.invoker.auth.HttpBearerAuth;
 
 public class DeleteAssetHealthSubscription {
-    
+
     public static void main(String[] args) {
         String token = null;
         String baseUrl = null;
         String subscriptionId = null;
-        
+
         for (int i = 0; i < args.length; i++) {
             String[] arr = args[i].split("=");
             switch (arr[0]) {
@@ -43,35 +41,22 @@ public class DeleteAssetHealthSubscription {
             statusMessage(SUBSCRIPTION_ID);
             return;
         }
-        
+
         ApiClient defaultClient = new ApiClient();
         defaultClient.setBasePath(baseUrl);
         defaultClient.setBearerToken(token);
-         
-        AssetHealthWebhookSubscriptionApi assetHealthWebhookSubscriptionApi = new AssetHealthWebhookSubscriptionApi(defaultClient);
+
+        AssetHealthWebhookSubscriptionApi assetHealthWebhookSubscriptionApi = new AssetHealthWebhookSubscriptionApi(
+                defaultClient);
         try {
-            System.out.println(assetHealthWebhookSubscriptionApi.deleteAssetHealthSubscriptionWithHttpInfo(subscriptionId).getStatusCodeValue());
+            System.out.println(assetHealthWebhookSubscriptionApi
+                    .deleteAssetHealthSubscriptionWithHttpInfo(subscriptionId).getStatusCodeValue());
         } catch (Exception e) {
-            if (e.getLocalizedMessage().contains("401")) {
-                System.out.println(getDetailsError401Message());
-            } else {
-                System.out.println(e.getLocalizedMessage());
-            }
+            System.out.println(e.getLocalizedMessage());
         }
 
     }
-    /**
-     * @return Map<String,Object>
-     */
-    private static Map<String, Object> getDetailsError401Message() {
-        Map<String, Object> details = new HashMap<>();
-        details.put("type", "/webhooks/subscriptions/assethealth");
-        details.put("title", "Unauthorized");
-        details.put("status", 401);
-        details.put("detail", "Access Token Expired");
-        return details;
-    }
-    
+
     /**
      * statusMessage.
      * 

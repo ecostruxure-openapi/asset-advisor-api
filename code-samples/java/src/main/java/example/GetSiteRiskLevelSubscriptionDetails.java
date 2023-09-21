@@ -50,27 +50,11 @@ public class GetSiteRiskLevelSubscriptionDetails {
         try {
             System.out.println(apiInstance.getSiteRiskLevelSubscription(subscriptionId));
         } catch (Exception e) {
-            if(e.getLocalizedMessage().contains("401")) {
-                System.out.println(getDetailsError401Message());
-            }
-            else {
-                System.out.println(e.getLocalizedMessage());
-            }
+            System.out.println(e.getLocalizedMessage());
         }
        
     }
     
-    /**
-     * @return Map<String,Object>
-     */
-    private static Map<String,Object> getDetailsError401Message() {
-        Map<String,Object> details = new HashMap<>();
-        details.put("type","/webhooks/subscriptions/siterisklevel/"+SUBSCRIPTION_ID);
-        details.put("title","Unauthorized");
-        details.put("status",401);
-        details.put("detail","Access Token Expired");
-        return details;
-    }
     
     /**
      * statusMessage.

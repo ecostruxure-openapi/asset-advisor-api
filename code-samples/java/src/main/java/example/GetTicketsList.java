@@ -87,25 +87,10 @@ public class GetTicketsList {
             System.out.println(apiInstances.getTickets(createdFrom, createdTo,
                     statusVal, priority, offset, limit));
         } catch (Exception e) {
-            if(e.getLocalizedMessage().contains("401")) {
-                System.out.println(getDetailsError401Message());
-            }
-            else {
-                System.out.println(e.getLocalizedMessage());
-            }
+        System.out.println(e.getLocalizedMessage());
         }
     }
-    /**
-     * @return Map<String,Object>
-     */
-    private static Map<String,Object> getDetailsError401Message() {
-        Map<String,Object> details = new HashMap<>();
-        details.put("type","/tickets");
-        details.put("title","Unauthorized");
-        details.put(STATUS_VAL,401);
-        details.put("detail","Access Token Expired");
-        return details;
-    }
+
     /**
      * statusMessage.
      * @param argument

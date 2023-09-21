@@ -2,9 +2,9 @@ package example;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import se.ecostruxure.sdk.client.AssetsApi;
 import se.ecostruxure.sdk.invoker.ApiClient;
-import se.ecostruxure.sdk.invoker.auth.HttpBearerAuth;
 /**
  * 
  * @author anusha_paras
@@ -52,12 +52,7 @@ public class GetAssetsTreeView {
         try {
             System.out.println(assetapiInstance.getAssetsTree(siteId));
         } catch (Exception e) {
-            if(e.getLocalizedMessage().contains("401")) {
-                System.out.println(getDetailsError401Message());
-            }
-            else {
-                System.out.println(e.getLocalizedMessage());
-            }
+            System.out.println(e.getLocalizedMessage());
         }
     }
 
@@ -95,17 +90,7 @@ public class GetAssetsTreeView {
         details.put("detail",errorMessage);
         return details;
     }
-    /**
-     * @return Map<String,Object>
-     */
-    private static Map<String,Object> getDetailsError401Message() {
-        Map<String,Object> details = new HashMap<>();
-        details.put("type","/sites/{siteId}/assets/treeview");
-        details.put("title","Unauthorized");
-        details.put("status",401);
-        details.put("detail","Access Token Expired");
-        return details;
-    }
+  
     /**
      * findArgument.
      * @param arr String Array

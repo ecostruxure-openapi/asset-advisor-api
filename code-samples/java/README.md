@@ -133,15 +133,15 @@ This API is a trial version available free of charge for selected customers and 
 ## API overview and usage
 These API enables the following operations:
 
-**Sites and Assets**
+# Sites and Assets
 - Browse and discover sites and assets information.
 - Provide sites and assets specific details (e.g. risk level, health indexes).
 
-### Sites
+# Sites
 Browse and discover sites information.
-#### Get Sites List
+## Sites List
 List all your Sites registered in Asset Advisor, including basic information such as ID, name, address, and location.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className 
  - -t to pass token (Note: without Bearer)
@@ -154,7 +154,7 @@ List all your Sites registered in Asset Advisor, including basic information suc
  ```bash
  ./run.sh -c GetSitesList -t gfghfxgh -b https://api.exchange.se.com/ecostruxure
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -167,9 +167,9 @@ List all your Sites registered in Asset Advisor, including basic information suc
  ```
  mvn exec:java -Dexec.mainClass="example.GetSitesList" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure" -Dexec.cleanupDaemonThreads=false
  ```
-#### Get Site Details
+## Site Details
 Get all details of a particular Site, including information such as service & risk levels, support contacts, and health matrix.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className 
  - -t to pass token (Note: without Bearer)
@@ -183,7 +183,7 @@ Get all details of a particular Site, including information such as service & ri
  ```bash
  ./run.sh -c GetSiteDetails -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -s "e80101c0dd-9103-44d7-af93"
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -197,11 +197,11 @@ Get all details of a particular Site, including information such as service & ri
  ```
  mvn exec:java -Dexec.mainClass="example.GetSiteDetails" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure siteId=0aa61277-9c07-44e5-9317" -Dexec.cleanupDaemonThreads=false
  ```
-### Assets
+# Assets
 Browse and discover assets information.
-#### Get Assets List
+## Assets List
 List all Assets for a particular Site, including basic information such as ID, name, description, type and criticality.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className 
  - -t to pass token (Note: without Bearer)
@@ -215,7 +215,7 @@ List all Assets for a particular Site, including basic information such as ID, n
  ```bash
  ./run.sh -c GetAssetsList -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -s "e80101c0dd-9103-44d7-af93"
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -229,9 +229,9 @@ List all Assets for a particular Site, including basic information such as ID, n
  ```
  mvn exec:java -Dexec.mainClass="example.GetAssetsList" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure siteId=0aa61277-9c07-44e5-9317" -Dexec.cleanupDaemonThreads=false
  ```
-#### Get Assets Tree View
+## Assets Tree View
 Give the Assets tree view for a particular Site, including the complete relationships between all assets.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className 
  - -t to pass token (Note: without Bearer)
@@ -245,7 +245,7 @@ Give the Assets tree view for a particular Site, including the complete relation
  ```bash
  ./run.sh -c GetAssetsTreeView -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -s "e80101c0dd-9103-44d7-af93"
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -259,9 +259,9 @@ Give the Assets tree view for a particular Site, including the complete relation
  ```
  mvn exec:java -Dexec.mainClass="example.GetAssetsTreeView" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure siteId=0aa61277-9c07-44e5-9317" -Dexec.cleanupDaemonThreads=false
  ```
-#### Get Asset Details
+## Asset Details
 Get details of a particular Asset within a Site, including information such as service level, maintenance & health indexes.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className 
  - -t to pass token (Note: without Bearer)
@@ -276,7 +276,7 @@ Get details of a particular Asset within a Site, including information such as s
  ```bash
  ./run.sh -c GetAssetDetails -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -s "e80101c0dd-9103-44d7-af93" -a "a7e159b5-c82d-408d-8d1"
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -291,13 +291,13 @@ Get details of a particular Asset within a Site, including information such as s
  ```
  mvn exec:java -Dexec.mainClass="example.GetAssetDetails" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure siteId=0aa61277-9c07-44e5-9317 assetId=a7e159b5-c82d-408d-8d1" -Dexec.cleanupDaemonThreads=false
  ```
-**Tickets**
+# Tickets
 - Access all tickets generated on all assets from all sites.
 - Access all tickets for a given asset of a site.
 - Provide tickets specific details.
-#### Get Tickets list
+## Tickets list
 List all Tickets for all Assets and Sites, with different query criteria (date, status, priority) and pagination capability. The current sort criteria used for the tickets is the creation date in descending order.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -316,7 +316,7 @@ List all Tickets for all Assets and Sites, with different query criteria (date, 
  ```bash
  ./run.sh -c GetTicketsList -t cvhdgfgdhf -b https://api.exchange.se.com/ecostruxure  -o 2 -p "Medium" -p "Low" -l 2 -w "InProgress" -u "2023-07-10T16:10:04Z" -v "2023-07-30T16:10:04Z"
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -335,9 +335,9 @@ List all Tickets for all Assets and Sites, with different query criteria (date, 
  ```
  mvn exec:java -Dexec.mainClass="example.GetTicketsList" -Dexec.args="token=cvhdgfgdhf baseUrl=https://api.exchange.se.com/ecostruxure offset=2 priority=Medium priority=Low limit=3 status=InProgress createdFrom=2023-07-10T16:10:04Z createdTo=2023-07-30T16:10:04Z" -Dexec.cleanupDaemonThreads=false
  ```
-#### Get Assets Tickets
+## Assets Tickets
 List all Tickets of a particular Asset within a Site, with the abilitiy to filter by status and pagination capability. The current sort criteria used for the tickets is the creation date in descending order.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -355,7 +355,7 @@ List all Tickets of a particular Asset within a Site, with the abilitiy to filte
  ```bash
  ./run.sh -c GetAssetsTickets -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -a jhxcghxgc-hgfg -s nvbv-564v-hgf5 -o 3 -l 5 -w InProgress
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -373,9 +373,9 @@ List all Tickets of a particular Asset within a Site, with the abilitiy to filte
  ```
  mvn exec:java -Dexec.mainClass="example.GetAssetsTickets" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure assetId=jhxcghxgc-hgfg siteId=nvbv-564v-hgf5 offset=3 limit=5 status=InProgress" -Dexec.cleanupDaemonThreads=false
  ```
-#### Get Ticket details
+## Ticket details
 Get details of a particular Ticket, including the history of what happened on the ticket.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -389,7 +389,7 @@ Get details of a particular Ticket, including the history of what happened on th
  ```bash
  ./run.sh -c GetTicketDetails -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -d sfghsfg
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -403,17 +403,17 @@ Get details of a particular Ticket, including the history of what happened on th
  ```
  mvn exec:java -Dexec.mainClass="example.GetTicketDetails" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure ticketId=$ticketId" -Dexec.cleanupDaemonThreads=false
  ```
-### Webhook Subscription
+# Webhook Subscription
 This set of APIs allows the customer to register, update, remove and get webhook subscription to be notified on update on some topics.
 Currently the topics concerning are:
 
-**Ticket**
+# Ticket
 - Notified on any ticket modification. 
 - Currenlty, notification are sent when the ticket *\"priority\" or \"activity\"* changed.
 - Set *\"All\"* for both priority and activity filter during subscription to get notified for all ticket events.
-#### Create Ticket Subscription
+## Create Ticket Subscription
 New Tickets registeration in Asset Advisor, including information such as priority, activity, createdAt, and callback.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -427,7 +427,7 @@ New Tickets registeration in Asset Advisor, including information such as priori
  ```bash
  ./run.sh -c CreateTicketSubscription -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -f src/main/resources/CreateTicketSubscription.json
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -441,9 +441,9 @@ New Tickets registeration in Asset Advisor, including information such as priori
  ```
  mvn exec:java -Dexec.mainClass="example.CreateTicketSubscription" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure filePath=src\main\resources\CreateTicketSubscription.json" -Dexec.cleanupDaemonThreads=false
  ```
-#### Get Ticket Subscription List
+## List Ticket Subscriptions
 List all your Tickets registered in Asset Advisor, including information such as priority, activity, createdAt, and callback.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -456,7 +456,7 @@ List all your Tickets registered in Asset Advisor, including information such as
  ```
  ./run.sh -c GetTicketSubscriptionList -t gfghfxgh -b https://api.exchange.se.com/ecostruxure
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -469,9 +469,9 @@ List all your Tickets registered in Asset Advisor, including information such as
  ```
  mvn exec:java -Dexec.mainClass="example.GetTicketSubscriptionList" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure -Dexec.cleanupDaemonThreads=false
  ```
-#### Get Details Ticket Subscription 
+## Get Details Of Ticket Subscription 
 Get a registered Ticket in Asset Advisor, including information such as priority, activity, createdAt, and callback.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -485,7 +485,7 @@ Get a registered Ticket in Asset Advisor, including information such as priority
  ```
  ./run.sh -c GetTicketSubscriptionDetails -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -q "30err"
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  $baseUrl to pass baseUrl value
  $className to pass className
  $token to pass token value(Note: without Bearer)
@@ -499,9 +499,9 @@ Get a registered Ticket in Asset Advisor, including information such as priority
  ```
  mvn exec:java -Dexec.mainClass="example.GetTicketSubscriptionDetails" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
  ```
-#### Update Ticket Subscription
+## Update Ticket Subscription
 Update a registered Ticket  in Asset Advisor, including information such as priority, activity, createdAt, and callback.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -516,7 +516,7 @@ Update a registered Ticket  in Asset Advisor, including information such as prio
  ```
  ./run.sh -c UpdateTicketSubscription -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -q "30err" -f src/main/resources/UpdateTicketSubscription.json
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -531,7 +531,7 @@ Update a registered Ticket  in Asset Advisor, including information such as prio
  ```
  mvn exec:java -Dexec.mainClass="example.UpdateTicketSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd filePath=src\main\resources\UpdateTicketSubscription.json" -Dexec.cleanupDaemonThreads=false
  ```
-#### Delete Ticket Subscription
+## Delete Ticket Subscription
 Delete a registered Ticket  in Asset Advisor, including information such as priority, activity, createdAt, and callback.
 ## Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -561,15 +561,15 @@ Delete a registered Ticket  in Asset Advisor, including information such as prio
  ```
  mvn exec:java -Dexec.mainClass="example.DeleteTicketSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
  ```
-**Asset Health**
+# Asset Health
 Asset Health Webhook Subscription used to be notified on callback URL about an asset health value above or equal to a threshold
 - Notified when the asset health changed.
 - *\"healthIndexThreshold\"* is a mandatory filter to create a subscription and get notified only when the asset health value changed with a value equals or above this threshold.
 - *\"sitesScope\"* is an optional filter to restrict the notification to a site id list.
 
-#### List Asset Health Subscriptions
+## List Asset Health Subscriptions
 Retrieve all asset health subscriptions currently set, including information such as id, callback, sitesScope and healthIndexThreshold.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className 
  - -t to pass token (Note: without Bearer)
@@ -582,7 +582,7 @@ Retrieve all asset health subscriptions currently set, including information suc
  ```bash
  ./run.sh -c GetAssetHealthSubscriptionList -t gfghfxgh -b https://api.exchange.se.com/ecostruxure
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -595,9 +595,9 @@ Retrieve all asset health subscriptions currently set, including information suc
  ```
  mvn exec:java -Dexec.mainClass="example.GetAssetHealthSubscriptionList" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure" -Dexec.cleanupDaemonThreads=false
  ```
-#### Create Asset Health Subscription
+## Create Asset Health Subscription
 Register a new asset health subscription in Asset Advisor, including information such as callback, healthIndexThreshold and sitesScope.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -611,7 +611,7 @@ Register a new asset health subscription in Asset Advisor, including information
  ```bash
  ./run.sh -c CreateAssetHealthSubscription -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -f src/main/resources/CreateAssetHealthSubscription.json
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -625,9 +625,9 @@ Register a new asset health subscription in Asset Advisor, including information
  ```
  mvn exec:java -Dexec.mainClass="example.CreateAssetHealthSubscription" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure filePath=src\main\resources\CreateAssetHealthSubscription.json" -Dexec.cleanupDaemonThreads=false
  ```
-#### Get Details Asset Health Subscription
+## Get Details Asset Health Subscription
 Retrieve details of an asset health subscription in Asset Advisor, including information such as id, callback, sitesScope and healthIndexThreshold.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -641,7 +641,7 @@ Retrieve details of an asset health subscription in Asset Advisor, including inf
  ```bash
  ./run.sh -c GetAssetHealthSubscription -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -q "30err"
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -655,7 +655,7 @@ Retrieve details of an asset health subscription in Asset Advisor, including inf
  ```
  mvn exec:java -Dexec.mainClass="example.GetAssetHealthSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
  ```
-#### Update Asset Health Subscription
+## Update Asset Health Subscription
 Update an asset health subscription in Asset Advisor, including information such as callback, sitesScope and healthIndexThreshold.
 ## Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -672,7 +672,7 @@ Update an asset health subscription in Asset Advisor, including information such
  ```bash
  ./run.sh -c UpdateAssetHealthSubscription -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -q "30err" -f src/main/resources/UpdateAssetHealthSubscription.json
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -687,9 +687,9 @@ Update an asset health subscription in Asset Advisor, including information such
  ```
  mvn exec:java -Dexec.mainClass="example.UpdateAssetHealthSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd filePath=src\main\resources\UpdateAssetHealthSubscription.json" -Dexec.cleanupDaemonThreads=false
  ```
-#### Delete Asset Health Subscription
+## Delete Asset Health Subscription
 Delete an asset health subscription in Asset Advisor. 
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -703,7 +703,7 @@ Delete an asset health subscription in Asset Advisor.
  ```bash
  ./run.sh -c DeleteAssetHealthSubscription -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -q "30err"
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -717,14 +717,14 @@ Delete an asset health subscription in Asset Advisor.
  ```
  mvn exec:java -Dexec.mainClass="example.DeleteAssetHealthSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
  ```
-**Site Risk Level**
+# Site Risk Level
 - Notified when the site global risk level changed.
 - *\"riskLevelThreshold\"* is a mandatory filter to create a subscription and get notified only when the site risk level value changed with a value equals or above this threshold.
 - *\"sitesScope\"* is an optional filter to restrict the notification to a site id list.
 
-#### Create site risk level subscription
+## Create site risk level subscription
 Register a new site risk level subscription in Asset Advisor, including information such as callback, sitesScope and riskLevelThreshold.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -738,7 +738,7 @@ Register a new site risk level subscription in Asset Advisor, including informat
  ```bash
  ./run.sh -c CreateSiteRiskLevelSubscription -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -f src/main/resources/CreateSiteRiskLevelSubscription.json
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -752,9 +752,9 @@ Register a new site risk level subscription in Asset Advisor, including informat
  ```
  mvn exec:java -Dexec.mainClass="example.CreateSiteRiskLevelSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure filePath=src\main\resources\CreateSiteRiskLevelSubscription.json" -Dexec.cleanupDaemonThreads=false
  ```
-#### List site risk level subscriptions
+## List Site Risk Level Subscriptions
 Retrieve all site risk level subscriptions currently set in Asset Advisor, including information such as callback, sitesScope and riskLevelThreshold. 
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -767,7 +767,7 @@ Retrieve all site risk level subscriptions currently set in Asset Advisor, inclu
  ```bash
  ./run.sh -c GetSiteRiskLevelSubscriptions -t gfghfxgh -b https://api.exchange.se.com/ecostruxure
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -780,9 +780,9 @@ Retrieve all site risk level subscriptions currently set in Asset Advisor, inclu
  ```
  mvn exec:java -Dexec.mainClass="example.GetSiteRiskLevelSubscriptions" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure" -Dexec.cleanupDaemonThreads=false
  ```
-#### Get details site risk level subscription
+## Get Details Site Risk Level Subscription
 Retrieve details of a site risk level subscription in Asset Advisor, including information such as callback, sitesScope and riskLevelThreshold.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -796,7 +796,7 @@ Retrieve details of a site risk level subscription in Asset Advisor, including i
  ```bash
  ./run.sh -c GetSiteRiskLevelSubscriptionDetails -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -q "30err"
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -810,9 +810,9 @@ Retrieve details of a site risk level subscription in Asset Advisor, including i
  ```
  mvn exec:java -Dexec.mainClass="example.GetSiteRiskLevelSubscriptionDetails" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
  ```
-#### Update site risk level subscription
+## Update Site Risk Level Subscription
 Update a site risk level subscription in Asset Advisor, including information such as callback, sitesScope and riskLevelThreshold.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -827,7 +827,7 @@ Update a site risk level subscription in Asset Advisor, including information su
  ```bash
  ./run.sh -c UpdateSiteRiskLevelSubscription -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -f src/main/resources/UpdateSiteRiskLevelSubscription.json -q "30err"
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
@@ -842,9 +842,9 @@ Update a site risk level subscription in Asset Advisor, including information su
  ```
  mvn exec:java -Dexec.mainClass="example.UpdateSiteRiskLevelSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure filePath=src\main\resources\UpdateSiteRiskLevelSubscription.json subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
  ```
-#### Delete site risk level subscription
+## Delete Site Risk Level Subscription
 Delete a site risk level subscription in Asset Advisor.
-## Run using bash terminal with arguments that has to be passed
+### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
  - -c to pass className
  - -t to pass token (Note: without Bearer)
@@ -858,7 +858,7 @@ Delete a site risk level subscription in Asset Advisor.
  ```bash
  ./run.sh -c DeleteSiteRiskLevelSubscription -t gfghfxgh -b https://api.exchange.se.com/ecostruxure -q "30err"
  ```
- ## Run as maven command with arguments that has to be passed
+ ### Run as maven command with arguments that has to be passed
  - $baseUrl to pass baseUrl value
  - $className to pass className
  - $token to pass token value(Note: without Bearer)
