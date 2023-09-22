@@ -139,7 +139,7 @@ These API enables the following operations:
 
 # Sites
 Browse and discover sites information.
-## Sites List
+## Sites list
 List all your Sites registered in Asset Advisor, including basic information such as ID, name, address, and location.
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -167,7 +167,7 @@ List all your Sites registered in Asset Advisor, including basic information suc
  ```
  mvn exec:java -Dexec.mainClass="example.GetSitesList" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure" -Dexec.cleanupDaemonThreads=false
  ```
-## Site Details
+## Site details
 Get all details of a particular Site, including information such as service & risk levels, support contacts, and health matrix.
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -199,7 +199,7 @@ Get all details of a particular Site, including information such as service & ri
  ```
 # Assets
 Browse and discover assets information.
-## Assets List
+## Assets list
 List all Assets for a particular Site, including basic information such as ID, name, description, type and criticality.
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -259,7 +259,7 @@ Give the Assets tree view for a particular Site, including the complete relation
  ```
  mvn exec:java -Dexec.mainClass="example.GetAssetsTreeView" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure siteId=0aa61277-9c07-44e5-9317" -Dexec.cleanupDaemonThreads=false
  ```
-## Asset Details
+## Asset details
 Get details of a particular Asset within a Site, including information such as service level, maintenance & health indexes.
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -407,11 +407,11 @@ Get details of a particular Ticket, including the history of what happened on th
 This set of APIs allows the customer to register, update, remove and get webhook subscription to be notified on update on some topics.
 Currently the topics concerning are:
 
-# Ticket
+# Ticket Webhook Subscription
 - Notified on any ticket modification. 
 - Currenlty, notification are sent when the ticket *\"priority\" or \"activity\"* changed.
 - Set *\"All\"* for both priority and activity filter during subscription to get notified for all ticket events.
-## Create Ticket Subscription
+## Create ticket subscription
 New Tickets registeration in Asset Advisor, including information such as priority, activity, createdAt, and callback.
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -441,7 +441,7 @@ New Tickets registeration in Asset Advisor, including information such as priori
  ```
  mvn exec:java -Dexec.mainClass="example.CreateTicketSubscription" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure filePath=src\main\resources\CreateTicketSubscription.json" -Dexec.cleanupDaemonThreads=false
  ```
-## List Ticket Subscriptions
+## List ticket subscriptions
 List all your Tickets registered in Asset Advisor, including information such as priority, activity, createdAt, and callback.
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -469,7 +469,7 @@ List all your Tickets registered in Asset Advisor, including information such as
  ```
  mvn exec:java -Dexec.mainClass="example.GetTicketSubscriptionList" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure -Dexec.cleanupDaemonThreads=false
  ```
-## Get Details Of Ticket Subscription 
+## Get details of ticket subscription 
 Get a registered Ticket in Asset Advisor, including information such as priority, activity, createdAt, and callback.
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -499,7 +499,7 @@ Get a registered Ticket in Asset Advisor, including information such as priority
  ```
  mvn exec:java -Dexec.mainClass="example.GetTicketSubscriptionDetails" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
  ```
-## Update Ticket Subscription
+## Update ticket subscription
 Update a registered Ticket  in Asset Advisor, including information such as priority, activity, createdAt, and callback.
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -531,7 +531,7 @@ Update a registered Ticket  in Asset Advisor, including information such as prio
  ```
  mvn exec:java -Dexec.mainClass="example.UpdateTicketSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd filePath=src\main\resources\UpdateTicketSubscription.json" -Dexec.cleanupDaemonThreads=false
  ```
-## Delete Ticket Subscription
+## Delete ticket subscription
 Delete a registered Ticket  in Asset Advisor, including information such as priority, activity, createdAt, and callback.
 ## Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -561,13 +561,13 @@ Delete a registered Ticket  in Asset Advisor, including information such as prio
  ```
  mvn exec:java -Dexec.mainClass="example.DeleteTicketSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
  ```
-# Asset Health
+# Asset Health Webhook Subscription
 Asset Health Webhook Subscription used to be notified on callback URL about an asset health value above or equal to a threshold
 - Notified when the asset health changed.
 - *\"healthIndexThreshold\"* is a mandatory filter to create a subscription and get notified only when the asset health value changed with a value equals or above this threshold.
 - *\"sitesScope\"* is an optional filter to restrict the notification to a site id list.
 
-## List Asset Health Subscriptions
+## List asset health subscriptions
 Retrieve all asset health subscriptions currently set, including information such as id, callback, sitesScope and healthIndexThreshold.
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -595,7 +595,7 @@ Retrieve all asset health subscriptions currently set, including information suc
  ```
  mvn exec:java -Dexec.mainClass="example.GetAssetHealthSubscriptionList" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure" -Dexec.cleanupDaemonThreads=false
  ```
-## Create Asset Health Subscription
+## Create asset health subscription
 Register a new asset health subscription in Asset Advisor, including information such as callback, healthIndexThreshold and sitesScope.
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -625,7 +625,7 @@ Register a new asset health subscription in Asset Advisor, including information
  ```
  mvn exec:java -Dexec.mainClass="example.CreateAssetHealthSubscription" -Dexec.args="token=fxghzfxgzx baseUrl=https://api.exchange.se.com/ecostruxure filePath=src\main\resources\CreateAssetHealthSubscription.json" -Dexec.cleanupDaemonThreads=false
  ```
-## Get Details Asset Health Subscription
+## Get details of asset health subscription
 Retrieve details of an asset health subscription in Asset Advisor, including information such as id, callback, sitesScope and healthIndexThreshold.
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -655,7 +655,7 @@ Retrieve details of an asset health subscription in Asset Advisor, including inf
  ```
  mvn exec:java -Dexec.mainClass="example.GetAssetHealthSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
  ```
-## Update Asset Health Subscription
+## Update asset health subscription
 Update an asset health subscription in Asset Advisor, including information such as callback, sitesScope and healthIndexThreshold.
 ## Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -687,7 +687,7 @@ Update an asset health subscription in Asset Advisor, including information such
  ```
  mvn exec:java -Dexec.mainClass="example.UpdateAssetHealthSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd filePath=src\main\resources\UpdateAssetHealthSubscription.json" -Dexec.cleanupDaemonThreads=false
  ```
-## Delete Asset Health Subscription
+## Delete asset health subscription
 Delete an asset health subscription in Asset Advisor. 
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -717,7 +717,7 @@ Delete an asset health subscription in Asset Advisor.
  ```
  mvn exec:java -Dexec.mainClass="example.DeleteAssetHealthSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
  ```
-# Site Risk Level
+# Site Risk Level Webhook Subscription
 - Notified when the site global risk level changed.
 - *\"riskLevelThreshold\"* is a mandatory filter to create a subscription and get notified only when the site risk level value changed with a value equals or above this threshold.
 - *\"sitesScope\"* is an optional filter to restrict the notification to a site id list.
@@ -752,7 +752,7 @@ Register a new site risk level subscription in Asset Advisor, including informat
  ```
  mvn exec:java -Dexec.mainClass="example.CreateSiteRiskLevelSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure filePath=src\main\resources\CreateSiteRiskLevelSubscription.json" -Dexec.cleanupDaemonThreads=false
  ```
-## List Site Risk Level Subscriptions
+## List site risk level subscriptions
 Retrieve all site risk level subscriptions currently set in Asset Advisor, including information such as callback, sitesScope and riskLevelThreshold. 
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -780,7 +780,7 @@ Retrieve all site risk level subscriptions currently set in Asset Advisor, inclu
  ```
  mvn exec:java -Dexec.mainClass="example.GetSiteRiskLevelSubscriptions" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure" -Dexec.cleanupDaemonThreads=false
  ```
-## Get Details Site Risk Level Subscription
+## Get details of site risk level subscription
 Retrieve details of a site risk level subscription in Asset Advisor, including information such as callback, sitesScope and riskLevelThreshold.
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -810,7 +810,7 @@ Retrieve details of a site risk level subscription in Asset Advisor, including i
  ```
  mvn exec:java -Dexec.mainClass="example.GetSiteRiskLevelSubscriptionDetails" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
  ```
-## Update Site Risk Level Subscription
+## Update site risk level subscription
 Update a site risk level subscription in Asset Advisor, including information such as callback, sitesScope and riskLevelThreshold.
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
@@ -842,7 +842,7 @@ Update a site risk level subscription in Asset Advisor, including information su
  ```
  mvn exec:java -Dexec.mainClass="example.UpdateSiteRiskLevelSubscription" -Dexec.args="token=nFxghx baseUrl=https://api.exchange.se.com/ecostruxure filePath=src\main\resources\UpdateSiteRiskLevelSubscription.json subscriptionId=444hjsdafhsd" -Dexec.cleanupDaemonThreads=false
  ```
-## Delete Site Risk Level Subscription
+## Delete site risk level subscription
 Delete a site risk level subscription in Asset Advisor.
 ### Run using bash terminal with arguments that has to be passed
  - -b to pass baseUrl
